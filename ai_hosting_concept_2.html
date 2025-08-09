@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuralNet Hosting - The Future of Intelligent Infrastructure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #ff6b6b 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: #00ffff;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+        }
+
+        /* Neural Network Background */
+        .neural-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(ellipse at center, #0a0a0a 0%, #000 70%);
+        }
+
+        .neural-nodes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .neural-node {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00ffff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ffff;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .neural-connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #00ffff 50%, transparent 100%);
+            transform-origin: left center;
+            animation: dataFlow 4s linear infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        @keyframes dataFlow {
+            0% { opacity: 0; transform: scaleX(0); }
+            20% { opacity: 1; transform: scaleX(1); }
+            80% { opacity: 1; transform: scaleX(1); }
+            100% { opacity: 0; transform: scaleX(0); }
+        }
+
+        /* Header with Glassmorphism */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 1200px;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 300% 300%;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-items a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .nav-items a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .ai-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ffff;
+            border-radius: 50%;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        /* Hero Section with 3D Elements */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 800px;
+            padding: 0 40px;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #fff 0%, #00ffff 50%, #ff6b6b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.3)); }
+            to { filter: drop-shadow(0 0 40px rgba(0, 255, 255, 0.6)); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 50px;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-primary:hover::before {
+            left: 100%;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid #00ffff;
+            padding: 16px 38px;
+            border-radius: 50px;
+            color: #00ffff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-secondary:hover {
+            background: #00ffff;
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 255, 255, 0.4);
+        }
+
+        /* Floating AI Brain Visualization */
+        .ai-brain {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .brain-node {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #00ffff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #00ffff;
+            animation: brainPulse 2s ease-in-out infinite;
+        }
+
+        .brain-connection {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, #00ffff, #ff6b6b);
+            border-radius: 1px;
+            animation: brainFlow 3s ease-in-out infinite;
+        }
+
+        @keyframes brainPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        @keyframes brainFlow {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        /* Services Section with Parallax Cards */
+        .services {
+            padding: 150px 0;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(10, 10, 10, 0.9) 100%);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .services-title {
+            text-align: center;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #fff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            perspective: 1000px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            transform-style: preserve-3d;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+            border-color: rgba(0, 255, 255, 0.5);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: iconRotate 3s linear infinite;
+        }
+
+        @keyframes iconRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .service-features li {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .service-features li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: #00ffff;
+        }
+
+        /* AI Workflow Visualization */
+        .workflow {
+            padding: 150px 0;
+            background: radial-gradient(ellipse at center, rgba(255, 107, 107, 0.1) 0%, rgba(0, 0, 0, 0.9) 70%);
+            position: relative;
+        }
+
+        .workflow-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .workflow-title {
+            text-align: center;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 100px;
+            background: linear-gradient(135deg, #fff, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 60px;
+        }
+
+        .workflow-step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .step-visual {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            animation: stepGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes stepGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 107, 107, 0.3); }
+            50% { box-shadow: 0 0 60px rgba(78, 205, 196, 0.5); }
+        }
+
+        .step-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent 270deg, rgba(255, 255, 255, 0.2) 360deg);
+            animation: stepRotate 6s linear infinite;
+        }
+
+        @keyframes stepRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #00ffff;
+        }
+
+        .step-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        /* Data flow connections between steps */
+        .workflow-connection {
+            position: absolute;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #00ffff);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            border-radius: 2px;
+            animation: dataStream 3s ease-in-out infinite;
+        }
+
+        @keyframes dataStream {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Performance Metrics Display */
+        .metrics {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(10, 10, 30, 0.95) 100%);
+        }
+
+        .metrics-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .metrics-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #fff, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 255, 255, 0.5);
+        }
+
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            animation: countUp 2s ease-out;
+        }
+
+        .metric-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow-steps {
+                flex-direction: column;
+            }
+
+            .workflow-connection {
+                display: none;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                margin: 10px;
+                width: calc(100% - 20px);
+                padding: 15px 20px;
+            }
+
+            .hero-content {
+                padding: 0 20px;
+            }
+
+            .services-container,
+            .workflow-container,
+            .metrics-container {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+
+    <!-- Neural Network Background -->
+    <div class="neural-bg">
+        <div class="neural-nodes" id="neuralNodes"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">NeuralNet</div>
+            <div class="nav-items">
+                <a href="#services">Services</a>
+                <a href="#workflow">How It Works</a>
+                <a href="#metrics">Performance</a>
+                <a href="#contact">Contact</a>
+                <div class="ai-status">
+                    <div class="status-dot"></div>
+                    <span>AI Online</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="ai-brain" id="aiBrain"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Neural Hosting Intelligence</h1>
+            <p class="hero-subtitle">Where quantum computing meets artificial intelligence to create hosting solutions that think, adapt, and evolve with your digital ambitions.</p>
+            <div class="cta-group">
+                <a href="#services" class="cta-primary">Activate Neural Network</a>
+                <a href="#workflow" class="cta-secondary">Explore Intelligence</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2 class="services-title">Cognitive Infrastructure</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Predictive Planning</h3>
+                    <p>Our neural algorithms analyze your application patterns, user behavior, and growth trajectories to recommend optimal hosting architectures before you even know you need them.</p>
+                    <ul class="service-features">
+                        <li>Traffic pattern recognition</li>
+                        <li>Resource demand forecasting</li>
+                        <li>Cost optimization modeling</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Autonomous Operations</h3>
+                    <p>Self-healing infrastructure that detects, diagnoses, and resolves issues faster than human intervention. Your servers become an extension of artificial consciousness.</p>
+                    <ul class="service-features">
+                        <li>Quantum-fast issue resolution</li>
+                        <li>Predictive maintenance cycles</li>
+                        <li>Zero-downtime deployments</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔮</div>
+                    <h3>Cognitive Support</h3>
+                    <p>Beyond chatbots - a true AI consciousness that understands context, learns from interactions, and provides solutions with human-level reasoning and machine-level precision.</p>
+                    <ul class="service-features">
+                        <li>Context-aware problem solving</li>
+                        <li>Emotional intelligence integration</li>
+                        <li>Continuous learning adaptation</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌊</div>
+                    <h3>Fluid Scaling</h3>
+                    <p>Resources that flow like liquid intelligence - expanding and contracting based on quantum probability calculations of future demand patterns.</p>
+                    <ul class="service-features">
+                        <li>Quantum demand prediction</li>
+                        <li>Millisecond resource allocation</li>
+                        <li>Economic optimization algorithms</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Neural Security</h3>
+                    <p>AI-powered security that thinks like an attacker but protects like a fortress. Machine learning models trained on billions of threat patterns.</p>
+                    <ul class="service-features">
+                        <li>Behavioral anomaly detection</li>
+                        <li>Adaptive threat response</li>
+                        <li>Preemptive vulnerability patching</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Performance Synthesis</h3>
+                    <p>Continuous optimization through genetic algorithms that evolve your infrastructure configuration for peak performance across all metrics.</p>
+                    <ul class="service-features">
+                        <li>Genetic algorithm optimization</li>
+                        <li>Multi-dimensional performance tuning</li>
+                        <li>Adaptive caching strategies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="workflow" id="workflow">
+        <div class="workflow-container">
+            <h2 class="workflow-title">Intelligence Architecture</h2>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-visual">
+                        <div class="step-icon">🔍</div>
+                    </div>
+                    <h3 class="step-title">Deep Scan</h3>
+                    <p class="step-description">Neural networks perform comprehensive analysis of your infrastructure, codebase, and usage patterns at the quantum level.</p>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-visual">
+                        <div class="step-icon">🧮</div>
+                    </div>
+                    <h3 class="step-title">Quantum Calculate</h3>
+                    <p class="step-description">Probabilistic algorithms process infinite scenarios to determine optimal configurations and predict future requirements.</p>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-visual">
+                        <div class="step-icon">⚙️</div>
+                    </div>
+                    <h3 class="step-title">Autonomous Execute</h3>
+                    <p class="step-description">Self-modifying systems implement optimizations and maintain peak performance without human intervention.</p>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-visual">
+                        <div class="step-icon">🔄</div>
+                    </div>
+                    <h3 class="step-title">Evolve Continuously</h3>
+                    <p class="step-description">Machine consciousness learns from every interaction, becoming more intelligent and efficient with each passing moment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="metrics" id="metrics">
+        <div class="metrics-container">
+            <h2 class="metrics-title">Neural Performance Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">99.99%</div>
+                    <div class="metric-label">Uptime Guarantee</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">< 0.3ms</div>
+                    <div class="metric-label">Response Time</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">24/7</div>
+                    <div class="metric-label">AI Monitoring</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">∞</div>
+                    <div class="metric-label">Learning Capacity</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Custom cursor functionality
+        const cursor = document.querySelector('.cursor');
+        const trailElements = [];
+        const trailLength = 15;
+
+        // Create cursor trail elements
+        for (let i = 0; i < trailLength; i++) {
+            const trail = document.createElement('div');
+            trail.classList.add('cursor-trail');
+            document.body.appendChild(trail);
+            trailElements.push(trail);
+        }
+
+        let mouseX = 0, mouseY = 0;
+        let trailX = [], trailY = [];
+
+        // Initialize trail positions
+        for (let i = 0; i < trailLength; i++) {
+            trailX[i] = 0;
+            trailY[i] = 0;
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX - 10 + 'px';
+            cursor.style.top = mouseY - 10 + 'px';
+        });
+
+        // Animate cursor trail
+        function animateTrail() {
+            let currentX = mouseX;
+            let currentY = mouseY;
+
+            for (let i = 0; i < trailLength; i++) {
+                trailX[i] += (currentX - trailX[i]) * 0.3;
+                trailY[i] += (currentY - trailY[i]) * 0.3;
+
+                trailElements[i].style.left = trailX[i] - 3 + 'px';
+                trailElements[i].style.top = trailY[i] - 3 + 'px';
+                trailElements[i].style.opacity = (1 - i / trailLength) * 0.5;
+
+                currentX = trailX[i];
+                currentY = trailY[i];
+            }
+            requestAnimationFrame(animateTrail);
+        }
+        animateTrail();
+
+        // Generate neural network background
+        function createNeuralNetwork() {
+            const neuralNodes = document.getElementById('neuralNodes');
+            const nodeCount = 30;
+            const nodes = [];
+
+            // Create nodes
+            for (let i = 0; i < nodeCount; i++) {
+                const node = document.createElement('div');
+                node.classList.add('neural-node');
+                
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                
+                node.style.left = x + 'px';
+                node.style.top = y + 'px';
+                node.style.animationDelay = Math.random() * 3 + 's';
+                
+                neuralNodes.appendChild(node);
+                nodes.push({ element: node, x, y });
+            }
+
+            // Create connections between nearby nodes
+            nodes.forEach((node, i) => {
+                nodes.slice(i + 1).forEach(otherNode => {
+                    const distance = Math.sqrt(
+                        Math.pow(node.x - otherNode.x, 2) + 
+                        Math.pow(node.y - otherNode.y, 2)
+                    );
+                    
+                    if (distance < 200) {
+                        const connection = document.createElement('div');
+                        connection.classList.add('neural-connection');
+                        
+                        const angle = Math.atan2(otherNode.y - node.y, otherNode.x - node.x);
+                        connection.style.left = node.x + 'px';
+                        connection.style.top = node.y + 'px';
+                        connection.style.width = distance + 'px';
+                        connection.style.transform = `rotate(${angle}rad)`;
+                        connection.style.animationDelay = Math.random() * 4 + 's';
+                        
+                        neuralNodes.appendChild(connection);
+                    }
+                });
+            });
+        }
+
+        // Create AI brain visualization
+        function createAIBrain() {
+            const aiBrain = document.getElementById('aiBrain');
+            const brainNodeCount = 20;
+            const brainNodes = [];
+
+            for (let i = 0; i < brainNodeCount; i++) {
+                const node = document.createElement('div');
+                node.classList.add('brain-node');
+                
+                const angle = (i / brainNodeCount) * Math.PI * 2;
+                const radius = 120 + Math.random() * 80;
+                const x = Math.cos(angle) * radius + 200;
+                const y = Math.sin(angle) * radius + 200;
+                
+                node.style.left = x + 'px';
+                node.style.top = y + 'px';
+                node.style.animationDelay = (i * 0.1) + 's';
+                
+                aiBrain.appendChild(node);
+                brainNodes.push({ element: node, x, y, angle, radius });
+            }
+
+            // Create brain connections
+            brainNodes.forEach((node, i) => {
+                const nextNode = brainNodes[(i + 1) % brainNodes.length];
+                const connection = document.createElement('div');
+                connection.classList.add('brain-connection');
+                
+                const distance = Math.sqrt(
+                    Math.pow(nextNode.x - node.x, 2) + 
+                    Math.pow(nextNode.y - node.y, 2)
+                );
+                
+                const angle = Math.atan2(nextNode.y - node.y, nextNode.x - node.x);
+                connection.style.left = node.x + 6 + 'px';
+                connection.style.top = node.y + 6 + 'px';
+                connection.style.width = distance + 'px';
+                connection.style.transform = `rotate(${angle}rad)`;
+                connection.style.animationDelay = (i * 0.2) + 's';
+                
+                aiBrain.appendChild(connection);
+            });
+        }
+
+        // Parallax effect for service cards
+        function initParallax() {
+            const cards = document.querySelectorAll('.service-card');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallax = scrolled * 0.1;
+                
+                cards.forEach((card, index) => {
+                    const rate = (index % 2 === 0) ? -1 : 1;
+                    card.style.transform = `translateY(${parallax * rate}px)`;
+                });
+            });
+        }
+
+        // Intersection Observer for animations
+        function initAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all service cards and workflow steps
+            document.querySelectorAll('.service-card, .workflow-step, .metric-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(50px)';
+                el.style.transition = 'all 0.8s cubic-bezier(0.23, 1, 0.320, 1)';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize all functions when DOM loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createNeuralNetwork();
+            createAIBrain();
+            initParallax();
+            initAnimations();
+        });
+
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
