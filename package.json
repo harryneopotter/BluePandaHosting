@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "serve": "serve out -s -l 3000"
+    "serve": "serve out -s -l 3000",
+    "build:debug": "next build && echo 'Build completed' && ls -la out/"
   },
   "dependencies": {
     "framer-motion": "11.2.6",
