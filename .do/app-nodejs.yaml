@@ -3,7 +3,7 @@ services:
 - name: qpanda-server
   source_dir: /
   github:
-    repo: your-username/qpanda
+    repo: harryneopotter/BluePandaHosting
     branch: main
   build_command: npm ci && npm run build
   run_command: npx serve out -s -l 8080
