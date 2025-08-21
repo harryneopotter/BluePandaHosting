@@ -37,3 +37,13 @@ coverage/
 .Trashes
 ehthumbs.db
 Thumbs.db
+/.smriti
+/.kiro
+.blackboxrules
+.eslintrc.json
+/.prompts
+qpanda-design.md
+QPanda_Code_Review.md
+smriti_analyze.py
+smriticontext.kiro.yaml
+sqlite_mcp_server.db
