@@ -1,0 +1,27 @@
+name: qpanda-demo
+services:
+- name: qpanda-server
+  source_dir: /
+  github:
+    repo: your-username/qpanda
+    branch: main
+  build_command: npm ci && npm run build
+  run_command: npx serve out -s -l 8080
+  environment_slug: node-js
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  http_port: 8080
+  health_check:
+    http_path: /
+  routes:
+  - path: /
+  cors:
+    allow_origins:
+    - exact: https://your-domain.com
+    - regex: '^.*\.your-domain\.com$'
+    allow_methods:
+    - GET
+    - OPTIONS
+    allow_headers:
+    - Content-Type
+    - X-Requested-With
