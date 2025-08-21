@@ -42,8 +42,15 @@ function Dialog({ open, onOpenChange, dismissOnBackdrop = true, children }) { re
 function DialogContent({ className = "", children }) {
   const { open, onOpenChange, dismissOnBackdrop } = useContext(DialogCtx);
   const ref = useRef(null); const [fxId, setFxId] = useState(0); const [playFx, setPlayFx] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  
   useEffect(() => { if (typeof window === 'undefined' || !open) return; const prev = document.activeElement; const onKey = (e) => { if (e.key === 'Escape') { setPlayFx(true); setFxId(n => n + 1); setTimeout(() => { onOpenChange(false); setPlayFx(false); }, 260); } }; document.addEventListener('keydown', onKey); const prevOv = document.body.style.overflow; document.body.style.overflow = 'hidden'; setTimeout(() => { ref.current && ref.current.focus?.(); }, 0); return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = prevOv; prev && prev.focus && prev.focus(); }; }, [open, onOpenChange]);
-  if (typeof window === "undefined") return null;
+  
+  if (typeof window === "undefined" || !mounted) return null;
   return createPortal(
     <AnimatePresence>
       {open && (

@@ -146,6 +146,7 @@ The repository includes comprehensive Copilot instructions (`.github/copilot-ins
 - **React Hook Warning**: The build may show a warning about missing dependency `length` in the useEffect hook for the PandaTrail component
 - **Hydration**: Interactive features (canvas animations, panda movement, modal dialogs) won't work until JavaScript loads and hydrates
 - **Static Serving**: The built files in `out/` need to be served from a web server to work properly (not opened directly in browser)
+- **npm ci Lockfile Sync**: If you add new dependencies, always run `npm install` locally and commit the updated `package-lock.json`
 
 ### Testing the Build
 1. Build the project: `Start-Process pwsh -ArgumentList '-NoExit','-Command','npm run build'`
