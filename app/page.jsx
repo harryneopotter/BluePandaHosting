@@ -1,3 +1,3 @@
 "use client";
-import SimpleTest from "./components/SimpleTest";
-export default function Page(){ return <SimpleTest />; }
+import QPandaOnePager from "./components/QPandaOnePager";
+export default function Page(){ return <QPandaOnePager />; }
