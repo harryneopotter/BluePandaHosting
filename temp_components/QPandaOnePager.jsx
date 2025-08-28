@@ -2,7 +2,7 @@
 import React, { useRef, useState, useEffect, useContext, createContext } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { PUBLIC_CONFIG } from "../config/publicConfig";
+import { PUBLIC_CONFIG } from "../app/config/publicConfig";
 
 // ——— Icons (inline) ———
 const IconSparkles = (p) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M12 3l1.5 3.5L17 8l-3.5 1.5L12 13l-1.5-3.5L7 8l3.5-1.5L12 3z"/><path d="M5 15l.75 1.75L7.5 17.5 5.75 18.25 5 20l-.75-1.75L2.5 17.5 4.25 16.75 5 15z"/><path d="M18.5 14l.5 1.25L20.25 16l-1.25.75L18.5 18l-.5-1.25L16.75 16l1.25-.75.5-1.25z"/></svg>);
@@ -142,242 +142,6 @@ const DEDICATED_PLANS = [
     type: "dedicated"
   }
 ];
-
-// Mega Menu Categories
-const MEGA_MENU_CATEGORIES = [
-  {
-    id: 'shared-hosting',
-    title: 'Shared Hosting',
-    icon: IconServer,
-    group: 'hosting'
-  },
-  {
-    id: 'vps-hosting', 
-    title: 'VPS Hosting',
-    icon: IconCpu,
-    group: 'hosting'
-  },
-  {
-    id: 'bare-metals',
-    title: 'Bare Metals', 
-    icon: IconRocket,
-    group: 'hosting'
-  },
-  {
-    id: 'cloud-vms',
-    title: 'Cloud VMs',
-    icon: IconZap,
-    group: 'hosting'
-  },
-  {
-    id: 'managed-wordpress',
-    title: 'Managed WordPress',
-    icon: IconShield,
-    group: 'managed'
-  },
-  {
-    id: 'managed-vms', 
-    title: 'Managed VMs',
-    icon: IconCpu,
-    group: 'managed'
-  },
-  {
-    id: 'managed-servers',
-    title: 'Managed Servers',
-    icon: IconServer,
-    group: 'managed'
-  },
-  {
-    id: 'ssl-certificates',
-    title: 'SSL Certificates',
-    icon: IconShield,
-    group: 'security'
-  },
-  {
-    id: 'site-monitoring',
-    title: 'Site Monitoring', 
-    icon: IconZap,
-    group: 'security'
-  }
-];
-
-// Category Content Mapping
-const CATEGORY_CONTENT = {
-  'shared-hosting': {
-    title: 'Shared Hosting',
-    description: 'Perfect for personal websites and small businesses',
-    items: PLANS
-  },
-  'vps-hosting': {
-    title: 'VPS Hosting', 
-    description: 'Scalable virtual private servers with full control',
-    items: VPS_PLANS
-  },
-  'bare-metals': {
-    title: 'Bare Metal Servers',
-    description: 'Dedicated physical servers for maximum performance', 
-    items: DEDICATED_PLANS
-  },
-  'cloud-vms': {
-    title: 'Cloud Virtual Machines',
-    description: 'Elastic cloud computing with auto-scaling',
-    items: [
-      {
-        id: 'cloud-starter',
-        name: 'Cloud Starter',
-        tagline: 'Perfect for development and testing',
-        price: '$19.99/mo',
-        features: ['1 vCPU', '2GB RAM', '25GB SSD', 'Auto-scaling', '99.9% SLA'],
-        badge: 'Popular'
-      },
-      {
-        id: 'cloud-pro',
-        name: 'Cloud Pro', 
-        tagline: 'Production-ready cloud infrastructure',
-        price: '$49.99/mo',
-        features: ['4 vCPU', '8GB RAM', '100GB SSD', 'Load Balancer', 'Premium Support'],
-        badge: 'Business'
-      }
-    ]
-  },
-  'managed-wordpress': {
-    title: 'Managed WordPress',
-    description: 'Optimized WordPress hosting with automatic updates',
-    items: [
-      {
-        id: 'wp-starter',
-        name: 'WordPress Starter',
-        tagline: 'Managed WordPress for beginners',
-        price: '$29.99/mo',
-        features: ['1 WP Site', 'Auto Updates', 'Daily Backups', 'CDN Included', 'SSL Certificate'],
-        badge: 'Managed'
-      },
-      {
-        id: 'wp-business',
-        name: 'WordPress Business',
-        tagline: 'Professional WordPress hosting',
-        price: '$79.99/mo', 
-        features: ['5 WP Sites', 'Premium Themes', 'Advanced Security', 'Performance Optimization', 'Priority Support'],
-        badge: 'Pro'
-      }
-    ]
-  },
-  'managed-vms': {
-    title: 'Managed Virtual Machines',
-    description: 'Fully managed VPS with monitoring and maintenance',
-    items: VPS_PLANS.filter(p => p.type === 'managed')
-  },
-  'managed-servers': {
-    title: 'Managed Dedicated Servers',
-    description: 'Enterprise servers with full management included',
-    items: [
-      {
-        id: 'managed-xeon',
-        name: 'Managed Xeon Server',
-        tagline: 'Fully managed dedicated server',
-        price: '$299.99/mo',
-        features: ['Intel Xeon CPU', '32GB RAM', '1TB NVMe SSD', '24/7 Monitoring', 'Full Management'],
-        badge: 'Enterprise'
-      }
-    ]
-  },
-  'domain-registration': {
-    title: 'Domain Registration',
-    description: 'Register your perfect domain name',
-    items: [
-      {
-        id: 'com-domain',
-        name: '.com Domain',
-        tagline: 'Most popular domain extension',
-        price: '$12.99/year',
-        features: ['Free WHOIS Privacy', 'DNS Management', 'Email Forwarding', 'Auto-Renewal', '24/7 Support'],
-        badge: 'Popular'
-      },
-      {
-        id: 'premium-domains',
-        name: 'Premium Extensions',
-        tagline: 'Stand out with unique extensions',
-        price: 'From $19.99/year',
-        features: ['.tech', '.io', '.ai', '.dev', '.app'],
-        badge: 'Premium'
-      }
-    ]
-  },
-  'domain-transfer': {
-    title: 'Domain Transfer',
-    description: 'Transfer your domains to Q Panda',
-    items: [
-      {
-        id: 'domain-transfer',
-        name: 'Domain Transfer Service',
-        tagline: 'Move your domains with zero downtime',
-        price: 'Free with hosting',
-        features: ['Zero Downtime', 'Free Migration', 'DNS Management', 'Email Preservation', 'Expert Support'],
-        badge: 'Free'
-      }
-    ]
-  },
-  'ssl-certificates': {
-    title: 'SSL Certificates',
-    description: 'Secure your website with trusted SSL certificates',
-    items: [
-      {
-        id: 'lets-encrypt-ssl',
-        name: 'Free SSL Certificate',
-        tagline: 'Basic SSL protection for your website',
-        price: 'Free',
-        features: ['Domain Validation', 'Auto-Renewal', '256-bit Encryption', 'Browser Trust', 'Easy Installation'],
-        badge: 'Free'
-      },
-      {
-        id: 'extended-ssl',
-        name: 'Extended Validation SSL',
-        tagline: 'Premium SSL with green address bar',
-        price: '$99.99/year',
-        features: ['Extended Validation', 'Green Address Bar', '$1M Warranty', 'Organization Verification', 'Premium Support'],
-        badge: 'Premium'
-      },
-      {
-        id: 'wildcard-ssl',
-        name: 'Wildcard SSL Certificate', 
-        tagline: 'Secure unlimited subdomains',
-        price: '$149.99/year',
-        features: ['Unlimited Subdomains', 'Domain Validation', '256-bit Encryption', 'Auto-Renewal', 'Multi-Server License'],
-        badge: 'Business'
-      }
-    ]
-  },
-  'site-monitoring': {
-    title: 'Site Monitoring',
-    description: '24/7 website monitoring and performance tracking',
-    items: [
-      {
-        id: 'basic-monitoring',
-        name: 'Basic Monitoring',
-        tagline: 'Essential uptime monitoring',
-        price: '$9.99/mo',
-        features: ['Uptime Monitoring', 'Email Alerts', '5-minute Checks', 'Status Page', 'Basic Reports'],
-        badge: 'Starter'
-      },
-      {
-        id: 'pro-monitoring',
-        name: 'Pro Monitoring',
-        tagline: 'Advanced monitoring with performance metrics',
-        price: '$29.99/mo',
-        features: ['Real User Monitoring', 'Performance Tracking', '1-minute Checks', 'Advanced Alerts', 'Custom Dashboards'],
-        badge: 'Pro'
-      },
-      {
-        id: 'enterprise-monitoring',
-        name: 'Enterprise Monitoring',
-        tagline: 'Complete monitoring solution',
-        price: '$99.99/mo',
-        features: ['Global Monitoring', 'API Monitoring', '30-second Checks', 'Slack Integration', 'SLA Reports'],
-        badge: 'Enterprise'
-      }
-    ]
-  }
-};
 const POSTS = [
   { slug: 'launch-notes', title: 'Launch Notes: Q Panda v1', date: '2025-08-01', excerpt: 'Teleport-ready deployments, predictive shield, and neural edge functions.' },
   { slug: 'edge-functions', title: 'Designing Neural Edge Functions', date: '2025-07-18', excerpt: 'How we tuned cold starts to 28ms average at the edge.' },
@@ -494,18 +258,8 @@ const TeleportRing=({x,y,show})=>(<AnimatePresence>{show&&(<motion.div initial={
 function PlanDialog({open,onOpenChange,planId}){ const plan=PLANS.find(p=>p.id===planId)||null; return (<Dialog open={!!open} onOpenChange={onOpenChange}><DialogContent className="border border-cyan-300/20 bg-gradient-to-b from-slate-900/90 to-slate-950/95 p-4 backdrop-blur-xl shadow-2xl"><DialogHeader><DialogTitle className="flex items-center gap-2 text-cyan-200"><IconSparkles className="h-5 w-5"/> {plan?plan.name:"Plan"}{plan?.badge&&<span className="ml-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5 text-xs text-cyan-200">{plan.badge}</span>}</DialogTitle><DialogDescription className="text-slate-300">{plan?plan.tagline:"Quantum-grade hosting plan."}</DialogDescription></DialogHeader><Card className="relative overflow-hidden border border-cyan-400/20 bg-white/5"><CardContent className="p-4"><motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-20" initial={{x:-200}} animate={{x:200}} transition={{repeat:Infinity,repeatType:'mirror',duration:2.2,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(56,189,248,0.6) 50%, transparent 60%)'}}/><div className="mb-2 text-2xl font-semibold text-cyan-200">{plan?plan.price:""}</div><ul className="space-y-2 text-slate-200">{(plan?.features||[]).map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_10px_2px_rgba(34,211,238,0.6)]"/>{f}</li>))}</ul><div className="mt-4 flex gap-2"><Button className="bg-cyan-500 hover:bg-cyan-400 text-slate-900">Get started</Button><Button className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">Compare</Button></div></CardContent></Card></DialogContent></Dialog>); }
 
 // ——— Mega Menu Components ———
-function MegaMenu({ activeMenu, onClose, onMenuChange, onMenuEnter, onMenuLeave }) {
+function MegaMenu({ activeMenu, onClose, onMenuChange }) {
   if (typeof window === "undefined") return null;
-  
-  const handleMenuEnter = () => {
-    // Clear any pending close timeout from header menu
-    if (onMenuEnter) onMenuEnter();
-  };
-  
-  const handleMenuLeave = () => {
-    // Use the same timeout system as header menu
-    if (onMenuLeave) onMenuLeave();
-  };
   
   return createPortal(
     <AnimatePresence>
@@ -516,8 +270,6 @@ function MegaMenu({ activeMenu, onClose, onMenuChange, onMenuEnter, onMenuLeave 
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          onMouseEnter={handleMenuEnter}
-          onMouseLeave={handleMenuLeave}
         >
           {/* Backdrop */}
           <div 
@@ -549,208 +301,63 @@ function MegaMenu({ activeMenu, onClose, onMenuChange, onMenuEnter, onMenuLeave 
 }
 
 function HostingMegaMenu() {
-  const [selectedCategory, setSelectedCategory] = useState('shared-hosting');
-  const selectedContent = CATEGORY_CONTENT[selectedCategory];
-
   return (
-    <div className="flex h-[480px] gap-0">
-      {/* Sidebar Navigation */}
-      <div className="w-64 border-r border-slate-700/50 bg-slate-950/30 p-4">
-        <div className="space-y-1">
-          {/* Hosting Group */}
-          <div className="mb-2">
-            <div className="text-xs font-medium text-slate-400 uppercase tracking-wide mb-2">HOSTING</div>
-            {MEGA_MENU_CATEGORIES.filter(cat => cat.group === 'hosting').map(cat => {
-              const Icon = cat.icon;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
-                  className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg text-left transition-colors ${
-                    selectedCategory === cat.id 
-                      ? 'bg-cyan-500/10 text-cyan-200 border border-cyan-400/20' 
-                      : 'text-slate-300 hover:text-cyan-200 hover:bg-slate-800/50'
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                  {cat.title}
-                </button>
-              );
-            })}
-          </div>
-          
-          {/* Separator */}
-          <div className="h-px bg-slate-700/50 my-4" />
-          
-          {/* Managed Group */}
-          <div className="mb-2">
-            <div className="text-xs font-medium text-slate-400 uppercase tracking-wide mb-2">MANAGED SERVICES</div>
-            {MEGA_MENU_CATEGORIES.filter(cat => cat.group === 'managed').map(cat => {
-              const Icon = cat.icon;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
-                  className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg text-left transition-colors ${
-                    selectedCategory === cat.id 
-                      ? 'bg-cyan-500/10 text-cyan-200 border border-cyan-400/20' 
-                      : 'text-slate-300 hover:text-cyan-200 hover:bg-slate-800/50'
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                  {cat.title}
-                </button>
-              );
-            })}
-          </div>
-          
-          {/* Separator */}
-          <div className="h-px bg-slate-700/50 my-4" />
-          
-          {/* Security Group */}
-          <div className="mb-2">
-            <div className="text-xs font-medium text-slate-400 uppercase tracking-wide mb-2">SECURITY</div>
-            {MEGA_MENU_CATEGORIES.filter(cat => cat.group === 'security').map(cat => {
-              const Icon = cat.icon;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
-                  className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg text-left transition-colors ${
-                    selectedCategory === cat.id 
-                      ? 'bg-cyan-500/10 text-cyan-200 border border-cyan-400/20' 
-                      : 'text-slate-300 hover:text-cyan-200 hover:bg-slate-800/50'
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                  {cat.title}
-                </button>
-              );
-            })}
-          </div>
+    <div className="grid gap-8 md:grid-cols-3">
+      {/* Shared Hosting */}
+      <div>
+        <div className="mb-4 flex items-center gap-2">
+          <IconServer className="h-5 w-5 text-cyan-400" />
+          <h3 className="text-lg font-semibold text-cyan-200">Shared Hosting</h3>
+        </div>
+        <div className="space-y-3">
+          {PLANS.map(plan => (
+            <a key={plan.id} href="#plans" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="font-medium text-cyan-100">{plan.name}</div>
+                  <div className="text-sm text-slate-400">{plan.tagline}</div>
+                </div>
+                <div className="text-sm font-semibold text-cyan-300">{plan.price.split(' ')[0]}</div>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
       
-      {/* Main Content Area */}
-      <div className="flex-1 flex">
-        {/* Content */}
-        <div className="flex-1 p-6">
-          <div className="mb-6">
-            <h3 className="text-xl font-bold text-cyan-200">{selectedContent?.title}</h3>
-            <p className="text-sm text-slate-400 mt-1">{selectedContent?.description}</p>
-          </div>
-          
-          <AnimatePresence mode="wait">
-            <motion.div 
-              key={selectedCategory}
-              className="grid gap-4 md:grid-cols-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ 
-                duration: 0.3, 
-                ease: [0.16, 1, 0.3, 1],
-                staggerChildren: 0.1
-              }}
-            >
-              {selectedContent?.items?.slice(0, 2).map((item, index) => (
-                <motion.a 
-                  key={item.id}
-                  href="#plans" 
-                  className="group block rounded-lg border border-cyan-400/10 p-4 hover:border-cyan-400/30 hover:bg-cyan-500/5 transition-all"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.3, 
-                    delay: index * 0.1,
-                    ease: [0.16, 1, 0.3, 1] 
-                  }}
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="font-medium text-cyan-100">{item.name}</div>
-                    {item.badge && (
-                      <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5 text-xs text-cyan-200">
-                        {item.badge}
-                      </span>
-                    )}
-                  </div>
-                  <div className="text-sm text-slate-400 mb-3">{item.tagline}</div>
-                  <div className="text-lg font-semibold text-cyan-300 mb-3">{item.price}</div>
-                  <ul className="space-y-1 text-xs text-slate-300">
-                    {item.features?.slice(0, 3).map(feature => (
-                      <li key={feature} className="flex items-center gap-2">
-                        <span className="h-1 w-1 rounded-full bg-cyan-400" />
-                        {feature}
-                      </li>
-                    ))}
-                    {item.features?.length > 3 && (
-                      <li className="text-cyan-400">+{item.features.length - 3} more features</li>
-                    )}
-                  </ul>
-                </motion.a>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-          
-          <AnimatePresence>
-            {selectedContent?.items && selectedContent.items.length > 2 && (
-              <motion.div 
-                key={`button-${selectedCategory}`}
-                className="mt-6 text-center"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ 
-                  duration: 0.25, 
-                  delay: 0.2,
-                  ease: [0.16, 1, 0.3, 1] 
-                }}
-              >
-                <Button 
-                  className="bg-cyan-500/10 border border-cyan-400/30 text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50"
-                  onClick={() => window.location.href = '#plans'}
-                >
-                  View All {selectedContent.items.length} Plans
-                </Button>
-              </motion.div>
-            )}
-          </AnimatePresence>
+      {/* VPS Hosting */}
+      <div>
+        <div className="mb-4 flex items-center gap-2">
+          <IconCpu className="h-5 w-5 text-fuchsia-400" />
+          <h3 className="text-lg font-semibold text-fuchsia-200">VPS Hosting</h3>
         </div>
-        
-        {/* Right Side Image/Graphic */}
-        <div className="w-48 p-6 flex items-center justify-center">
-          <div className="relative">
-            {/* Quantum-style decorative graphic */}
-            <div className="relative h-32 w-32 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-fuchsia-500/20 border border-cyan-400/30">
-              <div className="absolute inset-2 rounded-xl bg-slate-900/60 border border-cyan-400/20">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <IconSparkles className="h-8 w-8 text-cyan-300" />
-                </div>
-                {/* Animated particles */}
-                <div className="absolute inset-0 overflow-hidden rounded-xl">
-                  {Array.from({length: 8}).map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute h-1 w-1 rounded-full bg-cyan-400/60"
-                      style={{
-                        left: `${20 + (i * 12)}%`,
-                        top: `${30 + (i * 8)}%`
-                      }}
-                      animate={{
-                        scale: [0.5, 1, 0.5],
-                        opacity: [0.3, 1, 0.3]
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: i * 0.2
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="space-y-3">
+          <a href="#plans" className="group block rounded-lg border border-fuchsia-400/10 p-3 hover:border-fuchsia-400/30 hover:bg-fuchsia-500/5">
+            <div className="font-medium text-fuchsia-100">Unmanaged VPS</div>
+            <div className="text-sm text-slate-400">Full root access, developer-focused</div>
+            <div className="text-sm font-semibold text-fuchsia-300">From $25.99/mo</div>
+          </a>
+          <a href="#plans" className="group block rounded-lg border border-purple-400/10 p-3 hover:border-purple-400/30 hover:bg-purple-500/5">
+            <div className="font-medium text-purple-100">Managed VPS</div>
+            <div className="text-sm text-slate-400">cPanel included, fully managed</div>
+            <div className="text-sm font-semibold text-purple-300">From $45.99/mo</div>
+          </a>
+        </div>
+      </div>
+      
+      {/* Dedicated Servers */}
+      <div>
+        <div className="mb-4 flex items-center gap-2">
+          <IconRocket className="h-5 w-5 text-emerald-400" />
+          <h3 className="text-lg font-semibold text-emerald-200">Dedicated Servers</h3>
+        </div>
+        <div className="space-y-3">
+          {DEDICATED_PLANS.map(plan => (
+            <a key={plan.id} href="#plans" className="group block rounded-lg border border-emerald-400/10 p-3 hover:border-emerald-400/30 hover:bg-emerald-500/5">
+              <div className="font-medium text-emerald-100">{plan.name}</div>
+              <div className="text-sm text-slate-400">{plan.tagline}</div>
+              <div className="text-sm font-semibold text-emerald-300">{plan.price}</div>
+            </a>
+          ))}
         </div>
       </div>
     </div>
@@ -882,7 +489,7 @@ export default function QPandaOnePager(){
   };
   
   const handleMenuLeave = () => {
-    const timeout = setTimeout(() => setActiveMenu(null), 500);
+    const timeout = setTimeout(() => setActiveMenu(null), 150);
     setMenuTimeout(timeout);
   };
   
@@ -891,19 +498,75 @@ export default function QPandaOnePager(){
     if (menuTimeout) { clearTimeout(menuTimeout); setMenuTimeout(null); }
   };
   
-  const clearMenuTimeout = () => {
-    if (menuTimeout) {
-      clearTimeout(menuTimeout);
-      setMenuTimeout(null);
-    }
-  };
-  
   useEffect(()=>{ const i=setInterval(()=>{ setPandaPos(p=>({x:clamp(p.x+rand(-6,6),0,window.innerWidth),y:clamp(p.y+rand(-4,4),0,window.innerHeight)})); },1400); return()=>clearInterval(i); },[]);
   useEffect(()=>{ const fly=setInterval(()=>{ if(dialogOpen) return; const x=window.innerWidth*(0.15+Math.random()*0.7); const y=window.innerHeight*(0.15+Math.random()*0.5); setRing({x,y,show:true}); setTimeout(()=>setRing(r=>({...r,show:false})),320); setPandaPos({x,y}); setClones(Array.from({length:2}).map((_,i)=>({id:Date.now()+i,x:x+rand(-50,50),y:y+rand(-50,50)}))); setTimeout(()=>setClones([]),900); },12000); return()=>clearInterval(fly); },[dialogOpen]);
 
   return (
     <ErrorBoundary>
       <div className="min-h-screen w-full bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
+        <header className="sticky top-0 z-[200] border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+            <a href="#top" className="text-lg font-bold text-cyan-300">Q Panda</a>
+            
+            <nav className="hidden gap-1 text-sm text-slate-300 md:flex">
+              <a href="#/" className="px-3 py-2 hover:text-cyan-300">Home</a>
+              
+              {/* Hosting Mega Menu */}
+              <div
+                className="relative"
+                onMouseEnter={() => handleMenuOpen('hosting')}
+                onMouseLeave={handleMenuLeave}
+              >
+                <button
+                  type="button"
+                  className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300"
+                >
+                  Hosting
+                  <IconChevronDown className={`h-3 w-3 transition-transform ${activeMenu === 'hosting' ? 'rotate-180' : ''}`} />
+                </button>
+              </div>
+              
+              {/* Domains Mega Menu */}
+              <div
+                className="relative"
+                onMouseEnter={() => handleMenuOpen('domains')}
+                onMouseLeave={handleMenuLeave}
+              >
+                <button
+                  type="button"
+                  className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300"
+                >
+                  Domains
+                  <IconChevronDown className={`h-3 w-3 transition-transform ${activeMenu === 'domains' ? 'rotate-180' : ''}`} />
+                </button>
+              </div>
+              
+              {/* Support Mega Menu */}
+              <div
+                className="relative"
+                onMouseEnter={() => handleMenuOpen('support')}
+                onMouseLeave={handleMenuLeave}
+              >
+                <button
+                  type="button"
+                  className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300"
+                >
+                  Support
+                  <IconChevronDown className={`h-3 w-3 transition-transform ${activeMenu === 'support' ? 'rotate-180' : ''}`} />
+                </button>
+              </div>
+              
+              <a href="#/blog" className="px-3 py-2 hover:text-cyan-300">Blog</a>
+              <a href="#/status" className="px-3 py-2 hover:text-cyan-300">Status</a>
+              <a href="#/contact" className="px-3 py-2 hover:text-cyan-300">Contact</a>
+            </nav>
+            
+            <div className="flex items-center gap-3">
+              <a href={PUBLIC_CONFIG.whmcs.clientAreaUrl} target="_blank" rel="noreferrer" className="hidden text-sm text-slate-300 hover:text-cyan-300 md:block">Client Area</a>
+              <Button className="hidden bg-cyan-500 text-slate-900 hover:bg-cyan-400 md:inline-flex">Get Started</Button>
+            </div>
+          </div>
+        </header>
 		<StaticOrnaments />
         {route.name!=='home'? (<SitePages route={route}/>) : (<>
           <section className="relative h-[90vh] overflow-hidden">
@@ -1006,11 +669,12 @@ export default function QPandaOnePager(){
           <section id="benchmarks" className="mx-auto max-w-6xl px-6 pb-24"><div className="grid gap-6 sm:grid-cols-3"><MetricCard label="Avg. Cold Start" value="28ms" sub="Neural edge functions"/><MetricCard label="99.995%" value="SLA" sub="Past 90 days"/><MetricCard label="2.3x" value="Faster TTFB" sub="vs. baseline clouds"/></div></section>
           <section id="testimonials" className="mx-auto max-w-6xl px-6 pb-24"><div className="grid gap-6 md:grid-cols-3"><QuoteCard quote="Switched our launch to Q Panda - handled a 40x spike without blinking." author="Sara K., StreamKit"/><QuoteCard quote="Deploy previews in parallel changed our workflow overnight." author="Kenji M., FolioAI"/><QuoteCard quote="The predictive shield blocked a zero-day botnet before signatures were out." author="Nadia P., HexaSec"/></div></section>
           <section id="docs" className="mx-auto max-w-6xl px-6 pb-24"><Card className="border border-cyan-400/20 bg-white/5 transition-transform duration-300 hover:-translate-y-0.5"><CardContent className="p-6 md:p-8"><h3 className="text-2xl font-bold text-cyan-100">Docs preview</h3><p className="mt-2 text-slate-300">Install the CLI, initialize a project, and teleport your first deployment.</p><pre className="mt-4 overflow-x-auto rounded-xl border border-white/10 bg-slate-950/70 p-4 text-sm text-cyan-200">{`npm i -g qpanda\nqpanda init\nqpanda deploy`}</pre><div className="mt-4"><Button className="bg-cyan-500 text-slate-900 hover:bg-cyan-400">Open full docs</Button></div></CardContent></Card></section>
-          <section id="faq" className="mx-auto max-w-6xl px-6 pb-24"><h3 className="mb-6 text-2xl font-bold text-cyan-100">Frequently asked</h3><div className="divide-y divide-white/10 rounded-2xl border border-cyan-400/20 bg-white/5"><FAQItem q="What does 'quantum' mean here?" a="We simulate quantum-style parallelism - predictive routing, speculative deploys, and entangled failover - not literal qubits."/><FAQItem q="Can I bring my own domain?" a="Yes. Point your DNS to our Anycast edge. We generate and renew TLS automatically."/><FAQItem q="How is pricing calculated?" a="Plans are flat-rate by tier. Usage-based add-ons (edge functions, storage) are billed per unit with clear caps."/></div></section>
-          <section className="mx-auto mb-28 max-w-6xl px-6"><Card className="border border-cyan-400/20 bg-gradient-to-r from-cyan-500/10 to-fuchsia-500/10 backdrop-blur-xl"><CardContent className="flex flex-col items-center justify-between gap-4 p-8 md:flex-row"><div><h3 className="text-2xl font-bold text-cyan-100">Ready to teleport?</h3><p className="mt-1 text-slate-300">Start free. Migrate in minutes with the Q Panda co-pilot.</p></div><div className="flex gap-2"><Button className="bg-cyan-500 text-slate-900 hover:bg-cyan-400"><IconRocket className="mr-2 h-4 w-4"/> Get started</Button><Button className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">Talk to sales</Button></div></CardContent></Card></section>
+          <section id="faq" className="mx-auto max-w-5xl px-6 pb-24"><h3 className="mb-6 text-2xl font-bold text-cyan-100">Frequently asked</h3><div className="divide-y divide-white/10 rounded-2xl border border-cyan-400/20 bg-white/5"><FAQItem q="What does 'quantum' mean here?" a="We simulate quantum-style parallelism - predictive routing, speculative deploys, and entangled failover - not literal qubits."/><FAQItem q="Can I bring my own domain?" a="Yes. Point your DNS to our Anycast edge. We generate and renew TLS automatically."/><FAQItem q="How is pricing calculated?" a="Plans are flat-rate by tier. Usage-based add-ons (edge functions, storage) are billed per unit with clear caps."/></div></section>
+          <section className="mx-auto mb-28 max-w-5xl px-6"><Card className="border border-cyan-400/20 bg-gradient-to-r from-cyan-500/10 to-fuchsia-500/10 backdrop-blur-xl"><CardContent className="flex flex-col items-center justify-between gap-4 p-8 md:flex-row"><div><h3 className="text-2xl font-bold text-cyan-100">Ready to teleport?</h3><p className="mt-1 text-slate-300">Start free. Migrate in minutes with the Q Panda co-pilot.</p></div><div className="flex gap-2"><Button className="bg-cyan-500 text-slate-900 hover:bg-cyan-400"><IconRocket className="mr-2 h-4 w-4"/> Get started</Button><Button className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">Talk to sales</Button></div></CardContent></Card></section>
         </>)}
         <footer className="mx-auto max-w-6xl px-6 pb-12 text-sm text-slate-400"><div className="border-t border-white/10 pt-6 text-center space-y-2"><div>Powered by WHMCompleteSolution</div><div>© {new Date().getFullYear()} Blue Panda. All Rights Reserved.</div></div></footer>
         <PlanDialog open={dialogOpen} onOpenChange={setDialogOpen} planId={activePlan}/>
+        <MegaMenu activeMenu={activeMenu} onClose={handleMenuClose} />
       </div>
     </ErrorBoundary>
   );

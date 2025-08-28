@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { PUBLIC_CONFIG } from "../../../config/publicConfig";
 
-const WHMCS_SUPPORT_URL = "https://billing.example.com/submitticket.php";
-const WHMCS_CLIENT_AREA_URL = "https://billing.example.com/clientarea.php";
 
 // Sidebar-based Support mega menu matching Hosting pattern
 export default function SupportMegaMenu() {
@@ -40,8 +39,8 @@ export default function SupportMegaMenu() {
       title: "Ticket System",
       description: "Open a support ticket",
       items: [
-        { name: "Open Ticket", tagline: "Technical issues", href: WHMCS_SUPPORT_URL },
-        { name: "Client Portal", tagline: "Manage tickets", href: WHMCS_CLIENT_AREA_URL },
+{ name: "Open Ticket", tagline: "Technical issues", href: PUBLIC_CONFIG.whmcs.supportUrl },
+        { name: "Client Portal", tagline: "Manage tickets", href: PUBLIC_CONFIG.whmcs.clientAreaUrl },
       ]
     },
     "knowledge-base": {
