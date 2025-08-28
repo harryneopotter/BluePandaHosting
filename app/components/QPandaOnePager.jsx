@@ -9,14 +9,374 @@ const IconZap = (p) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="
 const IconShield = (p) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M12 2l7 3v6c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z"/></svg>);
 const IconCpu = (p) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>);
 const IconRocket = (p) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M14 3c4 1 7 4 7 8-2 0-5 1-7 3-2 2-3 5-3 7-4 0-7-3-8-7 2 0 5-1 7-3 2-2 3-5 4-8z"/><path d="M6 18l2-2M8 20l2-2"/></svg>);
+const IconServer = (p) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><rect x="2" y="3" width="20" height="4" rx="1"/><rect x="2" y="9" width="20" height="4" rx="1"/><rect x="2" y="15" width="20" height="4" rx="1"/><circle cx="7" cy="5" r="1"/><circle cx="7" cy="11" r="1"/><circle cx="7" cy="17" r="1"/></svg>);
+const IconGlobe = (p) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 0 0 20 10 10 0 0 0 0-20"/><path d="M8 12h8M12 8v8"/></svg>);
+const IconLifeBuoy = (p) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8l-5.74 9.94M15.75 12l-7.5 0M12 2.25v3M12 18.75v3"/></svg>);
+const IconChevronDown = (p) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M6 9l6 6 6-6"/></svg>);
 
 // ——— Data ———
 const PLANS = [
-  { id: "qubit", name: "Qubit", tagline: "Launch fast on autopilot.", price: "$9/mo", features: ["AI-managed setup","1 vCPU • 1GB RAM","Quantum CDN edge","Predictive cache warmup"], badge: "Starter" },
-  { id: "entangle", name: "Entangle", tagline: "Scale reliably across nodes.", price: "$29/mo", features: ["2 vCPU • 4GB RAM","Auto failover & healing","DDoS intelligent shield","Staging environments"], badge: "Pro" },
-  { id: "superposition", name: "Superposition", tagline: "Parallel deployments at will.", price: "$79/mo", features: ["4 vCPU • 8GB RAM","Zero-downtime releases","Neural edge functions","Traffic spike autoscaling"], badge: "Scale" },
-  { id: "teleport", name: "Teleport Enterprise", tagline: "Custom clusters. Infinite headroom.", price: "Talk to sales", features: ["Dedicated clusters","SLA 99.99%","Private regions","SAML/SSO & SOC2"], badge: "Enterprise" },
+  { 
+    id: "standard", 
+    name: "Standard", 
+    tagline: "Perfect for personal websites and blogs.", 
+    price: "$45.00 USD", 
+    period: "annually",
+    features: ["cPanel hosting","1 Website","10GB SSD Storage","Unmetered Bandwidth","Free SSL Certificate"], 
+    badge: "Basic" 
+  },
+  { 
+    id: "business", 
+    name: "Business", 
+    tagline: "Best for medium and dynamic websites.", 
+    price: "$59.99 USD", 
+    period: "annually",
+    features: ["Unlimited Websites","25GB SSD Storage","Unmetered Bandwidth","Free Domain (1 year)","Advanced Security"], 
+    badge: "Popular" 
+  },
+  { 
+    id: "executive", 
+    name: "Executive", 
+    tagline: "Best for business and eCommerce websites.", 
+    price: "$99.99 USD", 
+    period: "annually",
+    features: ["Unlimited Everything","50GB SSD Storage","Premium Performance","eCommerce Ready","Priority Support"], 
+    badge: "Pro" 
+  },
+  { 
+    id: "vps", 
+    name: "VPS Hosting", 
+    tagline: "Scalable virtual private servers.", 
+    price: "From $25.99/mo", 
+    features: ["Full Root Access","SSD Storage","Choice of OS","Scalable Resources","99.9% Uptime SLA"], 
+    badge: "Advanced" 
+  },
 ];
+
+// VPS Plans from content files
+const VPS_PLANS = [
+  {
+    id: "vps1024",
+    name: "VPS 1024",
+    tagline: "Unmanaged VPS for developers",
+    price: "$25.99/mo",
+    features: ["Linux VPS","1 Core CPU","1 GB Memory","40 GB Disk","1024 GB Bandwidth"],
+    badge: "Starter",
+    type: "unmanaged"
+  },
+  {
+    id: "vps2048",
+    name: "VPS 2048",
+    tagline: "Most popular unmanaged option",
+    price: "$39.99/mo", 
+    features: ["Linux VPS","2 vCore CPU","2 GB Memory","60 GB Disk","2048 GB Bandwidth"],
+    badge: "Popular",
+    type: "unmanaged"
+  },
+  {
+    id: "vps4096",
+    name: "VPS 4096",
+    tagline: "High performance unmanaged VPS",
+    price: "$59.99/mo",
+    features: ["Linux VPS","3 vCore CPU","4 GB Memory","150 GB Disk","5120 GB Bandwidth"],
+    badge: "Performance",
+    type: "unmanaged"
+  },
+  {
+    id: "vpsm1024",
+    name: "VPSM 1024",
+    tagline: "Managed VPS with cPanel",
+    price: "$45.99/mo",
+    features: ["Linux VPS","1 Core CPU","1 GB Memory","40 GB Disk","Core Management","FREE cPanel"],
+    badge: "Managed",
+    type: "managed"
+  },
+  {
+    id: "vpsm2048",
+    name: "VPSM 2048", 
+    tagline: "Popular managed VPS solution",
+    price: "$69.99/mo",
+    features: ["Linux VPS","2 vCore CPU","2 GB Memory","60 GB Disk","Core Management","FREE cPanel"],
+    badge: "Business",
+    type: "managed"
+  },
+  {
+    id: "vpsm4096",
+    name: "VPSM 4096",
+    tagline: "Premium managed VPS",
+    price: "$109.99/mo",
+    features: ["Linux VPS","3 vCore CPU","4 GB Memory","150 GB Disk","Core Management","FREE cPanel"],
+    badge: "Premium",
+    type: "managed"
+  }
+];
+
+// Dedicated Server Plans
+const DEDICATED_PLANS = [
+  {
+    id: "xeon16gb",
+    name: "Xeon 16GB",
+    tagline: "Enterprise hardware with redundant power",
+    price: "$205.00/mo",
+    features: ["Intel Xeon CPU","8 Cores","16 GB RAM","1024 GB Disk","10 TB Bandwidth","99.9% Uptime SLA"],
+    badge: "Enterprise",
+    type: "dedicated"
+  },
+  {
+    id: "xeon4gb", 
+    name: "Xeon 4GB",
+    tagline: "Entry-level dedicated server",
+    price: "Contact Sales",
+    features: ["Intel Xeon CPU","4 Cores","4 GB RAM","500 GB Disk","5 TB Bandwidth","DDoS Protection"],
+    badge: "Entry",
+    type: "dedicated"
+  },
+  {
+    id: "dualxeon24gb",
+    name: "Dual Xeon 24GB", 
+    tagline: "Maximum performance dedicated server",
+    price: "Contact Sales",
+    features: ["Dual Intel Xeon","16 Cores","24 GB RAM","2048 GB Disk","20 TB Bandwidth","Premium Support"],
+    badge: "Maximum",
+    type: "dedicated"
+  }
+];
+
+// Mega Menu Categories
+const MEGA_MENU_CATEGORIES = [
+  {
+    id: 'shared-hosting',
+    title: 'Shared Hosting',
+    icon: IconServer,
+    group: 'hosting'
+  },
+  {
+    id: 'vps-hosting', 
+    title: 'VPS Hosting',
+    icon: IconCpu,
+    group: 'hosting'
+  },
+  {
+    id: 'bare-metals',
+    title: 'Bare Metals', 
+    icon: IconRocket,
+    group: 'hosting'
+  },
+  {
+    id: 'cloud-vms',
+    title: 'Cloud VMs',
+    icon: IconZap,
+    group: 'hosting'
+  },
+  {
+    id: 'managed-wordpress',
+    title: 'Managed WordPress',
+    icon: IconShield,
+    group: 'managed'
+  },
+  {
+    id: 'managed-vms', 
+    title: 'Managed VMs',
+    icon: IconCpu,
+    group: 'managed'
+  },
+  {
+    id: 'managed-servers',
+    title: 'Managed Servers',
+    icon: IconServer,
+    group: 'managed'
+  },
+  {
+    id: 'ssl-certificates',
+    title: 'SSL Certificates',
+    icon: IconShield,
+    group: 'security'
+  },
+  {
+    id: 'site-monitoring',
+    title: 'Site Monitoring', 
+    icon: IconZap,
+    group: 'security'
+  }
+];
+
+// Category Content Mapping
+const CATEGORY_CONTENT = {
+  'shared-hosting': {
+    title: 'Shared Hosting',
+    description: 'Perfect for personal websites and small businesses',
+    items: PLANS
+  },
+  'vps-hosting': {
+    title: 'VPS Hosting', 
+    description: 'Scalable virtual private servers with full control',
+    items: VPS_PLANS
+  },
+  'bare-metals': {
+    title: 'Bare Metal Servers',
+    description: 'Dedicated physical servers for maximum performance', 
+    items: DEDICATED_PLANS
+  },
+  'cloud-vms': {
+    title: 'Cloud Virtual Machines',
+    description: 'Elastic cloud computing with auto-scaling',
+    items: [
+      {
+        id: 'cloud-starter',
+        name: 'Cloud Starter',
+        tagline: 'Perfect for development and testing',
+        price: '$19.99/mo',
+        features: ['1 vCPU', '2GB RAM', '25GB SSD', 'Auto-scaling', '99.9% SLA'],
+        badge: 'Popular'
+      },
+      {
+        id: 'cloud-pro',
+        name: 'Cloud Pro', 
+        tagline: 'Production-ready cloud infrastructure',
+        price: '$49.99/mo',
+        features: ['4 vCPU', '8GB RAM', '100GB SSD', 'Load Balancer', 'Premium Support'],
+        badge: 'Business'
+      }
+    ]
+  },
+  'managed-wordpress': {
+    title: 'Managed WordPress',
+    description: 'Optimized WordPress hosting with automatic updates',
+    items: [
+      {
+        id: 'wp-starter',
+        name: 'WordPress Starter',
+        tagline: 'Managed WordPress for beginners',
+        price: '$29.99/mo',
+        features: ['1 WP Site', 'Auto Updates', 'Daily Backups', 'CDN Included', 'SSL Certificate'],
+        badge: 'Managed'
+      },
+      {
+        id: 'wp-business',
+        name: 'WordPress Business',
+        tagline: 'Professional WordPress hosting',
+        price: '$79.99/mo', 
+        features: ['5 WP Sites', 'Premium Themes', 'Advanced Security', 'Performance Optimization', 'Priority Support'],
+        badge: 'Pro'
+      }
+    ]
+  },
+  'managed-vms': {
+    title: 'Managed Virtual Machines',
+    description: 'Fully managed VPS with monitoring and maintenance',
+    items: VPS_PLANS.filter(p => p.type === 'managed')
+  },
+  'managed-servers': {
+    title: 'Managed Dedicated Servers',
+    description: 'Enterprise servers with full management included',
+    items: [
+      {
+        id: 'managed-xeon',
+        name: 'Managed Xeon Server',
+        tagline: 'Fully managed dedicated server',
+        price: '$299.99/mo',
+        features: ['Intel Xeon CPU', '32GB RAM', '1TB NVMe SSD', '24/7 Monitoring', 'Full Management'],
+        badge: 'Enterprise'
+      }
+    ]
+  },
+  'domain-registration': {
+    title: 'Domain Registration',
+    description: 'Register your perfect domain name',
+    items: [
+      {
+        id: 'com-domain',
+        name: '.com Domain',
+        tagline: 'Most popular domain extension',
+        price: '$12.99/year',
+        features: ['Free WHOIS Privacy', 'DNS Management', 'Email Forwarding', 'Auto-Renewal', '24/7 Support'],
+        badge: 'Popular'
+      },
+      {
+        id: 'premium-domains',
+        name: 'Premium Extensions',
+        tagline: 'Stand out with unique extensions',
+        price: 'From $19.99/year',
+        features: ['.tech', '.io', '.ai', '.dev', '.app'],
+        badge: 'Premium'
+      }
+    ]
+  },
+  'domain-transfer': {
+    title: 'Domain Transfer',
+    description: 'Transfer your domains to Q Panda',
+    items: [
+      {
+        id: 'domain-transfer',
+        name: 'Domain Transfer Service',
+        tagline: 'Move your domains with zero downtime',
+        price: 'Free with hosting',
+        features: ['Zero Downtime', 'Free Migration', 'DNS Management', 'Email Preservation', 'Expert Support'],
+        badge: 'Free'
+      }
+    ]
+  },
+  'ssl-certificates': {
+    title: 'SSL Certificates',
+    description: 'Secure your website with trusted SSL certificates',
+    items: [
+      {
+        id: 'lets-encrypt-ssl',
+        name: 'Free SSL Certificate',
+        tagline: 'Basic SSL protection for your website',
+        price: 'Free',
+        features: ['Domain Validation', 'Auto-Renewal', '256-bit Encryption', 'Browser Trust', 'Easy Installation'],
+        badge: 'Free'
+      },
+      {
+        id: 'extended-ssl',
+        name: 'Extended Validation SSL',
+        tagline: 'Premium SSL with green address bar',
+        price: '$99.99/year',
+        features: ['Extended Validation', 'Green Address Bar', '$1M Warranty', 'Organization Verification', 'Premium Support'],
+        badge: 'Premium'
+      },
+      {
+        id: 'wildcard-ssl',
+        name: 'Wildcard SSL Certificate', 
+        tagline: 'Secure unlimited subdomains',
+        price: '$149.99/year',
+        features: ['Unlimited Subdomains', 'Domain Validation', '256-bit Encryption', 'Auto-Renewal', 'Multi-Server License'],
+        badge: 'Business'
+      }
+    ]
+  },
+  'site-monitoring': {
+    title: 'Site Monitoring',
+    description: '24/7 website monitoring and performance tracking',
+    items: [
+      {
+        id: 'basic-monitoring',
+        name: 'Basic Monitoring',
+        tagline: 'Essential uptime monitoring',
+        price: '$9.99/mo',
+        features: ['Uptime Monitoring', 'Email Alerts', '5-minute Checks', 'Status Page', 'Basic Reports'],
+        badge: 'Starter'
+      },
+      {
+        id: 'pro-monitoring',
+        name: 'Pro Monitoring',
+        tagline: 'Advanced monitoring with performance metrics',
+        price: '$29.99/mo',
+        features: ['Real User Monitoring', 'Performance Tracking', '1-minute Checks', 'Advanced Alerts', 'Custom Dashboards'],
+        badge: 'Pro'
+      },
+      {
+        id: 'enterprise-monitoring',
+        name: 'Enterprise Monitoring',
+        tagline: 'Complete monitoring solution',
+        price: '$99.99/mo',
+        features: ['Global Monitoring', 'API Monitoring', '30-second Checks', 'Slack Integration', 'SLA Reports'],
+        badge: 'Enterprise'
+      }
+    ]
+  }
+};
 const POSTS = [
   { slug: 'launch-notes', title: 'Launch Notes: Q Panda v1', date: '2025-08-01', excerpt: 'Teleport-ready deployments, predictive shield, and neural edge functions.' },
   { slug: 'edge-functions', title: 'Designing Neural Edge Functions', date: '2025-07-18', excerpt: 'How we tuned cold starts to 28ms average at the edge.' },
@@ -125,7 +485,7 @@ function StaticOrnaments(){
 
 function DisintegrateParticles({count=60}){ return (<div className="absolute inset-0">{Array.from({length:count}).map((_,i)=>(<motion.span key={i} className="absolute h-1 w-1 rounded-full bg-cyan-300/90" style={{left:'50%',top:'50%'}} initial={{x:0,y:0,opacity:0.9,scale:1}} animate={{x:(Math.random()-0.5)*180,y:(Math.random()-0.5)*160,opacity:0,scale:0.6}} transition={{duration:0.45,ease:[0.16,1,0.3,1]}}/>))}</div>); }
 
-const PLAN_NODE_POS=[{id:'qubit',top:24,left:18},{id:'entangle',top:42,left:55},{id:'superposition',top:66,left:28},{id:'teleport',top:20,left:78}];
+const PLAN_NODE_POS=[{id:'standard',top:24,left:18},{id:'business',top:42,left:55},{id:'executive',top:66,left:28},{id:'vps',top:20,left:78}];
 const PlanNode=({id,top,left,onClick})=>(<button onClick={(e)=>{const r=e.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top+r.height/2:window.innerHeight/2; onClick&&onClick(id,cx,cy);}} className="group absolute z-20 h-4 w-4 rounded-full bg-cyan-300/80 shadow-[0_0_18px_6px_rgba(34,211,238,0.6)] hover:shadow-[0_0_28px_12px_rgba(34,211,238,0.8)] ring-2 ring-cyan-200/70" style={{top:`${top}%`,left:`${left}%`}} aria-label={`Open ${id} plan`}><span className="absolute -inset-3 rounded-full bg-cyan-400/10 blur-md opacity-0 group-hover:opacity-100"/></button>);
 
 function PandaFace({size=68}){ return (<svg width={size} height={size} viewBox="0 0 128 128" className="drop-shadow-[0_0_18px_rgba(59,130,246,0.5)]"><defs><radialGradient id="g" cx="50%" cy="50%" r="60%"><stop offset="0%" stopColor="#b3e5fc"/><stop offset="100%" stopColor="#38bdf8"/></radialGradient></defs><circle cx="64" cy="64" r="52" fill="url(#g)" stroke="#0ea5e9" strokeWidth="4"/><circle cx="36" cy="34" r="16" fill="#111827"/><circle cx="92" cy="34" r="16" fill="#111827"/><ellipse cx="64" cy="72" rx="42" ry="36" fill="#f8fafc"/><circle cx="48" cy="66" r="10" fill="#111827"/><circle cx="80" cy="66" r="10" fill="#111827"/><path d="M50 92 C64 104 78 104 92 92" stroke="#111827" strokeWidth="6" fill="none" strokeLinecap="round"/></svg>); }
@@ -134,35 +494,512 @@ const TeleportRing=({x,y,show})=>(<AnimatePresence>{show&&(<motion.div initial={
 
 function PlanDialog({open,onOpenChange,planId}){ const plan=PLANS.find(p=>p.id===planId)||null; return (<Dialog open={!!open} onOpenChange={onOpenChange}><DialogContent className="border border-cyan-300/20 bg-gradient-to-b from-slate-900/90 to-slate-950/95 p-4 backdrop-blur-xl shadow-2xl"><DialogHeader><DialogTitle className="flex items-center gap-2 text-cyan-200"><IconSparkles className="h-5 w-5"/> {plan?plan.name:"Plan"}{plan?.badge&&<span className="ml-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5 text-xs text-cyan-200">{plan.badge}</span>}</DialogTitle><DialogDescription className="text-slate-300">{plan?plan.tagline:"Quantum-grade hosting plan."}</DialogDescription></DialogHeader><Card className="relative overflow-hidden border border-cyan-400/20 bg-white/5"><CardContent className="p-4"><motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-20" initial={{x:-200}} animate={{x:200}} transition={{repeat:Infinity,repeatType:'mirror',duration:2.2,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(56,189,248,0.6) 50%, transparent 60%)'}}/><div className="mb-2 text-2xl font-semibold text-cyan-200">{plan?plan.price:""}</div><ul className="space-y-2 text-slate-200">{(plan?.features||[]).map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_10px_2px_rgba(34,211,238,0.6)]"/>{f}</li>))}</ul><div className="mt-4 flex gap-2"><Button className="bg-cyan-500 hover:bg-cyan-400 text-slate-900">Get started</Button><Button className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">Compare</Button></div></CardContent></Card></DialogContent></Dialog>); }
 
+// ——— Mega Menu Components ———
+function MegaMenu({ activeMenu, onClose, onMenuChange, onMenuEnter, onMenuLeave }) {
+  if (typeof window === "undefined") return null;
+  
+  const handleMenuEnter = () => {
+    // Clear any pending close timeout from header menu
+    if (onMenuEnter) onMenuEnter();
+  };
+  
+  const handleMenuLeave = () => {
+    // Use the same timeout system as header menu
+    if (onMenuLeave) onMenuLeave();
+  };
+  
+  return createPortal(
+    <AnimatePresence>
+      {activeMenu && (
+        <motion.div
+          className="fixed inset-0 z-[150] flex"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          onMouseEnter={handleMenuEnter}
+          onMouseLeave={handleMenuLeave}
+        >
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm"
+            onClick={onClose}
+          />
+          
+          {/* Menu Content */}
+          <motion.div
+            className="relative z-[151] mx-auto mt-16 w-full max-w-6xl"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <Card className="mx-6 border border-cyan-400/20 bg-gradient-to-b from-slate-900/95 to-slate-950/98 backdrop-blur-xl shadow-2xl">
+              <CardContent className="p-6">
+                {activeMenu === 'hosting' && <HostingMegaMenu />}
+                {activeMenu === 'domains' && <DomainsMegaMenu />}
+                {activeMenu === 'support' && <SupportMegaMenu />}
+              </CardContent>
+            </Card>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>,
+    document.body
+  );
+}
+
+function HostingMegaMenu() {
+  const [selectedCategory, setSelectedCategory] = useState('shared-hosting');
+  const selectedContent = CATEGORY_CONTENT[selectedCategory];
+
+  return (
+    <div className="flex h-[480px] gap-0">
+      {/* Sidebar Navigation */}
+      <div className="w-64 border-r border-slate-700/50 bg-slate-950/30 p-4">
+        <div className="space-y-1">
+          {/* Hosting Group */}
+          <div className="mb-2">
+            <div className="text-xs font-medium text-slate-400 uppercase tracking-wide mb-2">HOSTING</div>
+            {MEGA_MENU_CATEGORIES.filter(cat => cat.group === 'hosting').map(cat => {
+              const Icon = cat.icon;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setSelectedCategory(cat.id)}
+                  className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg text-left transition-colors ${
+                    selectedCategory === cat.id 
+                      ? 'bg-cyan-500/10 text-cyan-200 border border-cyan-400/20' 
+                      : 'text-slate-300 hover:text-cyan-200 hover:bg-slate-800/50'
+                  }`}
+                >
+                  <Icon className="h-4 w-4" />
+                  {cat.title}
+                </button>
+              );
+            })}
+          </div>
+          
+          {/* Separator */}
+          <div className="h-px bg-slate-700/50 my-4" />
+          
+          {/* Managed Group */}
+          <div className="mb-2">
+            <div className="text-xs font-medium text-slate-400 uppercase tracking-wide mb-2">MANAGED SERVICES</div>
+            {MEGA_MENU_CATEGORIES.filter(cat => cat.group === 'managed').map(cat => {
+              const Icon = cat.icon;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setSelectedCategory(cat.id)}
+                  className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg text-left transition-colors ${
+                    selectedCategory === cat.id 
+                      ? 'bg-cyan-500/10 text-cyan-200 border border-cyan-400/20' 
+                      : 'text-slate-300 hover:text-cyan-200 hover:bg-slate-800/50'
+                  }`}
+                >
+                  <Icon className="h-4 w-4" />
+                  {cat.title}
+                </button>
+              );
+            })}
+          </div>
+          
+          {/* Separator */}
+          <div className="h-px bg-slate-700/50 my-4" />
+          
+          {/* Security Group */}
+          <div className="mb-2">
+            <div className="text-xs font-medium text-slate-400 uppercase tracking-wide mb-2">SECURITY</div>
+            {MEGA_MENU_CATEGORIES.filter(cat => cat.group === 'security').map(cat => {
+              const Icon = cat.icon;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setSelectedCategory(cat.id)}
+                  className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg text-left transition-colors ${
+                    selectedCategory === cat.id 
+                      ? 'bg-cyan-500/10 text-cyan-200 border border-cyan-400/20' 
+                      : 'text-slate-300 hover:text-cyan-200 hover:bg-slate-800/50'
+                  }`}
+                >
+                  <Icon className="h-4 w-4" />
+                  {cat.title}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+      
+      {/* Main Content Area */}
+      <div className="flex-1 flex">
+        {/* Content */}
+        <div className="flex-1 p-6">
+          <div className="mb-6">
+            <h3 className="text-xl font-bold text-cyan-200">{selectedContent?.title}</h3>
+            <p className="text-sm text-slate-400 mt-1">{selectedContent?.description}</p>
+          </div>
+          
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={selectedCategory}
+              className="grid gap-4 md:grid-cols-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ 
+                duration: 0.3, 
+                ease: [0.16, 1, 0.3, 1],
+                staggerChildren: 0.1
+              }}
+            >
+              {selectedContent?.items?.slice(0, 2).map((item, index) => (
+                <motion.a 
+                  key={item.id}
+                  href="#plans" 
+                  className="group block rounded-lg border border-cyan-400/10 p-4 hover:border-cyan-400/30 hover:bg-cyan-500/5 transition-all"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ 
+                    duration: 0.3, 
+                    delay: index * 0.1,
+                    ease: [0.16, 1, 0.3, 1] 
+                  }}
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="font-medium text-cyan-100">{item.name}</div>
+                    {item.badge && (
+                      <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5 text-xs text-cyan-200">
+                        {item.badge}
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-sm text-slate-400 mb-3">{item.tagline}</div>
+                  <div className="text-lg font-semibold text-cyan-300 mb-3">{item.price}</div>
+                  <ul className="space-y-1 text-xs text-slate-300">
+                    {item.features?.slice(0, 3).map(feature => (
+                      <li key={feature} className="flex items-center gap-2">
+                        <span className="h-1 w-1 rounded-full bg-cyan-400" />
+                        {feature}
+                      </li>
+                    ))}
+                    {item.features?.length > 3 && (
+                      <li className="text-cyan-400">+{item.features.length - 3} more features</li>
+                    )}
+                  </ul>
+                </motion.a>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+          
+          <AnimatePresence>
+            {selectedContent?.items && selectedContent.items.length > 2 && (
+              <motion.div 
+                key={`button-${selectedCategory}`}
+                className="mt-6 text-center"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ 
+                  duration: 0.25, 
+                  delay: 0.2,
+                  ease: [0.16, 1, 0.3, 1] 
+                }}
+              >
+                <Button 
+                  className="bg-cyan-500/10 border border-cyan-400/30 text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50"
+                  onClick={() => window.location.href = '#plans'}
+                >
+                  View All {selectedContent.items.length} Plans
+                </Button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+        
+        {/* Right Side Image/Graphic */}
+        <div className="w-48 p-6 flex items-center justify-center">
+          <div className="relative">
+            {/* Quantum-style decorative graphic */}
+            <div className="relative h-32 w-32 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-fuchsia-500/20 border border-cyan-400/30">
+              <div className="absolute inset-2 rounded-xl bg-slate-900/60 border border-cyan-400/20">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <IconSparkles className="h-8 w-8 text-cyan-300" />
+                </div>
+                {/* Animated particles */}
+                <div className="absolute inset-0 overflow-hidden rounded-xl">
+                  {Array.from({length: 8}).map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute h-1 w-1 rounded-full bg-cyan-400/60"
+                      style={{
+                        left: `${20 + (i * 12)}%`,
+                        top: `${30 + (i * 8)}%`
+                      }}
+                      animate={{
+                        scale: [0.5, 1, 0.5],
+                        opacity: [0.3, 1, 0.3]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: i * 0.2
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DomainsMegaMenu() {
+  return (
+    <div className="grid gap-8 md:grid-cols-2">
+      <div>
+        <div className="mb-4 flex items-center gap-2">
+          <IconGlobe className="h-5 w-5 text-cyan-400" />
+          <h3 className="text-lg font-semibold text-cyan-200">Domain Services</h3>
+        </div>
+        <div className="space-y-3">
+          <a href="#" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+            <div className="font-medium text-cyan-100">Domain Registration</div>
+            <div className="text-sm text-slate-400">Register your perfect domain name</div>
+            <div className="text-sm font-semibold text-cyan-300">From $12.99/year</div>
+          </a>
+          <a href="#" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+            <div className="font-medium text-cyan-100">Domain Transfer</div>
+            <div className="text-sm text-slate-400">Transfer domains with ease</div>
+            <div className="text-sm font-semibold text-cyan-300">Free with hosting</div>
+          </a>
+          <a href="#" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+            <div className="font-medium text-cyan-100">DNS Management</div>
+            <div className="text-sm text-slate-400">Advanced DNS control panel</div>
+            <div className="text-sm font-semibold text-cyan-300">Included</div>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div className="mb-4 flex items-center gap-2">
+          <IconShield className="h-5 w-5 text-cyan-400" />
+          <h3 className="text-lg font-semibold text-cyan-200">Domain Protection</h3>
+        </div>
+        <div className="space-y-3">
+          <a href="#" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+            <div className="font-medium text-cyan-100">WHOIS Privacy</div>
+            <div className="text-sm text-slate-400">Protect personal information</div>
+            <div className="text-sm font-semibold text-cyan-300">$9.99/year</div>
+          </a>
+          <a href="#" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+            <div className="font-medium text-cyan-100">Domain Lock</div>
+            <div className="text-sm text-slate-400">Prevent unauthorized transfers</div>
+            <div className="text-sm font-semibold text-cyan-300">Free</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SupportMegaMenu() {
+  return (
+    <div className="grid gap-8 md:grid-cols-3">
+      <div>
+        <div className="mb-4 flex items-center gap-2">
+          <IconLifeBuoy className="h-5 w-5 text-cyan-400" />
+          <h3 className="text-lg font-semibold text-cyan-200">Get Help</h3>
+        </div>
+        <div className="space-y-3">
+          <a href={WHMCS_SUPPORT_URL} target="_blank" rel="noreferrer" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+            <div className="font-medium text-cyan-100">Support Tickets</div>
+            <div className="text-sm text-slate-400">Open a new support ticket</div>
+          </a>
+          <a href="#" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+            <div className="font-medium text-cyan-100">Knowledge Base</div>
+            <div className="text-sm text-slate-400">Browse tutorials and guides</div>
+          </a>
+          <a href="#/contact" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+            <div className="font-medium text-cyan-100">Contact Sales</div>
+            <div className="text-sm text-slate-400">Pre-sales questions</div>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div className="mb-4 flex items-center gap-2">
+          <IconZap className="h-5 w-5 text-cyan-400" />
+          <h3 className="text-lg font-semibold text-cyan-200">Quick Actions</h3>
+        </div>
+        <div className="space-y-3">
+          <a href={WHMCS_CLIENT_AREA_URL} target="_blank" rel="noreferrer" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+            <div className="font-medium text-cyan-100">Client Portal</div>
+            <div className="text-sm text-slate-400">Manage services & billing</div>
+          </a>
+          <a href="#/status" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+            <div className="font-medium text-cyan-100">System Status</div>
+            <div className="text-sm text-slate-400">Check service uptime</div>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div className="mb-4 flex items-center gap-2">
+          <IconSparkles className="h-5 w-5 text-cyan-400" />
+          <h3 className="text-lg font-semibold text-cyan-200">Resources</h3>
+        </div>
+        <div className="space-y-3">
+          <a href="#/blog" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+            <div className="font-medium text-cyan-100">Blog</div>
+            <div className="text-sm text-slate-400">Latest news and tutorials</div>
+          </a>
+          <a href="#docs" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+            <div className="font-medium text-cyan-100">Documentation</div>
+            <div className="text-sm text-slate-400">API docs and guides</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function QPandaOnePager(){
   const [pandaPos,setPandaPos]=useState({x:120,y:320}); const [ring,setRing]=useState({x:0,y:0,show:false}); const [dialogOpen,setDialogOpen]=useState(false); const [activePlan,setActivePlan]=useState(null); const [clones,setClones]=useState([]); const [route,setRoute]=useState(getRouteFromHash()); const plansRef=useRef(null); const [highlightPlans,setHighlightPlans]=useState(false);
+  const [activeMenu,setActiveMenu]=useState(null); const [menuTimeout,setMenuTimeout]=useState(null);
+  
   useEffect(()=>{ setPandaPos({x:window.innerWidth*0.5,y:Math.min(window.innerHeight*0.35,360)}); },[]);
   useEffect(()=>{ const plan=getDeepLinkPlanFromURL(window.location.href); if(plan&&PLANS.some(p=>p.id===plan)){ setTimeout(()=>{ teleportTo(plan,window.innerWidth*0.5,window.innerHeight*0.35); },300);} },[]);
   useEffect(()=>{ const onHash=()=>setRoute(getRouteFromHash(window.location.hash)); window.addEventListener('hashchange',onHash); return ()=>window.removeEventListener('hashchange',onHash); },[]);
+  
   const teleportTo=(id,x,y)=>{ const cx=clamp(Number(x)||window.innerWidth/2,0,window.innerWidth); const cy=clamp(Number(y)||window.innerHeight/2,0,window.innerHeight); setRing({x:cx,y:cy,show:true}); setTimeout(()=>setRing(r=>({...r,show:false})),450); setPandaPos({x:cx,y:cy}); setActivePlan(id); setDialogOpen(true); const mini=Array.from({length:3}).map((_,i)=>({id:Date.now()+i,x:cx+rand(-60,60),y:cy+rand(-60,60)})); setClones(mini); setTimeout(()=>setClones([]),900); };
   const handleSeePlans=()=>{ const el=plansRef.current; if(el?.scrollIntoView){ el.scrollIntoView({behavior:'smooth',block:'start'}); setHighlightPlans(true); setTimeout(()=>setHighlightPlans(false),1200);} };
-  const openQubit=(e)=>{ const r=e?.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top:window.innerHeight/2; teleportTo('qubit',cx,cy); };
+  const openStandard=(e)=>{ const r=e?.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top:window.innerHeight/2; teleportTo('standard',cx,cy); };
+  
+  const handleMenuOpen = (menu) => {
+    if (menuTimeout) { clearTimeout(menuTimeout); setMenuTimeout(null); }
+    setActiveMenu(menu);
+  };
+  
+  const handleMenuLeave = () => {
+    const timeout = setTimeout(() => setActiveMenu(null), 500);
+    setMenuTimeout(timeout);
+  };
+  
+  const handleMenuClose = () => {
+    setActiveMenu(null);
+    if (menuTimeout) { clearTimeout(menuTimeout); setMenuTimeout(null); }
+  };
+  
+  const clearMenuTimeout = () => {
+    if (menuTimeout) {
+      clearTimeout(menuTimeout);
+      setMenuTimeout(null);
+    }
+  };
+  
   useEffect(()=>{ const i=setInterval(()=>{ setPandaPos(p=>({x:clamp(p.x+rand(-6,6),0,window.innerWidth),y:clamp(p.y+rand(-4,4),0,window.innerHeight)})); },1400); return()=>clearInterval(i); },[]);
   useEffect(()=>{ const fly=setInterval(()=>{ if(dialogOpen) return; const x=window.innerWidth*(0.15+Math.random()*0.7); const y=window.innerHeight*(0.15+Math.random()*0.5); setRing({x,y,show:true}); setTimeout(()=>setRing(r=>({...r,show:false})),320); setPandaPos({x,y}); setClones(Array.from({length:2}).map((_,i)=>({id:Date.now()+i,x:x+rand(-50,50),y:y+rand(-50,50)}))); setTimeout(()=>setClones([]),900); },12000); return()=>clearInterval(fly); },[dialogOpen]);
 
   return (
     <ErrorBoundary>
       <div className="min-h-screen w-full bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
-        <header className="sticky top-0 z-[200] border-b border-white/10 bg-slate-950/70 backdrop-blur-xl"><div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3"><a href="#top" className="text-lg font-bold text-cyan-300">Q Panda</a><nav className="hidden gap-5 text-sm text-slate-300 md:flex"><a href="#/" className="hover:text-cyan-300">Home</a><a href="#features" className="hover:text-cyan-300">Features</a><a href="#plans" className="hover:text-cyan-300">Plans</a><a href="#benchmarks" className="hover:text-cyan-300">Benchmarks</a><a href="#faq" className="hover:text-cyan-300">FAQ</a><a href="#docs" className="hover:text-cyan-300">Docs</a><a href="#/blog" className="hover:text-cyan-300">Blog</a><a href="#/status" className="hover:text-cyan-300">Status</a><a href="#/contact" className="hover:text-cyan-300">Contact</a></nav><Button className="hidden bg-cyan-500 text-slate-900 hover:bg-cyan-400 md:inline-flex">Launch</Button></div></header>
 		<StaticOrnaments />
         {route.name!=='home'? (<SitePages route={route}/>) : (<>
           <section className="relative h-[90vh] overflow-hidden">
             <QuantumBackground2D/>
             <div className="pointer-events-none absolute inset-0">{PLAN_NODE_POS.map((n,i)=>(<div key={i} className="absolute" style={{top:`${n.top}%`,left:`${n.left}%`}}><div className="h-1 w-16 origin-left rotate-12 bg-gradient-to-r from-cyan-400/60 to-fuchsia-400/10 blur-[1px]"/></div>))}</div>
             <div className="absolute inset-0">{PLAN_NODE_POS.map(n=>(<PlanNode key={n.id} id={n.id} top={n.top} left={n.left} onClick={teleportTo}/>))}</div>
-            <div className="relative z-10 mx-auto mt-28 max-w-4xl px-6 text-center"><div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-xs text-cyan-200"><IconSparkles className="h-3.5 w-3.5"/> Quantum‑native AI Hosting</div><h1 className="text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400">Q Panda — Teleport your site across the neural web</h1><p className="mx-auto mt-4 max-w-2xl text-slate-300">An AI co-pilot that anticipates traffic spikes, heals failures before they happen, and deploys in parallel like quantum superposition.</p><div className="mt-6 flex items-center justify-center gap-3"><Button onClick={openQubit} className="bg-cyan-500 text-slate-900 hover:bg-cyan-400">Launch in 30s</Button><Button onClick={handleSeePlans} className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">See plans</Button></div></div>
+            <div className="relative z-10 mx-auto mt-28 max-w-4xl px-6 text-center"><div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-xs text-cyan-200"><IconSparkles className="h-3.5 w-3.5"/> Quantum‑native AI Hosting</div><h1 className="text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400">Q Panda — Teleport your site across the neural web</h1><p className="mx-auto mt-4 max-w-2xl text-slate-300">An AI co-pilot that anticipates traffic spikes, heals failures before they happen, and deploys in parallel like quantum superposition.</p><div className="mt-6 flex items-center justify-center gap-3"><Button onClick={openStandard} className="bg-cyan-500 text-slate-900 hover:bg-cyan-400">Get started</Button><Button onClick={handleSeePlans} className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">See plans</Button></div></div>
             <PandaTrail pos={pandaPos}/>
             <motion.div className="pointer-events-none fixed z-30" animate={{x:pandaPos.x,y:pandaPos.y}} transition={{type:'spring',stiffness:120,damping:16}}><PandaFace/></motion.div>
             <TeleportRing x={ring.x} y={ring.y} show={ring.show}/>
             <AnimatePresence>{clones.map(c=>(<motion.div key={c.id} initial={{x:c.x,y:c.y,scale:0.6,opacity:0.8}} animate={{y:c.y-40,opacity:0}} exit={{opacity:0}} transition={{duration:0.8,ease:'easeOut'}} className="pointer-events-none fixed z-20"><PandaFace size={38}/></motion.div>))}</AnimatePresence>
           </section>
 
-          <section ref={plansRef} id="plans" className="relative z-10 mx-auto -mt-10 max-w-6xl px-6 pb-24"><div className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-4 ${highlightPlans?'rounded-3xl ring-2 ring-cyan-400/40 animate-pulse':''}`}>{PLANS.map(p=>(<Card key={p.id} className="group relative overflow-hidden border border-cyan-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)]"><CardContent className="p-5"><motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity,repeatType:'mirror',duration:3.4,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(56,189,248,0.4) 50%, transparent 60%)'}}/><div className="mb-2 flex items-center gap-2 text-xs text-cyan-200"><span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5">{p.badge}</span></div><h3 className="text-lg font-bold text-cyan-100">{p.name}</h3><p className="mt-1 text-sm text-slate-300">{p.tagline}</p><div className="mt-4 text-2xl font-semibold text-cyan-200">{p.price}</div><ul className="mt-3 space-y-2 text-sm text-slate-200">{p.features.map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-300"/> {f}</li>))}</ul><div className="mt-4"><Button className="w-full bg-cyan-500 text-slate-900 hover:bg-cyan-400" onClick={(e)=>{const r=e.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top:window.innerHeight/2; teleportTo(p.id,cx,cy);}}>Choose {p.name}</Button></div></CardContent></Card>))}</div></section>
+          <section ref={plansRef} id="plans" className="relative z-10 mx-auto -mt-10 max-w-6xl px-6 pb-24">
+            {/* Shared Hosting Plans */}
+            <div className="mb-12">
+              <h3 className="mb-6 text-2xl font-bold text-cyan-200">Shared Hosting</h3>
+              <div className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-4 ${highlightPlans?'rounded-3xl ring-2 ring-cyan-400/40 animate-pulse':''}`}>{PLANS.map(p=>(<Card key={p.id} className="group relative overflow-hidden border border-cyan-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)]"><CardContent className="p-5"><motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity,repeatType:'mirror',duration:3.4,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(56,189,248,0.4) 50%, transparent 60%)'}}/><div className="mb-2 flex items-center gap-2 text-xs text-cyan-200"><span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5">{p.badge}</span></div><h3 className="text-lg font-bold text-cyan-100">{p.name}</h3><p className="mt-1 text-sm text-slate-300">{p.tagline}</p><div className="mt-4 text-2xl font-semibold text-cyan-200">{p.price}</div><ul className="mt-3 space-y-2 text-sm text-slate-200">{p.features.map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-300"/> {f}</li>))}</ul><div className="mt-4"><Button className="w-full bg-cyan-500 text-slate-900 hover:bg-cyan-400" onClick={(e)=>{const r=e.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top:window.innerHeight/2; teleportTo(p.id,cx,cy);}}>Choose {p.name}</Button></div></CardContent></Card>))}</div>
+            </div>
+
+            {/* VPS Plans */}
+            <div className="mb-12">
+              <h3 className="mb-6 text-2xl font-bold text-cyan-200">VPS Hosting</h3>
+              <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <h4 className="col-span-full text-lg font-semibold text-fuchsia-300">Unmanaged VPS</h4>
+                {VPS_PLANS.filter(p => p.type === 'unmanaged').map(p=>(
+                  <Card key={p.id} className="group relative overflow-hidden border border-fuchsia-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(168,85,247,0.15)]">
+                    <CardContent className="p-5">
+                      <motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity,repeatType:'mirror',duration:3.4,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(168,85,247,0.4) 50%, transparent 60%)'}}/>
+                      <div className="mb-2 flex items-center gap-2 text-xs text-fuchsia-200">
+                        <span className="rounded-full border border-fuchsia-400/30 bg-fuchsia-500/10 px-2 py-0.5">{p.badge}</span>
+                      </div>
+                      <h3 className="text-lg font-bold text-fuchsia-100">{p.name}</h3>
+                      <p className="mt-1 text-sm text-slate-300">{p.tagline}</p>
+                      <div className="mt-4 text-2xl font-semibold text-fuchsia-200">{p.price}</div>
+                      <ul className="mt-3 space-y-2 text-sm text-slate-200">
+                        {p.features.map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-fuchsia-300"/> {f}</li>))}
+                      </ul>
+                      <div className="mt-4">
+                        <Button className="w-full bg-fuchsia-500 text-slate-900 hover:bg-fuchsia-400">Choose {p.name}</Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <h4 className="col-span-full text-lg font-semibold text-purple-300">Managed VPS</h4>
+                {VPS_PLANS.filter(p => p.type === 'managed').map(p=>(
+                  <Card key={p.id} className="group relative overflow-hidden border border-purple-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(147,51,234,0.15)]">
+                    <CardContent className="p-5">
+                      <motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity,repeatType:'mirror',duration:3.4,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(147,51,234,0.4) 50%, transparent 60%)'}}/>
+                      <div className="mb-2 flex items-center gap-2 text-xs text-purple-200">
+                        <span className="rounded-full border border-purple-400/30 bg-purple-500/10 px-2 py-0.5">{p.badge}</span>
+                      </div>
+                      <h3 className="text-lg font-bold text-purple-100">{p.name}</h3>
+                      <p className="mt-1 text-sm text-slate-300">{p.tagline}</p>
+                      <div className="mt-4 text-2xl font-semibold text-purple-200">{p.price}</div>
+                      <ul className="mt-3 space-y-2 text-sm text-slate-200">
+                        {p.features.map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-purple-300"/> {f}</li>))}
+                      </ul>
+                      <div className="mt-4">
+                        <Button className="w-full bg-purple-500 text-slate-900 hover:bg-purple-400">Choose {p.name}</Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Dedicated Server Plans */}
+            <div className="mb-12">
+              <h3 className="mb-6 text-2xl font-bold text-cyan-200">Dedicated Servers</h3>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {DEDICATED_PLANS.map(p=>(
+                  <Card key={p.id} className="group relative overflow-hidden border border-emerald-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(34,197,94,0.15)]">
+                    <CardContent className="p-5">
+                      <motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity,repeatType:'mirror',duration:3.4,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(34,197,94,0.4) 50%, transparent 60%)'}}/>
+                      <div className="mb-2 flex items-center gap-2 text-xs text-emerald-200">
+                        <span className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-2 py-0.5">{p.badge}</span>
+                      </div>
+                      <h3 className="text-lg font-bold text-emerald-100">{p.name}</h3>
+                      <p className="mt-1 text-sm text-slate-300">{p.tagline}</p>
+                      <div className="mt-4 text-2xl font-semibold text-emerald-200">{p.price}</div>
+                      <ul className="mt-3 space-y-2 text-sm text-slate-200">
+                        {p.features.map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-emerald-300"/> {f}</li>))}
+                      </ul>
+                      <div className="mt-4">
+                        <Button className="w-full bg-emerald-500 text-slate-900 hover:bg-emerald-400">Choose {p.name}</Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </section>
 
           {/* FEATURES */}
           <section id="features" className="mx-auto max-w-6xl px-6 pb-24"><div className="grid gap-6 md:grid-cols-3"><FeatureCard icon={<IconZap className="h-5 w-5"/>} title="Parallel Deployments" desc="Ship multiple versions simultaneously, collapse to the best performer automatically."/><FeatureCard icon={<IconShield className="h-5 w-5"/>} title="Predictive Shield" desc="Anomaly detection blocks threats before signatures exist."/><FeatureCard icon={<IconCpu className="h-5 w-5"/>} title="Autonomic Scaling" desc="Resources entangle across regions to absorb viral spikes."/></div></section>
@@ -170,10 +1007,10 @@ export default function QPandaOnePager(){
           <section id="benchmarks" className="mx-auto max-w-6xl px-6 pb-24"><div className="grid gap-6 sm:grid-cols-3"><MetricCard label="Avg. Cold Start" value="28ms" sub="Neural edge functions"/><MetricCard label="99.995%" value="SLA" sub="Past 90 days"/><MetricCard label="2.3x" value="Faster TTFB" sub="vs. baseline clouds"/></div></section>
           <section id="testimonials" className="mx-auto max-w-6xl px-6 pb-24"><div className="grid gap-6 md:grid-cols-3"><QuoteCard quote="Switched our launch to Q Panda - handled a 40x spike without blinking." author="Sara K., StreamKit"/><QuoteCard quote="Deploy previews in parallel changed our workflow overnight." author="Kenji M., FolioAI"/><QuoteCard quote="The predictive shield blocked a zero-day botnet before signatures were out." author="Nadia P., HexaSec"/></div></section>
           <section id="docs" className="mx-auto max-w-6xl px-6 pb-24"><Card className="border border-cyan-400/20 bg-white/5 transition-transform duration-300 hover:-translate-y-0.5"><CardContent className="p-6 md:p-8"><h3 className="text-2xl font-bold text-cyan-100">Docs preview</h3><p className="mt-2 text-slate-300">Install the CLI, initialize a project, and teleport your first deployment.</p><pre className="mt-4 overflow-x-auto rounded-xl border border-white/10 bg-slate-950/70 p-4 text-sm text-cyan-200">{`npm i -g qpanda\nqpanda init\nqpanda deploy`}</pre><div className="mt-4"><Button className="bg-cyan-500 text-slate-900 hover:bg-cyan-400">Open full docs</Button></div></CardContent></Card></section>
-          <section id="faq" className="mx-auto max-w-5xl px-6 pb-24"><h3 className="mb-6 text-2xl font-bold text-cyan-100">Frequently asked</h3><div className="divide-y divide-white/10 rounded-2xl border border-cyan-400/20 bg-white/5"><FAQItem q="What does 'quantum' mean here?" a="We simulate quantum-style parallelism - predictive routing, speculative deploys, and entangled failover - not literal qubits."/><FAQItem q="Can I bring my own domain?" a="Yes. Point your DNS to our Anycast edge. We generate and renew TLS automatically."/><FAQItem q="How is pricing calculated?" a="Plans are flat-rate by tier. Usage-based add-ons (edge functions, storage) are billed per unit with clear caps."/></div></section>
-          <section className="mx-auto mb-28 max-w-5xl px-6"><Card className="border border-cyan-400/20 bg-gradient-to-r from-cyan-500/10 to-fuchsia-500/10 backdrop-blur-xl"><CardContent className="flex flex-col items-center justify-between gap-4 p-8 md:flex-row"><div><h3 className="text-2xl font-bold text-cyan-100">Ready to teleport?</h3><p className="mt-1 text-slate-300">Start free. Migrate in minutes with the Q Panda co-pilot.</p></div><div className="flex gap-2"><Button className="bg-cyan-500 text-slate-900 hover:bg-cyan-400"><IconRocket className="mr-2 h-4 w-4"/> Get started</Button><Button className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">Talk to sales</Button></div></CardContent></Card></section>
+          <section id="faq" className="mx-auto max-w-6xl px-6 pb-24"><h3 className="mb-6 text-2xl font-bold text-cyan-100">Frequently asked</h3><div className="divide-y divide-white/10 rounded-2xl border border-cyan-400/20 bg-white/5"><FAQItem q="What does 'quantum' mean here?" a="We simulate quantum-style parallelism - predictive routing, speculative deploys, and entangled failover - not literal qubits."/><FAQItem q="Can I bring my own domain?" a="Yes. Point your DNS to our Anycast edge. We generate and renew TLS automatically."/><FAQItem q="How is pricing calculated?" a="Plans are flat-rate by tier. Usage-based add-ons (edge functions, storage) are billed per unit with clear caps."/></div></section>
+          <section className="mx-auto mb-28 max-w-6xl px-6"><Card className="border border-cyan-400/20 bg-gradient-to-r from-cyan-500/10 to-fuchsia-500/10 backdrop-blur-xl"><CardContent className="flex flex-col items-center justify-between gap-4 p-8 md:flex-row"><div><h3 className="text-2xl font-bold text-cyan-100">Ready to teleport?</h3><p className="mt-1 text-slate-300">Start free. Migrate in minutes with the Q Panda co-pilot.</p></div><div className="flex gap-2"><Button className="bg-cyan-500 text-slate-900 hover:bg-cyan-400"><IconRocket className="mr-2 h-4 w-4"/> Get started</Button><Button className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">Talk to sales</Button></div></CardContent></Card></section>
         </>)}
-        <footer className="mx-auto max-w-6xl px-6 pb-12 text-sm text-slate-400"><div className="border-t border-white/10 pt-6">© {new Date().getFullYear()} Q Panda Labs. All rights reserved.</div></footer>
+        <footer className="mx-auto max-w-6xl px-6 pb-12 text-sm text-slate-400"><div className="border-t border-white/10 pt-6 text-center space-y-2"><div>Powered by WHMCompleteSolution</div><div>© {new Date().getFullYear()} Blue Panda. All Rights Reserved.</div></div></footer>
         <PlanDialog open={dialogOpen} onOpenChange={setDialogOpen} planId={activePlan}/>
       </div>
     </ErrorBoundary>
