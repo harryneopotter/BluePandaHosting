@@ -1,0 +1,38 @@
+## API Security
+✅ Use server-only API credentials; never expose them to the browser
+✅ Assign least privilege roles to API users
+✅ Restrict API access by IP address
+✅ Validate ownership on all data access
+✅ Rotate API credentials periodically
+✅ Audit API usage and log sensitive actions
+
+## Session Management
+✅ Use HMAC-SHA256 signed sessions with expiration
+✅ Store sessions in HttpOnly secure cookies
+✅ Implement CSRF protection for all state-changing requests
+✅ Use refresh tokens or rotate session tokens periodically
+✅ Validate session integrity on every request
+
+## Rate Limiting
+✅ Limit login attempts (e.g., 5 per hour)
+✅ Limit ticket creation and replies (e.g., 20 tickets/hour, 40 replies/hour)
+✅ Apply rate limits per user/IP and per endpoint
+✅ Monitor rate limit violations and alert on abuse
+
+## Input Validation
+✅ Validate all inputs using TypeScript and runtime libraries (e.g., Zod, Yup)
+✅ Sanitize inputs to prevent injection attacks
+✅ Enforce strict typing on API responses
+✅ Reject malformed or unexpected data
+
+## Error Handling
+✅ Classify errors (401, 403, 400, 429, 500, 404)
+✅ Sanitize error messages to avoid leaking sensitive data
+✅ Use consistent error format across all endpoints
+✅ Log errors with context for debugging
+
+## Monitoring & Alerts
+✅ Integrate with monitoring tools (e.g., Sentry, Datadog)
+✅ Track performance and error rates
+✅ Set up alerts for unusual activity or abuse
+✅ Maintain audit logs for sensitive actions

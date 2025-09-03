@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 
 // Sidebar-based Domains mega menu matching Hosting pattern
 export default function DomainsMegaMenu() {
@@ -93,19 +94,19 @@ export default function DomainsMegaMenu() {
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           {data?.items.slice(0, 2).map((it) => (
-            <a key={it.name} href={it.href} className="group block rounded-lg border border-cyan-400/10 p-4 hover:border-cyan-400/30 hover:bg-cyan-500/5 transition-all">
+            <Link key={it.name} href={it.href} className="group block rounded-lg border border-cyan-400/10 p-4 hover:border-cyan-400/30 hover:bg-cyan-500/5 transition-all">
               <div className="flex items-center justify-between mb-2">
                 <div className="font-medium text-cyan-100">{it.name}</div>
                 {it.price && <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5 text-xs text-cyan-200">{it.price}</span>}
               </div>
               <div className="text-sm text-slate-400">{it.tagline}</div>
-            </a>
+            </Link>
           ))}
         </div>
         <div className="mt-6 text-center">
-          <a href="/domains" className="inline-flex items-center rounded-lg border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50">
+          <Link href="/domains" className="inline-flex items-center rounded-lg border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50">
             View All Domain Services
-          </a>
+          </Link>
         </div>
       </div>
     </div>

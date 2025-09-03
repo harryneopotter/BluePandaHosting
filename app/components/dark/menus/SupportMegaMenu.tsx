@@ -23,8 +23,8 @@ export default function SupportMegaMenu() {
       title: "Help Center",
       description: "Get answers to common questions",
       items: [
-        { name: "Popular Articles", tagline: "Start with top topics", href: "/support" },
-        { name: "Contact Support", tagline: "We are here 24/7", href: "/support" },
+        { name: "Popular Articles", tagline: "Start with top topics", href: "/support/tickets" },
+        { name: "Contact Support", tagline: "We are here 24/7", href: "#/contact" },
       ]
     },
     "live-chat": {
@@ -32,7 +32,7 @@ export default function SupportMegaMenu() {
       description: "Chat with our experts",
       items: [
         { name: "Start Chat", tagline: "Instant assistance", href: "#" },
-        { name: "Pre-sales Chat", tagline: "Talk to sales", href: "/contact" },
+        { name: "Pre-sales Chat", tagline: "Talk to sales", href: "#/contact" },
       ]
     },
     "ticket-system": {
@@ -47,7 +47,7 @@ export default function SupportMegaMenu() {
       title: "Knowledge Base",
       description: "Self-help articles and guides",
       items: [
-        { name: "Browse KB", tagline: "Troubleshooting & how-tos", href: "/support" },
+        { name: "Browse KB", tagline: "Troubleshooting & how-tos", href: "/support/tickets" },
         { name: "API Docs", tagline: "Developer documentation", href: "#docs" },
       ]
     },
@@ -55,15 +55,15 @@ export default function SupportMegaMenu() {
       title: "Video Tutorials",
       description: "Step-by-step walkthroughs",
       items: [
-        { name: "Getting Started", tagline: "Setup in minutes", href: "/support" },
-        { name: "Advanced Topics", tagline: "Deep dives", href: "/support" },
+        { name: "Getting Started", tagline: "Setup in minutes", href: "/support/tickets" },
+        { name: "Advanced Topics", tagline: "Deep dives", href: "/support/tickets" },
       ]
     },
     "community": {
       title: "Community Forum",
       description: "Ask questions and share knowledge",
       items: [
-        { name: "Join Community", tagline: "Connect with others", href: "/support" },
+        { name: "Join Community", tagline: "Connect with others", href: "/support/tickets" },
         { name: "Status", tagline: "Service uptime", href: "#/status" },
       ]
     },
@@ -102,7 +102,7 @@ export default function SupportMegaMenu() {
           ))}
         </div>
         <div className="mt-6 text-center">
-          <a href="/support" className="inline-flex items-center rounded-lg border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50">
+          <a href="/support/tickets" className="inline-flex items-center rounded-lg border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50">
             Visit Support Center
           </a>
         </div>

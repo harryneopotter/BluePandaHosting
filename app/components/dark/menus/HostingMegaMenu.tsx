@@ -12,6 +12,9 @@ export default function HostingMegaMenu() {
     { id: "dedicated-servers", title: "Dedicated Servers", group: "hosting" },
     { id: "cloud-hosting", title: "Cloud Hosting", group: "hosting" },
     { id: "wordpress-hosting", title: "WordPress Hosting", group: "managed" },
+    { id: "fully-managed-vps", title: "Fully Managed VPS", group: "managed" },
+    { id: "fully-managed-cloud", title: "Fully Managed Cloud", group: "managed" },
+    { id: "fully-managed-bare-metal", title: "Fully Managed Bare Metal", group: "managed" },
   ];
 
   const ROUTES: Record<string, string> = {
@@ -20,6 +23,9 @@ export default function HostingMegaMenu() {
     "dedicated-servers": "/hosting/dedicated-servers",
     "cloud-hosting": "/hosting/cloud-hosting",
     "wordpress-hosting": "/hosting/wordpress-hosting",
+    "fully-managed-vps": "/hosting/fully-managed-vps",
+    "fully-managed-cloud": "/hosting/fully-managed-cloud",
+    "fully-managed-bare-metal": "/hosting/fully-managed-bare-metal",
   };
 
   type Item = { name: string; tagline: string; price: string; features: string[]; href: string };
@@ -63,6 +69,30 @@ export default function HostingMegaMenu() {
         { name: "WP Starter", tagline: "Beginner friendly", price: "$29.99/mo", features: ["1 WP site", "Auto updates", "CDN"], href: ROUTES["wordpress-hosting"] },
         { name: "WP Business", tagline: "For teams", price: "$79.99/mo", features: ["5 WP sites", "Advanced security", "Priority support"], href: ROUTES["wordpress-hosting"] }
       ]
+    },
+    "fully-managed-vps": {
+        title: "Fully Managed VPS",
+        description: "The power of a VPS, with none of the hassle.",
+        items: [
+            { name: "VPSM 2048", tagline: "Popular managed solution", price: "$69.99/mo", features: ["2 vCPU", "2GB RAM", "Full Management"], href: ROUTES["fully-managed-vps"] },
+            { name: "VPSM 4096", tagline: "Premium managed VPS", price: "$109.99/mo", features: ["3 vCPU", "4GB RAM", "Full Management"], href: ROUTES["fully-managed-vps"] }
+        ]
+    },
+    "fully-managed-cloud": {
+        title: "Fully Managed Cloud",
+        description: "Scalability with a white-glove service.",
+        items: [
+            { name: "Managed Cloud Starter", tagline: "For growing businesses", price: "$59.99/mo", features: ["1 vCPU", "2GB RAM", "Full Management"], href: ROUTES["fully-managed-cloud"] },
+            { name: "Managed Cloud Pro", tagline: "For production workloads", price: "$99.99/mo", features: ["4 vCPU", "8GB RAM", "Full Management"], href: ROUTES["fully-managed-cloud"] }
+        ]
+    },
+    "fully-managed-bare-metal": {
+        title: "Fully Managed Bare Metal",
+        description: "Ultimate power, zero administration.",
+        items: [
+            { name: "Managed Xeon 16GB", tagline: "Enterprise hardware", price: "$349/mo", features: ["8 cores", "16GB RAM", "Full Management"], href: ROUTES["fully-managed-bare-metal"] },
+            { name: "Managed Dual Xeon", tagline: "Maximum performance", price: "Contact Sales", features: ["16 cores", "24GB RAM", "Full Management"], href: ROUTES["fully-managed-bare-metal"] }
+        ]
     }
   };
 
@@ -117,9 +147,9 @@ export default function HostingMegaMenu() {
           ))}
         </div>
         <div className="mt-6 text-center">
-          <a href={ROUTES[selected]} className="inline-flex items-center rounded-lg border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50">
+          <Link href={ROUTES[selected] || '#'} className="inline-flex items-center rounded-lg border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50">
             View All Plans
-          </a>
+          </Link>
         </div>
       </div>
     </div>
