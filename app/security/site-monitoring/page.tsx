@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from 'next';
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -23,11 +22,6 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 );
 
 // --- Page Specific Data ---
-
-export const metadata: Metadata = {
-  title: 'Site & Server Monitoring — QuantumPanda Security',
-  description: 'Proactive 24/7 monitoring for your website and server, powered by our predictive AI engine.'
-};
 
 const MONITORING_PLANS = [
   {

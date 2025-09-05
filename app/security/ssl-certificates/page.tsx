@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from 'next';
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -22,11 +21,6 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 );
 
 // --- Page Specific Data ---
-
-export const metadata: Metadata = {
-  title: 'SSL Certificates — QuantumPanda Security',
-  description: 'Secure your site with our range of SSL certificates, managed and monitored by our AI security platform.'
-};
 
 const SSL_PLANS = [
   {

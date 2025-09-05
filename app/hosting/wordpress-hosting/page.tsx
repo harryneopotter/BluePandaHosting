@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from 'next';
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -23,11 +22,6 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 );
 
 // --- Page Specific Data ---
-
-export const metadata: Metadata = {
-  title: 'Managed WordPress Hosting — QuantumPanda',
-  description: 'Focus on your content and let our AI-powered platform handle the rest. The best managed WordPress hosting experience.'
-};
 
 const WP_PLANS = [
     {

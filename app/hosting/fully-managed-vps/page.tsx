@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from 'next';
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -23,10 +22,6 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 
 // --- Page Specific Data ---
 
-export const metadata: Metadata = {
-  title: 'Fully Managed VPS Hosting — QuantumPanda',
-  description: 'The power of a VPS, with the convenience of our AI-powered management. Focus on your business, we’ll handle the server.'
-};
 
 const MANAGED_VPS_PLANS = [
   {

@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from 'next';
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -22,11 +21,6 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 );
 
 // --- Page Specific Data ---
-
-export const metadata: Metadata = {
-  title: 'OX Suite Business Email — QuantumPanda',
-  description: 'Professional email and productivity suite for your business, powered by Open-Xchange and enhanced by AI.'
-};
 
 const OX_PLANS = [
   {
