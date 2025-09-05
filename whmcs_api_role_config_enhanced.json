@@ -1,0 +1,128 @@
+{
+    "role_name": "QuantumPanda_ClientArea_v1",
+    "description": "Production API role for QuantumPanda client area integration with enhanced security constraints",
+    "version": "1.0",
+    "created_date": "2025-08-31",
+    "permissions": [
+        "ValidateLogin",
+        "GetClientsDetails",
+        "GetInvoices",
+        "GetInvoice",
+        "CreateSsoToken",
+        "GetSupportDepartments",
+        "GetTickets",
+        "GetTicket",
+        "OpenTicket",
+        "AddTicketReply",
+        "AddOrder"
+    ],
+    "security_constraints": {
+        "ip_whitelist": [
+            "YOUR_PRODUCTION_SERVER_IP",
+            "YOUR_BACKUP_SERVER_IP"
+        ],
+        "rate_limits": {
+            "requests_per_minute": 100,
+            "requests_per_hour": 1000,
+            "burst_limit": 20,
+            "concurrent_requests": 10
+        },
+        "allowed_origins": [
+            "https://your-production-domain.com"
+        ],
+        "require_https": true,
+        "ssl_verification": "strict",
+        "session_timeout_seconds": 3600,
+        "max_concurrent_sessions_per_ip": 5
+    },
+    "audit_settings": {
+        "log_all_requests": true,
+        "log_failed_attempts": true,
+        "log_sensitive_actions": [
+            "CreateSsoToken",
+            "AddOrder",
+            "OpenTicket"
+        ],
+        "alert_on_suspicious_activity": true,
+        "alert_thresholds": {
+            "failed_logins_per_hour": 10,
+            "rate_limit_violations_per_hour": 20,
+            "unusual_api_usage_spike": 200
+        }
+    },
+    "restrictions": {
+        "allowed_hours_utc": "00:00-23:59",
+        "blocked_countries": [],
+        "blocked_user_agents": [
+            "curl/*",
+            "wget/*",
+            "python-requests/*"
+        ],
+        "require_user_agent": true,
+        "min_request_interval_ms": 50
+    },
+    "fail_safes": {
+        "auto_disable_on_abuse": true,
+        "temp_disable_duration_minutes": 60,
+        "max_failures_before_disable": 100,
+        "notify_admin_on_disable": true,
+        "circuit_breaker_enabled": true
+    },
+    "environment_specific": {
+        "development": {
+            "ip_whitelist": ["127.0.0.1", "::1", "localhost"],
+            "rate_limits": {
+                "requests_per_minute": 300,
+                "requests_per_hour": 5000
+            },
+            "require_https": false,
+            "blocked_user_agents": []
+        },
+        "staging": {
+            "ip_whitelist": ["YOUR_STAGING_SERVER_IP"],
+            "rate_limits": {
+                "requests_per_minute": 200,
+                "requests_per_hour": 2000
+            },
+            "require_https": true,
+            "ssl_verification": "relaxed"
+        },
+        "production": {
+            "ip_whitelist": ["YOUR_PRODUCTION_SERVER_IP"],
+            "rate_limits": {
+                "requests_per_minute": 60,
+                "requests_per_hour": 800
+            },
+            "require_https": true,
+            "ssl_verification": "strict"
+        }
+    },
+    "permission_scopes": {
+        "CreateSsoToken": {
+            "allowed_destinations": [
+                "clientarea.php?action=invoices&pdf=true",
+                "clientarea.php?action=supporttickets&files=true",
+                "clientarea.php?action=details"
+            ],
+            "max_expiry_seconds": 300,
+            "require_resource_id": true
+        },
+        "AddOrder": {
+            "allowed_product_types": ["hosting", "domain"],
+            "max_order_value": 1000,
+            "require_approval_over": 500
+        }
+    },
+    "compliance": {
+        "gdpr_compliant": true,
+        "data_retention_days": 90,
+        "pii_fields_encrypted": true,
+        "audit_trail_required": true,
+        "breach_notification_enabled": true
+    },
+    "monitoring_webhooks": {
+        "security_alerts": "https://your-security-webhook.com/alerts",
+        "audit_logs": "https://your-logging-service.com/whmcs-audit",
+        "rate_limit_violations": "https://your-monitoring.com/rate-limits"
+    }
+}

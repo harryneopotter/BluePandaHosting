@@ -1,0 +1,17 @@
+{
+    "role_name": "CustomClientAreaRole",
+    "description": "API role with least privilege access for custom client area functionality",
+    "permissions": [
+        "ValidateLogin",
+        "GetClientsDetails",
+        "GetInvoices",
+        "GetInvoice",
+        "CreateSsoToken",
+        "GetSupportDepartments",
+        "GetTickets",
+        "GetTicket",
+        "OpenTicket",
+        "AddTicketReply",
+        "AddOrder"
+    ]
+}
