@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from 'next';
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -16,11 +15,6 @@ const CardContent = ({className="", children, ...p}: {className?: string, childr
 const Button = ({className="", children, ...p}: {className?: string, children: React.ReactNode, onClick?: () => void}) => (<button type="button" className={`inline-flex items-center justify-center rounded-xl px-3 py-2 text-sm font-medium transition ${className}`} {...p}>{children}</button>);
 
 // --- Page Specific Data ---
-
-export const metadata: Metadata = {
-  title: 'Domain Services — QuantumPanda',
-  description: 'Find, register, and transfer your domains with ease, powered by our AI-assisted tools.'
-};
 
 const REGISTRATION_PLANS = [
   {

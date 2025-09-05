@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from 'next';
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -22,11 +21,6 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 );
 
 // --- Page Specific Data ---
-
-export const metadata: Metadata = {
-  title: 'SpamExperts Email Security — QuantumPanda',
-  description: 'Protect your inbox from spam, viruses, and phishing threats with our AI-enhanced SpamExperts filtering.'
-};
 
 const SPAMEXPERTS_PLANS = [
   {

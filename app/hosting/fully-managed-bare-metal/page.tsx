@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from 'next';
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -22,11 +21,6 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 );
 
 // --- Page Specific Data ---
-
-export const metadata: Metadata = {
-  title: 'Fully Managed Bare Metal Servers — QuantumPanda',
-  description: 'The ultimate in power and performance, fully managed by our AI platform and expert engineers.'
-};
 
 const MANAGED_DEDICATED_PLANS = [
     {
