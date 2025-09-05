@@ -147,9 +147,15 @@ export default function HostingMegaMenu() {
           ))}
         </div>
         <div className="mt-6 text-center">
-          <Link href={ROUTES[selected] || '#'} className="inline-flex items-center rounded-lg border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50">
-            View All Plans
-          </Link>
+          {ROUTES[selected] ? (
+            <Link href={ROUTES[selected]} className="inline-flex items-center rounded-lg border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50">
+              View All Plans
+            </Link>
+          ) : (
+            <Link href="/hosting" className="inline-flex items-center rounded-lg border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50">
+              View All Plans
+            </Link>
+          )}
         </div>
       </div>
     </div>
