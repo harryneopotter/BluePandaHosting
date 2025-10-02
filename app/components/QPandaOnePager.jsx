@@ -17,40 +17,40 @@ const IconChevronDown = (p) => (<svg viewBox="0 0 24 24" width="1em" height="1em
 
 // ——— Data ———
 const PLANS = [
-  { 
-    id: "standard", 
-    name: "Standard", 
-    tagline: "Perfect for personal websites and blogs.", 
-    price: "$45.00 USD", 
+  {
+    id: "standard",
+    name: "Standard",
+    tagline: "Perfect for personal websites and blogs.",
+    price: "$45.00 USD",
     period: "annually",
-    features: ["cPanel hosting","1 Website","10GB SSD Storage","Unmetered Bandwidth","Free SSL Certificate"], 
-    badge: "Basic" 
+    features: ["cPanel hosting","1 Website","10GB SSD Storage","Unmetered Bandwidth","Free SSL Certificate"],
+    badge: "Basic"
   },
-  { 
-    id: "business", 
-    name: "Business", 
-    tagline: "Best for medium and dynamic websites.", 
-    price: "$59.99 USD", 
+  {
+    id: "business",
+    name: "Business",
+    tagline: "Best for medium and dynamic websites.",
+    price: "$59.99 USD",
     period: "annually",
-    features: ["Unlimited Websites","25GB SSD Storage","Unmetered Bandwidth","Free Domain (1 year)","Advanced Security"], 
-    badge: "Popular" 
+    features: ["Unlimited Websites","25GB SSD Storage","Unmetered Bandwidth","Free Domain (1 year)","Advanced Security"],
+    badge: "Popular"
   },
-  { 
-    id: "executive", 
-    name: "Executive", 
-    tagline: "Best for business and eCommerce websites.", 
-    price: "$99.99 USD", 
+  {
+    id: "executive",
+    name: "Executive",
+    tagline: "Best for business and eCommerce websites.",
+    price: "$99.99 USD",
     period: "annually",
-    features: ["Unlimited Everything","50GB SSD Storage","Premium Performance","eCommerce Ready","Priority Support"], 
-    badge: "Pro" 
+    features: ["Unlimited Everything","50GB SSD Storage","Premium Performance","eCommerce Ready","Priority Support"],
+    badge: "Pro"
   },
-  { 
-    id: "vps", 
-    name: "VPS Hosting", 
-    tagline: "Scalable virtual private servers.", 
-    price: "From $25.99/mo", 
-    features: ["Full Root Access","SSD Storage","Choice of OS","Scalable Resources","99.9% Uptime SLA"], 
-    badge: "Advanced" 
+  {
+    id: "vps",
+    name: "VPS Hosting",
+    tagline: "Scalable virtual private servers.",
+    price: "From $25.99/mo",
+    features: ["Full Root Access","SSD Storage","Choice of OS","Scalable Resources","99.9% Uptime SLA"],
+    badge: "Advanced"
   },
 ];
 
@@ -69,7 +69,7 @@ const VPS_PLANS = [
     id: "vps2048",
     name: "VPS 2048",
     tagline: "Most popular unmanaged option",
-    price: "$39.99/mo", 
+    price: "$39.99/mo",
     features: ["Linux VPS","2 vCore CPU","2 GB Memory","60 GB Disk","2048 GB Bandwidth"],
     badge: "Popular",
     type: "unmanaged"
@@ -94,7 +94,7 @@ const VPS_PLANS = [
   },
   {
     id: "vpsm2048",
-    name: "VPSM 2048", 
+    name: "VPSM 2048",
     tagline: "Popular managed VPS solution",
     price: "$69.99/mo",
     features: ["Linux VPS","2 vCore CPU","2 GB Memory","60 GB Disk","Core Management","FREE cPanel"],
@@ -124,7 +124,7 @@ const DEDICATED_PLANS = [
     type: "dedicated"
   },
   {
-    id: "xeon4gb", 
+    id: "xeon4gb",
     name: "Xeon 4GB",
     tagline: "Entry-level dedicated server",
     price: "Contact Sales",
@@ -134,7 +134,7 @@ const DEDICATED_PLANS = [
   },
   {
     id: "dualxeon24gb",
-    name: "Dual Xeon 24GB", 
+    name: "Dual Xeon 24GB",
     tagline: "Maximum performance dedicated server",
     price: "Contact Sales",
     features: ["Dual Intel Xeon","16 Cores","24 GB RAM","2048 GB Disk","20 TB Bandwidth","Premium Support"],
@@ -152,14 +152,14 @@ const MEGA_MENU_CATEGORIES = [
     group: 'hosting'
   },
   {
-    id: 'vps-hosting', 
+    id: 'vps-hosting',
     title: 'VPS Hosting',
     icon: IconCpu,
     group: 'hosting'
   },
   {
     id: 'bare-metals',
-    title: 'Bare Metals', 
+    title: 'Bare Metals',
     icon: IconRocket,
     group: 'hosting'
   },
@@ -176,7 +176,7 @@ const MEGA_MENU_CATEGORIES = [
     group: 'managed'
   },
   {
-    id: 'managed-vms', 
+    id: 'managed-vms',
     title: 'Managed VMs',
     icon: IconCpu,
     group: 'managed'
@@ -195,7 +195,7 @@ const MEGA_MENU_CATEGORIES = [
   },
   {
     id: 'site-monitoring',
-    title: 'Site Monitoring', 
+    title: 'Site Monitoring',
     icon: IconZap,
     group: 'security'
   }
@@ -209,13 +209,13 @@ const CATEGORY_CONTENT = {
     items: PLANS
   },
   'vps-hosting': {
-    title: 'VPS Hosting', 
+    title: 'VPS Hosting',
     description: 'Scalable virtual private servers with full control',
     items: VPS_PLANS
   },
   'bare-metals': {
     title: 'Bare Metal Servers',
-    description: 'Dedicated physical servers for maximum performance', 
+    description: 'Dedicated physical servers for maximum performance',
     items: DEDICATED_PLANS
   },
   'cloud-vms': {
@@ -232,7 +232,7 @@ const CATEGORY_CONTENT = {
       },
       {
         id: 'cloud-pro',
-        name: 'Cloud Pro', 
+        name: 'Cloud Pro',
         tagline: 'Production-ready cloud infrastructure',
         price: '$49.99/mo',
         features: ['4 vCPU', '8GB RAM', '100GB SSD', 'Load Balancer', 'Premium Support'],
@@ -256,7 +256,7 @@ const CATEGORY_CONTENT = {
         id: 'wp-business',
         name: 'WordPress Business',
         tagline: 'Professional WordPress hosting',
-        price: '$79.99/mo', 
+        price: '$79.99/mo',
         features: ['5 WP Sites', 'Premium Themes', 'Advanced Security', 'Performance Optimization', 'Priority Support'],
         badge: 'Pro'
       }
@@ -339,7 +339,7 @@ const CATEGORY_CONTENT = {
       },
       {
         id: 'wildcard-ssl',
-        name: 'Wildcard SSL Certificate', 
+        name: 'Wildcard SSL Certificate',
         tagline: 'Secure unlimited subdomains',
         price: '$149.99/year',
         features: ['Unlimited Subdomains', 'Domain Validation', '256-bit Encryption', 'Auto-Renewal', 'Multi-Server License'],
@@ -401,7 +401,7 @@ function DialogContent({className="",children}){
   const {open,onOpenChange,dismissOnBackdrop}=useContext(DialogCtx);
   const ref=useRef(null); const [fxId,setFxId]=useState(0); const [playFx,setPlayFx]=useState(false);
   useEffect(()=>{ if(typeof window==='undefined'||!open) return; const prev=document.activeElement; const onKey=(e)=>{ if(e.key==='Escape'){ setPlayFx(true); setFxId(n=>n+1); setTimeout(()=>{ onOpenChange(false); setPlayFx(false); },260); } }; document.addEventListener('keydown',onKey); const prevOv=document.body.style.overflow; document.body.style.overflow='hidden'; setTimeout(()=>{ref.current&&ref.current.focus?.();},0); return ()=>{ document.removeEventListener('keydown',onKey); document.body.style.overflow=prevOv; prev&&prev.focus&&prev.focus(); }; },[open,onOpenChange]);
-	if (typeof window === "undefined") return null;	
+	if (typeof window === "undefined") return null;
   return createPortal(
     <AnimatePresence>
       {open&&(
@@ -488,7 +488,7 @@ const PLAN_NODE_POS=[{id:'standard',top:24,left:18},{id:'business',top:42,left:5
 const PlanNode=({id,top,left,onClick})=>(<button onClick={(e)=>{const r=e.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top+r.height/2:window.innerHeight/2; onClick&&onClick(id,cx,cy);}} className="group absolute z-20 h-4 w-4 rounded-full bg-cyan-300/80 shadow-[0_0_18px_6px_rgba(34,211,238,0.6)] hover:shadow-[0_0_28px_12px_rgba(34,211,238,0.8)] ring-2 ring-cyan-200/70" style={{top:`${top}%`,left:`${left}%`}} aria-label={`Open ${id} plan`}><span className="absolute -inset-3 rounded-full bg-cyan-400/10 blur-md opacity-0 group-hover:opacity-100"/></button>);
 
 function PandaFace({size=68}){ return (<svg width={size} height={size} viewBox="0 0 128 128" className="drop-shadow-[0_0_18px_rgba(59,130,246,0.5)]"><defs><radialGradient id="g" cx="50%" cy="50%" r="60%"><stop offset="0%" stopColor="#b3e5fc"/><stop offset="100%" stopColor="#38bdf8"/></radialGradient></defs><circle cx="64" cy="64" r="52" fill="url(#g)" stroke="#0ea5e9" strokeWidth="4"/><circle cx="36" cy="34" r="16" fill="#111827"/><circle cx="92" cy="34" r="16" fill="#111827"/><ellipse cx="64" cy="72" rx="42" ry="36" fill="#f8fafc"/><circle cx="48" cy="66" r="10" fill="#111827"/><circle cx="80" cy="66" r="10" fill="#111827"/><path d="M50 92 C64 104 78 104 92 92" stroke="#111827" strokeWidth="6" fill="none" strokeLinecap="round"/></svg>); }
-function PandaTrail({pos,length=10}){ const [trail,setTrail]=useState([]); useEffect(()=>{ setTrail(t=>{const next=[...t,{id:Date.now(),x:pos.x,y:pos.y}]; return next.slice(-length);}); },[pos.x,pos.y]); return (<AnimatePresence>{trail.map(p=>(<motion.div key={p.id} className="pointer-events-none fixed z-20 h-2 w-2 rounded-full bg-cyan-400/60" initial={{x:p.x,y:p.y,opacity:0.45,scale:1}} animate={{opacity:0,scale:0.6,y:p.y-20}} exit={{opacity:0}} transition={{duration:0.9,ease:'easeOut'}}/>))}</AnimatePresence>); }
+function PandaTrail({pos,length=10}){ const [trail,setTrail]=useState([]); useEffect(()=>{ setTrail(t=>{const next=[...t,{id:Date.now(),x:pos.x,y:pos.y}]; return next.slice(-length);}); },[pos.x,pos.y,length]); return (<AnimatePresence>{trail.map(p=>(<motion.div key={p.id} className="pointer-events-none fixed z-20 h-2 w-2 rounded-full bg-cyan-400/60" initial={{x:p.x,y:p.y,opacity:0.45,scale:1}} animate={{opacity:0,scale:0.6,y:p.y-20}} exit={{opacity:0}} transition={{duration:0.9,ease:'easeOut'}}/>))}</AnimatePresence>); }
 const TeleportRing=({x,y,show})=>(<AnimatePresence>{show&&(<motion.div initial={{scale:0.2,opacity:0.8}} animate={{scale:1.8,opacity:0}} exit={{opacity:0}} transition={{duration:0.6,ease:'easeOut'}} className="pointer-events-none fixed z-30 h-6 w-6 rounded-full border-2 border-cyan-300 shadow-[0_0_24px_6px_rgba(34,211,238,0.5)]" style={{left:(x||0)-12,top:(y||0)-12}}/>)}</AnimatePresence>);
 
 function PlanDialog({open,onOpenChange,planId}){ const plan=PLANS.find(p=>p.id===planId)||null; return (<Dialog open={!!open} onOpenChange={onOpenChange}><DialogContent className="border border-cyan-300/20 bg-gradient-to-b from-slate-900/90 to-slate-950/95 p-4 backdrop-blur-xl shadow-2xl"><DialogHeader><DialogTitle className="flex items-center gap-2 text-cyan-200"><IconSparkles className="h-5 w-5"/> {plan?plan.name:"Plan"}{plan?.badge&&<span className="ml-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5 text-xs text-cyan-200">{plan.badge}</span>}</DialogTitle><DialogDescription className="text-slate-300">{plan?plan.tagline:"Quantum-grade hosting plan."}</DialogDescription></DialogHeader><Card className="relative overflow-hidden border border-cyan-400/20 bg-white/5"><CardContent className="p-4"><motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-20" initial={{x:-200}} animate={{x:200}} transition={{repeat:Infinity,repeatType:'mirror',duration:2.2,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(56,189,248,0.6) 50%, transparent 60%)'}}/><div className="mb-2 text-2xl font-semibold text-cyan-200">{plan?plan.price:""}</div><ul className="space-y-2 text-slate-200">{(plan?.features||[]).map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_10px_2px_rgba(34,211,238,0.6)]"/>{f}</li>))}</ul><div className="mt-4 flex gap-2"><Button className="bg-cyan-500 hover:bg-cyan-400 text-slate-900">Get started</Button><Button className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">Compare</Button></div></CardContent></Card></DialogContent></Dialog>); }
@@ -496,17 +496,17 @@ function PlanDialog({open,onOpenChange,planId}){ const plan=PLANS.find(p=>p.id==
 // ——— Mega Menu Components ———
 function MegaMenu({ activeMenu, onClose, onMenuChange, onMenuEnter, onMenuLeave }) {
   if (typeof window === "undefined") return null;
-  
+
   const handleMenuEnter = () => {
     // Clear any pending close timeout from header menu
     if (onMenuEnter) onMenuEnter();
   };
-  
+
   const handleMenuLeave = () => {
     // Use the same timeout system as header menu
     if (onMenuLeave) onMenuLeave();
   };
-  
+
   return createPortal(
     <AnimatePresence>
       {activeMenu && (
@@ -520,11 +520,11 @@ function MegaMenu({ activeMenu, onClose, onMenuChange, onMenuEnter, onMenuLeave 
           onMouseLeave={handleMenuLeave}
         >
           {/* Backdrop */}
-          <div 
+          <div
             className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm"
             onClick={onClose}
           />
-          
+
           {/* Menu Content */}
           <motion.div
             className="relative z-[151] mx-auto mt-16 w-full max-w-6xl"
@@ -567,8 +567,8 @@ function HostingMegaMenu() {
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg text-left transition-colors ${
-                    selectedCategory === cat.id 
-                      ? 'bg-cyan-500/10 text-cyan-200 border border-cyan-400/20' 
+                    selectedCategory === cat.id
+                      ? 'bg-cyan-500/10 text-cyan-200 border border-cyan-400/20'
                       : 'text-slate-300 hover:text-cyan-200 hover:bg-slate-800/50'
                   }`}
                 >
@@ -578,10 +578,10 @@ function HostingMegaMenu() {
               );
             })}
           </div>
-          
+
           {/* Separator */}
           <div className="h-px bg-slate-700/50 my-4" />
-          
+
           {/* Managed Group */}
           <div className="mb-2">
             <div className="text-xs font-medium text-slate-400 uppercase tracking-wide mb-2">MANAGED SERVICES</div>
@@ -592,8 +592,8 @@ function HostingMegaMenu() {
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg text-left transition-colors ${
-                    selectedCategory === cat.id 
-                      ? 'bg-cyan-500/10 text-cyan-200 border border-cyan-400/20' 
+                    selectedCategory === cat.id
+                      ? 'bg-cyan-500/10 text-cyan-200 border border-cyan-400/20'
                       : 'text-slate-300 hover:text-cyan-200 hover:bg-slate-800/50'
                   }`}
                 >
@@ -603,10 +603,10 @@ function HostingMegaMenu() {
               );
             })}
           </div>
-          
+
           {/* Separator */}
           <div className="h-px bg-slate-700/50 my-4" />
-          
+
           {/* Security Group */}
           <div className="mb-2">
             <div className="text-xs font-medium text-slate-400 uppercase tracking-wide mb-2">SECURITY</div>
@@ -617,8 +617,8 @@ function HostingMegaMenu() {
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg text-left transition-colors ${
-                    selectedCategory === cat.id 
-                      ? 'bg-cyan-500/10 text-cyan-200 border border-cyan-400/20' 
+                    selectedCategory === cat.id
+                      ? 'bg-cyan-500/10 text-cyan-200 border border-cyan-400/20'
                       : 'text-slate-300 hover:text-cyan-200 hover:bg-slate-800/50'
                   }`}
                 >
@@ -630,7 +630,7 @@ function HostingMegaMenu() {
           </div>
         </div>
       </div>
-      
+
       {/* Main Content Area */}
       <div className="flex-1 flex">
         {/* Content */}
@@ -639,31 +639,31 @@ function HostingMegaMenu() {
             <h3 className="text-xl font-bold text-cyan-200">{selectedContent?.title}</h3>
             <p className="text-sm text-slate-400 mt-1">{selectedContent?.description}</p>
           </div>
-          
+
           <AnimatePresence mode="wait">
-            <motion.div 
+            <motion.div
               key={selectedCategory}
               className="grid gap-4 md:grid-cols-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ 
-                duration: 0.3, 
+              transition={{
+                duration: 0.3,
                 ease: [0.16, 1, 0.3, 1],
                 staggerChildren: 0.1
               }}
             >
               {selectedContent?.items?.slice(0, 2).map((item, index) => (
-                <motion.a 
+                <motion.a
                   key={item.id}
-                  href="#plans" 
+                  href="#plans"
                   className="group block rounded-lg border border-cyan-400/10 p-4 hover:border-cyan-400/30 hover:bg-cyan-500/5 transition-all"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.3, 
+                  transition={{
+                    duration: 0.3,
                     delay: index * 0.1,
-                    ease: [0.16, 1, 0.3, 1] 
+                    ease: [0.16, 1, 0.3, 1]
                   }}
                 >
                   <div className="flex items-center justify-between mb-2">
@@ -691,22 +691,22 @@ function HostingMegaMenu() {
               ))}
             </motion.div>
           </AnimatePresence>
-          
+
           <AnimatePresence>
             {selectedContent?.items && selectedContent.items.length > 2 && (
-              <motion.div 
+              <motion.div
                 key={`button-${selectedCategory}`}
                 className="mt-6 text-center"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ 
-                  duration: 0.25, 
+                transition={{
+                  duration: 0.25,
                   delay: 0.2,
-                  ease: [0.16, 1, 0.3, 1] 
+                  ease: [0.16, 1, 0.3, 1]
                 }}
               >
-                <Button 
+                <Button
                   className="bg-cyan-500/10 border border-cyan-400/30 text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50"
                   onClick={() => window.location.href = '#plans'}
                 >
@@ -716,7 +716,7 @@ function HostingMegaMenu() {
             )}
           </AnimatePresence>
         </div>
-        
+
         {/* Right Side Image/Graphic */}
         <div className="w-48 p-6 flex items-center justify-center">
           <div className="relative">
@@ -867,37 +867,37 @@ function SupportMegaMenu() {
 export default function QPandaOnePager(){
   const [pandaPos,setPandaPos]=useState({x:120,y:320}); const [ring,setRing]=useState({x:0,y:0,show:false}); const [dialogOpen,setDialogOpen]=useState(false); const [activePlan,setActivePlan]=useState(null); const [clones,setClones]=useState([]); const [route,setRoute]=useState(getRouteFromHash()); const plansRef=useRef(null); const [highlightPlans,setHighlightPlans]=useState(false);
   const [activeMenu,setActiveMenu]=useState(null); const [menuTimeout,setMenuTimeout]=useState(null);
-  
+
   useEffect(()=>{ setPandaPos({x:window.innerWidth*0.5,y:Math.min(window.innerHeight*0.35,360)}); },[]);
   useEffect(()=>{ const plan=getDeepLinkPlanFromURL(window.location.href); if(plan&&PLANS.some(p=>p.id===plan)){ setTimeout(()=>{ teleportTo(plan,window.innerWidth*0.5,window.innerHeight*0.35); },300);} },[]);
   useEffect(()=>{ const onHash=()=>setRoute(getRouteFromHash(window.location.hash)); window.addEventListener('hashchange',onHash); return ()=>window.removeEventListener('hashchange',onHash); },[]);
-  
+
   const teleportTo=(id,x,y)=>{ const cx=clamp(Number(x)||window.innerWidth/2,0,window.innerWidth); const cy=clamp(Number(y)||window.innerHeight/2,0,window.innerHeight); setRing({x:cx,y:cy,show:true}); setTimeout(()=>setRing(r=>({...r,show:false})),450); setPandaPos({x:cx,y:cy}); setActivePlan(id); setDialogOpen(true); const mini=Array.from({length:3}).map((_,i)=>({id:Date.now()+i,x:cx+rand(-60,60),y:cy+rand(-60,60)})); setClones(mini); setTimeout(()=>setClones([]),900); };
   const handleSeePlans=()=>{ const el=plansRef.current; if(el?.scrollIntoView){ el.scrollIntoView({behavior:'smooth',block:'start'}); setHighlightPlans(true); setTimeout(()=>setHighlightPlans(false),1200);} };
   const openStandard=(e)=>{ const r=e?.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top:window.innerHeight/2; teleportTo('standard',cx,cy); };
-  
+
   const handleMenuOpen = (menu) => {
     if (menuTimeout) { clearTimeout(menuTimeout); setMenuTimeout(null); }
     setActiveMenu(menu);
   };
-  
+
   const handleMenuLeave = () => {
     const timeout = setTimeout(() => setActiveMenu(null), 500);
     setMenuTimeout(timeout);
   };
-  
+
   const handleMenuClose = () => {
     setActiveMenu(null);
     if (menuTimeout) { clearTimeout(menuTimeout); setMenuTimeout(null); }
   };
-  
+
   const clearMenuTimeout = () => {
     if (menuTimeout) {
       clearTimeout(menuTimeout);
       setMenuTimeout(null);
     }
   };
-  
+
   useEffect(()=>{ const i=setInterval(()=>{ setPandaPos(p=>({x:clamp(p.x+rand(-6,6),0,window.innerWidth),y:clamp(p.y+rand(-4,4),0,window.innerHeight)})); },1400); return()=>clearInterval(i); },[]);
   useEffect(()=>{ const fly=setInterval(()=>{ if(dialogOpen) return; const x=window.innerWidth*(0.15+Math.random()*0.7); const y=window.innerHeight*(0.15+Math.random()*0.5); setRing({x,y,show:true}); setTimeout(()=>setRing(r=>({...r,show:false})),320); setPandaPos({x,y}); setClones(Array.from({length:2}).map((_,i)=>({id:Date.now()+i,x:x+rand(-50,50),y:y+rand(-50,50)}))); setTimeout(()=>setClones([]),900); },12000); return()=>clearInterval(fly); },[dialogOpen]);
 

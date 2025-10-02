@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 const MegaMenuOverlay = dynamic(() => import("./MegaMenuOverlay"), { ssr: false });
@@ -48,10 +49,10 @@ export default function DarkHeader() {
   return (
     <header className="sticky top-0 z-[200] border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        <a href="/" className="text-lg font-bold text-cyan-300">Q Panda</a>
+<Link href="/" className="text-lg font-bold text-cyan-300">Q Panda</Link>
 
         <nav className="hidden gap-1 text-base text-slate-300 md:flex">
-          <a href="/" className="px-3 py-2 hover:text-cyan-300">Home</a>
+  <Link href="/" className="px-3 py-2 hover:text-cyan-300">Home</Link>
 
           {/* Hosting */}
           <div className="relative" onMouseEnter={() => openMenu("hosting")} onMouseLeave={closeMenuWithDelay}>
@@ -99,8 +100,8 @@ export default function DarkHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="/login" className="hidden text-sm text-slate-300 hover:text-cyan-300 md:block">Client Area</a>
-          <a href="/hosting" className="hidden md:inline-flex items-center justify-center rounded-xl px-3 py-2 text-sm font-medium transition bg-cyan-500 text-slate-900 hover:bg-cyan-400">Get Started</a>
+  <Link href="/login" className="hidden text-sm text-slate-300 hover:text-cyan-300 md:block">Client Area</Link>
+  <Link href="/hosting" className="hidden md:inline-flex items-center justify-center rounded-xl px-3 py-2 text-sm font-medium transition bg-cyan-500 text-slate-900 hover:bg-cyan-400">Get Started</Link>
         </div>
       </div>
 
