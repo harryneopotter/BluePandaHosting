@@ -959,16 +959,16 @@ export default function QPandaOnePager(){
     <table className="w-full min-w-[600px] text-left">
       <thead>
         <tr className="border-b border-cyan-400/20">
-          <th className="p-4">Feature</th>
-          <th className="p-4">Budget Hosting</th>
-          <th className="p-4">Our Hosting</th>
+          <th className="p-4" scope="col">Feature</th>
+          <th className="p-4" scope="col">Budget Hosting</th>
+          <th className="p-4" scope="col">Our Hosting</th>
         </tr>
       </thead>
       <tbody>
-        <tr className="border-b border-cyan-400/10"><td className="p-4 font-semibold">Accounts per server</td><td className="p-4">1,000+</td><td className="p-4 text-cyan-200">300-350 max</td></tr>
-        <tr className="border-b border-cyan-400/10"><td className="p-4 font-semibold">Web server</td><td className="p-4">Apache 2.4</td><td className="p-4 text-cyan-200">LiteSpeed + HTTP/3</td></tr>
-        <tr className="border-b border-cyan-400/10"><td className="p-4 font-semibold">Resource guarantees</td><td className="p-4">None</td><td className="p-4 text-cyan-200">CloudLinux isolation</td></tr>
-        <tr><td className="p-4 font-semibold">Security suite</td><td className="p-4">Basic</td><td className="p-4 text-cyan-200">Imunify360 AI</td></tr>
+        <tr className="border-b border-cyan-400/10"><th className="p-4 font-semibold" scope="row">Accounts per server</th><td className="p-4">1,000+</td><td className="p-4 text-cyan-200">300-350 max</td></tr>
+        <tr className="border-b border-cyan-400/10"><th className="p-4 font-semibold" scope="row">Web server</th><td className="p-4">Apache 2.4</td><td className="p-4 text-cyan-200">LiteSpeed + HTTP/3</td></tr>
+        <tr className="border-b border-cyan-400/10"><th className="p-4 font-semibold" scope="row">Resource guarantees</th><td className="p-4">None</td><td className="p-4 text-cyan-200">CloudLinux isolation</td></tr>
+        <tr><th className="p-4 font-semibold" scope="row">Security suite</th><td className="p-4">Basic</td><td className="p-4 text-cyan-200">Imunify360 AI</td></tr>
       </tbody>
     </table>
   </div>
