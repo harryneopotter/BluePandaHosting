@@ -18,130 +18,55 @@ const IconChevronDown = (p) => (<svg viewBox="0 0 24 24" width="1em" height="1em
 // ——— Data ———
 const PLANS = [
   {
-    id: "standard",
-    name: "Standard",
-    tagline: "Perfect for personal websites and blogs.",
-    price: "$45.00 USD",
-    period: "annually",
-    features: ["cPanel hosting","1 Website","10GB SSD Storage","Unmetered Bandwidth","Free SSL Certificate"],
-    badge: "Basic"
+    id: "quantum-entanglement",
+    name: "Quantum Entanglement",
+    tagline: "Ideal for personal sites, blogs, and startups.",
+    price: "$25",
+    period: "monthly",
+    features: [
+      "1 Website",
+      "10GB NVMe Storage",
+      "Unmetered Bandwidth",
+      "Free SSL Certificate",
+      "LiteSpeed Web Server",
+      "24-hour Support"
+    ],
+    badge: "Starter"
   },
   {
-    id: "business",
-    name: "Business",
-    tagline: "Best for medium and dynamic websites.",
-    price: "$59.99 USD",
-    period: "annually",
-    features: ["Unlimited Websites","25GB SSD Storage","Unmetered Bandwidth","Free Domain (1 year)","Advanced Security"],
-    badge: "Popular"
+    id: "superposition",
+    name: "Superposition",
+    tagline: "Perfect for small businesses and growing sites.",
+    price: "$65",
+    period: "monthly",
+    features: [
+      "5 Websites",
+      "50GB NVMe Storage",
+      "Unmetered Bandwidth",
+      "Free Domain (1 year)",
+      "Imunify360 Security",
+      "12-hour Support"
+    ],
+    badge: "Business"
   },
   {
-    id: "executive",
-    name: "Executive",
-    tagline: "Best for business and eCommerce websites.",
-    price: "$99.99 USD",
-    period: "annually",
-    features: ["Unlimited Everything","50GB SSD Storage","Premium Performance","eCommerce Ready","Priority Support"],
-    badge: "Pro"
-  },
-  {
-    id: "vps",
-    name: "VPS Hosting",
-    tagline: "Scalable virtual private servers.",
-    price: "From $25.99/mo",
-    features: ["Full Root Access","SSD Storage","Choice of OS","Scalable Resources","99.9% Uptime SLA"],
-    badge: "Advanced"
+    id: "singularity",
+    name: "Singularity",
+    tagline: "For e-commerce, agencies, and high-traffic sites.",
+    price: "$135",
+    period: "monthly",
+    features: [
+      "Unlimited Websites",
+      "100GB NVMe Storage",
+      "Unmetered Bandwidth",
+      "Priority Support",
+      "CloudLinux OS",
+      "4-hour Support"
+    ],
+    badge: "Enterprise"
   },
 ];
 
-// VPS Plans from content files
-const VPS_PLANS = [
-  {
-    id: "vps1024",
-    name: "VPS 1024",
-    tagline: "Unmanaged VPS for developers",
-    price: "$25.99/mo",
-    features: ["Linux VPS","1 Core CPU","1 GB Memory","40 GB Disk","1024 GB Bandwidth"],
-    badge: "Starter",
-    type: "unmanaged"
-  },
-  {
-    id: "vps2048",
-    name: "VPS 2048",
-    tagline: "Most popular unmanaged option",
-    price: "$39.99/mo",
-    features: ["Linux VPS","2 vCore CPU","2 GB Memory","60 GB Disk","2048 GB Bandwidth"],
-    badge: "Popular",
-    type: "unmanaged"
-  },
-  {
-    id: "vps4096",
-    name: "VPS 4096",
-    tagline: "High performance unmanaged VPS",
-    price: "$59.99/mo",
-    features: ["Linux VPS","3 vCore CPU","4 GB Memory","150 GB Disk","5120 GB Bandwidth"],
-    badge: "Performance",
-    type: "unmanaged"
-  },
-  {
-    id: "vpsm1024",
-    name: "VPSM 1024",
-    tagline: "Managed VPS with cPanel",
-    price: "$45.99/mo",
-    features: ["Linux VPS","1 Core CPU","1 GB Memory","40 GB Disk","Core Management","FREE cPanel"],
-    badge: "Managed",
-    type: "managed"
-  },
-  {
-    id: "vpsm2048",
-    name: "VPSM 2048",
-    tagline: "Popular managed VPS solution",
-    price: "$69.99/mo",
-    features: ["Linux VPS","2 vCore CPU","2 GB Memory","60 GB Disk","Core Management","FREE cPanel"],
-    badge: "Business",
-    type: "managed"
-  },
-  {
-    id: "vpsm4096",
-    name: "VPSM 4096",
-    tagline: "Premium managed VPS",
-    price: "$109.99/mo",
-    features: ["Linux VPS","3 vCore CPU","4 GB Memory","150 GB Disk","Core Management","FREE cPanel"],
-    badge: "Premium",
-    type: "managed"
-  }
-];
-
-// Dedicated Server Plans
-const DEDICATED_PLANS = [
-  {
-    id: "xeon16gb",
-    name: "Xeon 16GB",
-    tagline: "Enterprise hardware with redundant power",
-    price: "$205.00/mo",
-    features: ["Intel Xeon CPU","8 Cores","16 GB RAM","1024 GB Disk","10 TB Bandwidth","99.9% Uptime SLA"],
-    badge: "Enterprise",
-    type: "dedicated"
-  },
-  {
-    id: "xeon4gb",
-    name: "Xeon 4GB",
-    tagline: "Entry-level dedicated server",
-    price: "Contact Sales",
-    features: ["Intel Xeon CPU","4 Cores","4 GB RAM","500 GB Disk","5 TB Bandwidth","DDoS Protection"],
-    badge: "Entry",
-    type: "dedicated"
-  },
-  {
-    id: "dualxeon24gb",
-    name: "Dual Xeon 24GB",
-    tagline: "Maximum performance dedicated server",
-    price: "Contact Sales",
-    features: ["Dual Intel Xeon","16 Cores","24 GB RAM","2048 GB Disk","20 TB Bandwidth","Premium Support"],
-    badge: "Maximum",
-    type: "dedicated"
-  }
-];
 
 // Mega Menu Categories
 const MEGA_MENU_CATEGORIES = [
@@ -208,16 +133,6 @@ const CATEGORY_CONTENT = {
     description: 'Perfect for personal websites and small businesses',
     items: PLANS
   },
-  'vps-hosting': {
-    title: 'VPS Hosting',
-    description: 'Scalable virtual private servers with full control',
-    items: VPS_PLANS
-  },
-  'bare-metals': {
-    title: 'Bare Metal Servers',
-    description: 'Dedicated physical servers for maximum performance',
-    items: DEDICATED_PLANS
-  },
   'cloud-vms': {
     title: 'Cloud Virtual Machines',
     description: 'Elastic cloud computing with auto-scaling',
@@ -265,21 +180,12 @@ const CATEGORY_CONTENT = {
   'managed-vms': {
     title: 'Managed Virtual Machines',
     description: 'Fully managed VPS with monitoring and maintenance',
-    items: VPS_PLANS.filter(p => p.type === 'managed')
+    items: PLANS
   },
   'managed-servers': {
     title: 'Managed Dedicated Servers',
     description: 'Enterprise servers with full management included',
-    items: [
-      {
-        id: 'managed-xeon',
-        name: 'Managed Xeon Server',
-        tagline: 'Fully managed dedicated server',
-        price: '$299.99/mo',
-        features: ['Intel Xeon CPU', '32GB RAM', '1TB NVMe SSD', '24/7 Monitoring', 'Full Management'],
-        badge: 'Enterprise'
-      }
-    ]
+    items: PLANS
   },
   'domain-registration': {
     title: 'Domain Registration',
@@ -484,14 +390,44 @@ function StaticOrnaments(){
 
 function DisintegrateParticles({count=60}){ return (<div className="absolute inset-0">{Array.from({length:count}).map((_,i)=>(<motion.span key={i} className="absolute h-1 w-1 rounded-full bg-cyan-300/90" style={{left:'50%',top:'50%'}} initial={{x:0,y:0,opacity:0.9,scale:1}} animate={{x:(Math.random()-0.5)*180,y:(Math.random()-0.5)*160,opacity:0,scale:0.6}} transition={{duration:0.45,ease:[0.16,1,0.3,1]}}/>))}</div>); }
 
-const PLAN_NODE_POS=[{id:'standard',top:24,left:18},{id:'business',top:42,left:55},{id:'executive',top:66,left:28},{id:'vps',top:20,left:78}];
+const PLAN_NODE_POS=[{id:'quantum-entanglement',top:24,left:18},{id:'superposition',top:42,left:55},{id:'singularity',top:66,left:28}];
 const PlanNode=({id,top,left,onClick})=>(<button onClick={(e)=>{const r=e.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top+r.height/2:window.innerHeight/2; onClick&&onClick(id,cx,cy);}} className="group absolute z-20 h-4 w-4 rounded-full bg-cyan-300/80 shadow-[0_0_18px_6px_rgba(34,211,238,0.6)] hover:shadow-[0_0_28px_12px_rgba(34,211,238,0.8)] ring-2 ring-cyan-200/70" style={{top:`${top}%`,left:`${left}%`}} aria-label={`Open ${id} plan`}><span className="absolute -inset-3 rounded-full bg-cyan-400/10 blur-md opacity-0 group-hover:opacity-100"/></button>);
 
 function PandaFace({size=68}){ return (<svg width={size} height={size} viewBox="0 0 128 128" className="drop-shadow-[0_0_18px_rgba(59,130,246,0.5)]"><defs><radialGradient id="g" cx="50%" cy="50%" r="60%"><stop offset="0%" stopColor="#b3e5fc"/><stop offset="100%" stopColor="#38bdf8"/></radialGradient></defs><circle cx="64" cy="64" r="52" fill="url(#g)" stroke="#0ea5e9" strokeWidth="4"/><circle cx="36" cy="34" r="16" fill="#111827"/><circle cx="92" cy="34" r="16" fill="#111827"/><ellipse cx="64" cy="72" rx="42" ry="36" fill="#f8fafc"/><circle cx="48" cy="66" r="10" fill="#111827"/><circle cx="80" cy="66" r="10" fill="#111827"/><path d="M50 92 C64 104 78 104 92 92" stroke="#111827" strokeWidth="6" fill="none" strokeLinecap="round"/></svg>); }
 function PandaTrail({pos,length=10}){ const [trail,setTrail]=useState([]); useEffect(()=>{ setTrail(t=>{const next=[...t,{id:Date.now(),x:pos.x,y:pos.y}]; return next.slice(-length);}); },[pos.x,pos.y,length]); return (<AnimatePresence>{trail.map(p=>(<motion.div key={p.id} className="pointer-events-none fixed z-20 h-2 w-2 rounded-full bg-cyan-400/60" initial={{x:p.x,y:p.y,opacity:0.45,scale:1}} animate={{opacity:0,scale:0.6,y:p.y-20}} exit={{opacity:0}} transition={{duration:0.9,ease:'easeOut'}}/>))}</AnimatePresence>); }
 const TeleportRing=({x,y,show})=>(<AnimatePresence>{show&&(<motion.div initial={{scale:0.2,opacity:0.8}} animate={{scale:1.8,opacity:0}} exit={{opacity:0}} transition={{duration:0.6,ease:'easeOut'}} className="pointer-events-none fixed z-30 h-6 w-6 rounded-full border-2 border-cyan-300 shadow-[0_0_24px_6px_rgba(34,211,238,0.5)]" style={{left:(x||0)-12,top:(y||0)-12}}/>)}</AnimatePresence>);
 
-function PlanDialog({open,onOpenChange,planId}){ const plan=PLANS.find(p=>p.id===planId)||null; return (<Dialog open={!!open} onOpenChange={onOpenChange}><DialogContent className="border border-cyan-300/20 bg-gradient-to-b from-slate-900/90 to-slate-950/95 p-4 backdrop-blur-xl shadow-2xl"><DialogHeader><DialogTitle className="flex items-center gap-2 text-cyan-200"><IconSparkles className="h-5 w-5"/> {plan?plan.name:"Plan"}{plan?.badge&&<span className="ml-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5 text-xs text-cyan-200">{plan.badge}</span>}</DialogTitle><DialogDescription className="text-slate-300">{plan?plan.tagline:"Quantum-grade hosting plan."}</DialogDescription></DialogHeader><Card className="relative overflow-hidden border border-cyan-400/20 bg-white/5"><CardContent className="p-4"><motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-20" initial={{x:-200}} animate={{x:200}} transition={{repeat:Infinity,repeatType:'mirror',duration:2.2,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(56,189,248,0.6) 50%, transparent 60%)'}}/><div className="mb-2 text-2xl font-semibold text-cyan-200">{plan?plan.price:""}</div><ul className="space-y-2 text-slate-200">{(plan?.features||[]).map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_10px_2px_rgba(34,211,238,0.6)]"/>{f}</li>))}</ul><div className="mt-4 flex gap-2"><Button className="bg-cyan-500 hover:bg-cyan-400 text-slate-900">Get started</Button><Button className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">Compare</Button></div></CardContent></Card></DialogContent></Dialog>); }
+function PlanDialog({open,onOpenChange,planId}){
+  const plan = PLANS.find(p => p.id === planId) || null;
+  return (
+    <Dialog open={!!open} onOpenChange={onOpenChange}>
+      <DialogContent className="border border-cyan-300/20 bg-gradient-to-b from-slate-900/90 to-slate-950/95 p-4 backdrop-blur-xl shadow-2xl">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2 text-cyan-200">
+            <IconSparkles className="h-5 w-5"/> {plan ? plan.name : "Plan"}
+            {plan?.badge && <span className="ml-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5 text-xs text-cyan-200">{plan.badge}</span>}
+          </DialogTitle>
+          <DialogDescription className="text-slate-300">{plan ? plan.tagline : "Quantum-grade hosting plan."}</DialogDescription>
+        </DialogHeader>
+        <Card className="relative overflow-hidden border border-cyan-400/20 bg-white/5">
+          <CardContent className="p-4">
+            <motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-20" initial={{x:-200}} animate={{x:200}} transition={{repeat:Infinity,repeatType:'mirror',duration:2.2,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(56,189,248,0.6) 50%, transparent 60%)'}}/>
+            <div className="mb-2 text-2xl font-semibold text-cyan-200">{plan ? plan.price : ""}<span className="text-sm text-slate-400">/mo</span></div>
+            <ul className="space-y-2 text-slate-200">
+              {(plan?.features || []).map(f => (
+                <li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_10px_2px_rgba(34,211,238,0.6)]"/>{f}</li>
+              ))}
+            </ul>
+            <div className="mt-4 flex gap-2">
+              <Button className="bg-cyan-500 hover:bg-cyan-400 text-slate-900">Get started</Button>
+              <Button className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">Compare</Button>
+            </div>
+          </CardContent>
+        </Card>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 // ——— Mega Menu Components ———
 function MegaMenu({ activeMenu, onClose, onMenuChange, onMenuEnter, onMenuLeave }) {
@@ -874,7 +810,7 @@ export default function QPandaOnePager(){
 
   const teleportTo=(id,x,y)=>{ const cx=clamp(Number(x)||window.innerWidth/2,0,window.innerWidth); const cy=clamp(Number(y)||window.innerHeight/2,0,window.innerHeight); setRing({x:cx,y:cy,show:true}); setTimeout(()=>setRing(r=>({...r,show:false})),450); setPandaPos({x:cx,y:cy}); setActivePlan(id); setDialogOpen(true); const mini=Array.from({length:3}).map((_,i)=>({id:Date.now()+i,x:cx+rand(-60,60),y:cy+rand(-60,60)})); setClones(mini); setTimeout(()=>setClones([]),900); };
   const handleSeePlans=()=>{ const el=plansRef.current; if(el?.scrollIntoView){ el.scrollIntoView({behavior:'smooth',block:'start'}); setHighlightPlans(true); setTimeout(()=>setHighlightPlans(false),1200);} };
-  const openStandard=(e)=>{ const r=e?.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top:window.innerHeight/2; teleportTo('standard',cx,cy); };
+  const openQuantumEntanglement=(e)=>{ const r=e?.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top:window.innerHeight/2; teleportTo('quantum-entanglement',cx,cy); };
 
   const handleMenuOpen = (menu) => {
     if (menuTimeout) { clearTimeout(menuTimeout); setMenuTimeout(null); }
@@ -910,7 +846,25 @@ export default function QPandaOnePager(){
             <QuantumBackground2D/>
             <div className="pointer-events-none absolute inset-0">{PLAN_NODE_POS.map((n,i)=>(<div key={i} className="absolute" style={{top:`${n.top}%`,left:`${n.left}%`}}><div className="h-1 w-16 origin-left rotate-12 bg-gradient-to-r from-cyan-400/60 to-fuchsia-400/10 blur-[1px]"/></div>))}</div>
             <div className="absolute inset-0">{PLAN_NODE_POS.map(n=>(<PlanNode key={n.id} id={n.id} top={n.top} left={n.left} onClick={teleportTo}/>))}</div>
-            <div className="relative z-10 mx-auto mt-28 max-w-4xl px-6 text-center"><div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-xs text-cyan-200"><IconSparkles className="h-3.5 w-3.5"/> Quantum‑native AI Hosting</div><h1 className="text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400">Q Panda — Teleport your site across the neural web</h1><p className="mx-auto mt-4 max-w-2xl text-slate-300">An AI co-pilot that anticipates traffic spikes, heals failures before they happen, and deploys in parallel like quantum superposition.</p><div className="mt-6 flex items-center justify-center gap-3"><Button onClick={openStandard} className="bg-cyan-500 text-slate-900 hover:bg-cyan-400">Get started</Button><Button onClick={handleSeePlans} className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">See plans</Button></div></div>
+            <div className="relative z-10 mx-auto mt-28 max-w-4xl px-6 text-center">
+  <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-xs text-cyan-200">
+    <IconSparkles className="h-3.5 w-3.5"/> Quantum-Grade Hosting Infrastructure
+  </div>
+  <h1 className="text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400">
+    Web Hosting That Actually Works
+  </h1>
+  <p className="mx-auto mt-4 max-w-2xl text-slate-300">
+    Enterprise-grade infrastructure. Premium software stack. Low-density servers. Your site gets the performance and reliability it deserves.
+  </p>
+  <div className="mt-6 flex items-center justify-center gap-3">
+    <Button onClick={openQuantumEntanglement} className="bg-cyan-500 text-slate-900 hover:bg-cyan-400">
+      View Plans
+    </Button>
+    <Button onClick={handleSeePlans} className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">
+      See What's Included
+    </Button>
+  </div>
+</div>
             <PandaTrail pos={pandaPos}/>
             <motion.div className="pointer-events-none fixed z-30" animate={{x:pandaPos.x,y:pandaPos.y}} transition={{type:'spring',stiffness:120,damping:16}}><PandaFace/></motion.div>
             <TeleportRing x={ring.x} y={ring.y} show={ring.show}/>
@@ -918,96 +872,150 @@ export default function QPandaOnePager(){
           </section>
 
           <section ref={plansRef} id="plans" className="relative z-10 mx-auto -mt-10 max-w-6xl px-6 pb-24">
-            {/* Shared Hosting Plans */}
-            <div className="mb-12">
-              <h3 className="mb-6 text-2xl font-bold text-cyan-200">Shared Hosting</h3>
-              <div className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-4 ${highlightPlans?'rounded-3xl ring-2 ring-cyan-400/40 animate-pulse':''}`}>{PLANS.map(p=>(<Card key={p.id} className="group relative overflow-hidden border border-cyan-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)]"><CardContent className="p-5"><motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity,repeatType:'mirror',duration:3.4,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(56,189,248,0.4) 50%, transparent 60%)'}}/><div className="mb-2 flex items-center gap-2 text-xs text-cyan-200"><span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5">{p.badge}</span></div><h3 className="text-lg font-bold text-cyan-100">{p.name}</h3><p className="mt-1 text-sm text-slate-300">{p.tagline}</p><div className="mt-4 text-2xl font-semibold text-cyan-200">{p.price}</div><ul className="mt-3 space-y-2 text-sm text-slate-200">{p.features.map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-300"/> {f}</li>))}</ul><div className="mt-4"><Button className="w-full bg-cyan-500 text-slate-900 hover:bg-cyan-400" onClick={(e)=>{const r=e.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top:window.innerHeight/2; teleportTo(p.id,cx,cy);}}>Choose {p.name}</Button></div></CardContent></Card>))}</div>
+  <div className="mb-12">
+    <h3 className="mb-6 text-2xl font-bold text-cyan-200">Shared Hosting Plans</h3>
+    <div className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-3 ${highlightPlans?'rounded-3xl ring-2 ring-cyan-400/40 animate-pulse':''}`}>
+      {PLANS.map(p => (
+        <Card key={p.id} className="group relative overflow-hidden border border-cyan-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)]">
+          <CardContent className="p-5">
+            <motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity,repeatType:'mirror',duration:3.4,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(56,189,248,0.4) 50%, transparent 60%)'}}/>
+            <div className="mb-2 flex items-center gap-2 text-xs text-cyan-200">
+              <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5">{p.badge}</span>
             </div>
-
-            {/* VPS Plans */}
-            <div className="mb-12">
-              <h3 className="mb-6 text-2xl font-bold text-cyan-200">VPS Hosting</h3>
-              <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                <h4 className="col-span-full text-lg font-semibold text-fuchsia-300">Unmanaged VPS</h4>
-                {VPS_PLANS.filter(p => p.type === 'unmanaged').map(p=>(
-                  <Card key={p.id} className="group relative overflow-hidden border border-fuchsia-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(168,85,247,0.15)]">
-                    <CardContent className="p-5">
-                      <motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity,repeatType:'mirror',duration:3.4,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(168,85,247,0.4) 50%, transparent 60%)'}}/>
-                      <div className="mb-2 flex items-center gap-2 text-xs text-fuchsia-200">
-                        <span className="rounded-full border border-fuchsia-400/30 bg-fuchsia-500/10 px-2 py-0.5">{p.badge}</span>
-                      </div>
-                      <h3 className="text-lg font-bold text-fuchsia-100">{p.name}</h3>
-                      <p className="mt-1 text-sm text-slate-300">{p.tagline}</p>
-                      <div className="mt-4 text-2xl font-semibold text-fuchsia-200">{p.price}</div>
-                      <ul className="mt-3 space-y-2 text-sm text-slate-200">
-                        {p.features.map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-fuchsia-300"/> {f}</li>))}
-                      </ul>
-                      <div className="mt-4">
-                        <Button className="w-full bg-fuchsia-500 text-slate-900 hover:bg-fuchsia-400">Choose {p.name}</Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                <h4 className="col-span-full text-lg font-semibold text-purple-300">Managed VPS</h4>
-                {VPS_PLANS.filter(p => p.type === 'managed').map(p=>(
-                  <Card key={p.id} className="group relative overflow-hidden border border-purple-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(147,51,234,0.15)]">
-                    <CardContent className="p-5">
-                      <motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity,repeatType:'mirror',duration:3.4,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(147,51,234,0.4) 50%, transparent 60%)'}}/>
-                      <div className="mb-2 flex items-center gap-2 text-xs text-purple-200">
-                        <span className="rounded-full border border-purple-400/30 bg-purple-500/10 px-2 py-0.5">{p.badge}</span>
-                      </div>
-                      <h3 className="text-lg font-bold text-purple-100">{p.name}</h3>
-                      <p className="mt-1 text-sm text-slate-300">{p.tagline}</p>
-                      <div className="mt-4 text-2xl font-semibold text-purple-200">{p.price}</div>
-                      <ul className="mt-3 space-y-2 text-sm text-slate-200">
-                        {p.features.map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-purple-300"/> {f}</li>))}
-                      </ul>
-                      <div className="mt-4">
-                        <Button className="w-full bg-purple-500 text-slate-900 hover:bg-purple-400">Choose {p.name}</Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+            <h3 className="text-lg font-bold text-cyan-100">{p.name}</h3>
+            <p className="mt-1 text-sm text-slate-300">{p.tagline}</p>
+            <div className="mt-4 text-2xl font-semibold text-cyan-200">{p.price}<span className="text-sm text-slate-400">/mo</span></div>
+            <ul className="mt-3 space-y-2 text-sm text-slate-200">
+              {p.features.map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-300"/> {f}</li>))}
+            </ul>
+            <div className="mt-4">
+              <Button className="w-full bg-cyan-500 text-slate-900 hover:bg-cyan-400" onClick={(e)=>{const r=e.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top:window.innerHeight/2; teleportTo(p.id,cx,cy);}}>
+                Choose {p.name}
+              </Button>
             </div>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
 
-            {/* Dedicated Server Plans */}
-            <div className="mb-12">
-              <h3 className="mb-6 text-2xl font-bold text-cyan-200">Dedicated Servers</h3>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {DEDICATED_PLANS.map(p=>(
-                  <Card key={p.id} className="group relative overflow-hidden border border-emerald-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(34,197,94,0.15)]">
-                    <CardContent className="p-5">
-                      <motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity,repeatType:'mirror',duration:3.4,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(34,197,94,0.4) 50%, transparent 60%)'}}/>
-                      <div className="mb-2 flex items-center gap-2 text-xs text-emerald-200">
-                        <span className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-2 py-0.5">{p.badge}</span>
-                      </div>
-                      <h3 className="text-lg font-bold text-emerald-100">{p.name}</h3>
-                      <p className="mt-1 text-sm text-slate-300">{p.tagline}</p>
-                      <div className="mt-4 text-2xl font-semibold text-emerald-200">{p.price}</div>
-                      <ul className="mt-3 space-y-2 text-sm text-slate-200">
-                        {p.features.map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-emerald-300"/> {f}</li>))}
-                      </ul>
-                      <div className="mt-4">
-                        <Button className="w-full bg-emerald-500 text-slate-900 hover:bg-emerald-400">Choose {p.name}</Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </section>
+          {/* TRUST SIGNALS */}
+<section id="trust-signals" className="mx-auto max-w-6xl px-6 pb-24">
+  <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-3 lg:grid-cols-6">
+    <div>
+      <div className="text-3xl font-bold text-cyan-200">350</div>
+      <div className="text-sm text-slate-400">Max accounts per server</div>
+    </div>
+    <div>
+      <div className="text-3xl font-bold text-cyan-200">$150+</div>
+      <div className="text-sm text-slate-400">Value of included software</div>
+    </div>
+    <div>
+      <div className="text-3xl font-bold text-cyan-200">99.9%</div>
+      <div className="text-sm text-slate-400">Uptime guarantee</div>
+    </div>
+    <div>
+      <div className="text-3xl font-bold text-cyan-200">13+</div>
+      <div className="text-sm text-slate-400">Years hosting websites</div>
+    </div>
+    <div>
+      <div className="text-3xl font-bold text-cyan-200">4-24hrs</div>
+      <div className="text-sm text-slate-400">Support response times</div>
+    </div>
+    <div>
+      <div className="text-3xl font-bold text-cyan-200">30 days</div>
+      <div className="text-sm text-slate-400">Money-back guarantee</div>
+    </div>
+  </div>
+</section>
 
-          {/* FEATURES */}
-          <section id="features" className="mx-auto max-w-6xl px-6 pb-24"><div className="grid gap-6 md:grid-cols-3"><FeatureCard icon={<IconZap className="h-5 w-5"/>} title="Parallel Deployments" desc="Ship multiple versions simultaneously, collapse to the best performer automatically."/><FeatureCard icon={<IconShield className="h-5 w-5"/>} title="Predictive Shield" desc="Anomaly detection blocks threats before signatures exist."/><FeatureCard icon={<IconCpu className="h-5 w-5"/>} title="Autonomic Scaling" desc="Resources entangle across regions to absorb viral spikes."/></div></section>
+{/* WHAT MAKES US DIFFERENT */}
+<section id="what-makes-us-different" className="mx-auto max-w-6xl px-6 pb-24">
+  <h2 className="mb-12 text-center text-3xl font-bold text-cyan-200">What Makes Us Different</h2>
+  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+    <FeatureCard icon={<IconRocket className="h-5 w-5" />} title="Premium Stack, Standard Price" desc="LiteSpeed + CloudLinux + Imunify360 + low density = fast sites, reliable performance." />
+    <FeatureCard icon={<IconServer className="h-5 w-5" />} title="Low-Density Infrastructure" desc="We limit servers to 300-350 accounts maximum. Each site has guaranteed resources." />
+    <FeatureCard icon={<IconSparkles className="h-5 w-5" />} title="Enterprise Software, Included" desc="Software we include that competitors charge $100-150+/month extra for." />
+    <FeatureCard icon={<IconLifeBuoy className="h-5 w-5" />} title="Real Support From Real Humans" desc="No AI chatbots. No offshore support reading from scripts." />
+  </div>
+</section>
 
-          <section id="benchmarks" className="mx-auto max-w-6xl px-6 pb-24"><div className="grid gap-6 sm:grid-cols-3"><MetricCard label="Avg. Cold Start" value="28ms" sub="Neural edge functions"/><MetricCard label="99.995%" value="SLA" sub="Past 90 days"/><MetricCard label="2.3x" value="Faster TTFB" sub="vs. baseline clouds"/></div></section>
-          <section id="testimonials" className="mx-auto max-w-6xl px-6 pb-24"><div className="grid gap-6 md:grid-cols-3"><QuoteCard quote="Switched our launch to Q Panda - handled a 40x spike without blinking." author="Sara K., StreamKit"/><QuoteCard quote="Deploy previews in parallel changed our workflow overnight." author="Kenji M., FolioAI"/><QuoteCard quote="The predictive shield blocked a zero-day botnet before signatures were out." author="Nadia P., HexaSec"/></div></section>
-          <section id="docs" className="mx-auto max-w-6xl px-6 pb-24"><Card className="border border-cyan-400/20 bg-white/5 transition-transform duration-300 hover:-translate-y-0.5"><CardContent className="p-6 md:p-8"><h3 className="text-2xl font-bold text-cyan-100">Docs preview</h3><p className="mt-2 text-slate-300">Install the CLI, initialize a project, and teleport your first deployment.</p><pre className="mt-4 overflow-x-auto rounded-xl border border-white/10 bg-slate-950/70 p-4 text-sm text-cyan-200">{`npm i -g qpanda\nqpanda init\nqpanda deploy`}</pre><div className="mt-4"><Button className="bg-cyan-500 text-slate-900 hover:bg-cyan-400">Open full docs</Button></div></CardContent></Card></section>
-          <section id="faq" className="mx-auto max-w-6xl px-6 pb-24"><h3 className="mb-6 text-2xl font-bold text-cyan-100">Frequently asked</h3><div className="divide-y divide-white/10 rounded-2xl border border-cyan-400/20 bg-white/5"><FAQItem q="What does 'quantum' mean here?" a="We simulate quantum-style parallelism - predictive routing, speculative deploys, and entangled failover - not literal qubits."/><FAQItem q="Can I bring my own domain?" a="Yes. Point your DNS to our Anycast edge. We generate and renew TLS automatically."/><FAQItem q="How is pricing calculated?" a="Plans are flat-rate by tier. Usage-based add-ons (edge functions, storage) are billed per unit with clear caps."/></div></section>
-          <section className="mx-auto mb-28 max-w-6xl px-6"><Card className="border border-cyan-400/20 bg-gradient-to-r from-cyan-500/10 to-fuchsia-500/10 backdrop-blur-xl"><CardContent className="flex flex-col items-center justify-between gap-4 p-8 md:flex-row"><div><h3 className="text-2xl font-bold text-cyan-100">Ready to teleport?</h3><p className="mt-1 text-slate-300">Start free. Migrate in minutes with the Q Panda co-pilot.</p></div><div className="flex gap-2"><Button className="bg-cyan-500 text-slate-900 hover:bg-cyan-400"><IconRocket className="mr-2 h-4 w-4"/> Get started</Button><Button className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">Talk to sales</Button></div></CardContent></Card></section>
+{/* TECHNOLOGY STACK */}
+<section id="tech-stack" className="mx-auto max-w-6xl px-6 pb-24">
+  <h2 className="mb-12 text-center text-3xl font-bold text-cyan-200">Modern Performance Architecture</h2>
+  <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+    <div><h4 className="font-bold text-cyan-100">Web Server</h4><p className="text-slate-300">LiteSpeed + HTTP/3 + QUIC</p></div>
+    <div><h4 className="font-bold text-cyan-100">Storage</h4><p className="text-slate-300">NVMe SSD in RAID</p></div>
+    <div><h4 className="font-bold text-cyan-100">Operating System</h4><p className="text-slate-300">CloudLinux with CageFS</p></div>
+    <div><h4 className="font-bold text-cyan-100">Caching</h4><p className="text-slate-300">LSCache + OpCache + Redis</p></div>
+  </div>
+</section>
+
+{/* COMPARISON TABLE */}
+<section id="comparison" className="mx-auto max-w-6xl px-6 pb-24">
+  <h2 className="mb-12 text-center text-3xl font-bold text-cyan-200">Us vs. Budget Hosting</h2>
+  <div className="overflow-x-auto rounded-lg border border-cyan-400/20 bg-white/5">
+    <table className="w-full min-w-[600px] text-left">
+      <thead>
+        <tr className="border-b border-cyan-400/20">
+          <th className="p-4">Feature</th>
+          <th className="p-4">Budget Hosting</th>
+          <th className="p-4">Our Hosting</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr className="border-b border-cyan-400/10"><td className="p-4 font-semibold">Accounts per server</td><td className="p-4">1,000+</td><td className="p-4 text-cyan-200">300-350 max</td></tr>
+        <tr className="border-b border-cyan-400/10"><td className="p-4 font-semibold">Web server</td><td className="p-4">Apache 2.4</td><td className="p-4 text-cyan-200">LiteSpeed + HTTP/3</td></tr>
+        <tr className="border-b border-cyan-400/10"><td className="p-4 font-semibold">Resource guarantees</td><td className="p-4">None</td><td className="p-4 text-cyan-200">CloudLinux isolation</td></tr>
+        <tr><td className="p-4 font-semibold">Security suite</td><td className="p-4">Basic</td><td className="p-4 text-cyan-200">Imunify360 AI</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{/* USE CASES */}
+<section id="use-cases" className="mx-auto max-w-6xl px-6 pb-24">
+  <h2 className="mb-12 text-center text-3xl font-bold text-cyan-200">Perfect For</h2>
+  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <FeatureCard icon={<IconCpu className="h-5 w-5"/>} title="Small Business Websites" desc="Professional online presence with consistent performance." />
+    <FeatureCard icon={<IconCpu className="h-5 w-5"/>} title="E-Commerce Stores" desc="Fast loading for better conversion rates." />
+    <FeatureCard icon={<IconCpu className="h-5 w-5"/>} title="WordPress Sites" desc="Optimized with LiteSpeed Cache." />
+  </div>
+</section>
+
+<section id="testimonials" className="mx-auto max-w-6xl px-6 pb-24">
+  <div className="grid gap-6 md:grid-cols-3">
+    <QuoteCard quote="Moved from a budget host after constant slowdowns. Night and day difference in performance." author="Client, Web Agency" />
+    <QuoteCard quote="The migration was completely painless. They handled everything, and my site was faster instantly." author="Client, E-Commerce" />
+    <QuoteCard quote="Support responds within hours, not days. Worth every penny." author="Client, Small Business" />
+  </div>
+</section>
+
+<section id="faq" className="mx-auto max-w-6xl px-6 pb-24">
+  <h3 className="mb-6 text-2xl font-bold text-cyan-100">Frequently Asked Questions</h3>
+  <div className="divide-y divide-white/10 rounded-2xl border border-cyan-400/20 bg-white/5">
+    <FAQItem q="Why are you more expensive than budget hosts?" a="We limit server density and include premium software worth over $150/month. Better infrastructure delivers better results." />
+    <FAQItem q="Can I try it risk-free?" a="Yes, we have a 30-day money-back guarantee. If you're not satisfied, we'll refund your payment." />
+    <FAQItem q="Will you migrate my existing site?" a="Yes, we offer free basic migration with all plans." />
+  </div>
+</section>
+
+<section className="mx-auto mb-28 max-w-6xl px-6">
+  <Card className="border border-cyan-400/20 bg-gradient-to-r from-cyan-500/10 to-fuchsia-500/10 backdrop-blur-xl">
+    <CardContent className="flex flex-col items-center justify-between gap-4 p-8 md:flex-row">
+      <div>
+        <h3 className="text-2xl font-bold text-cyan-100">Ready for Better Hosting?</h3>
+        <p className="mt-1 text-slate-300">Get started in minutes. Free migration included.</p>
+      </div>
+      <div className="flex gap-2">
+        <Button onClick={handleSeePlans} className="bg-cyan-500 text-slate-900 hover:bg-cyan-400">
+          <IconRocket className="mr-2 h-4 w-4" /> View Plans & Pricing
+        </Button>
+      </div>
+    </CardContent>
+  </Card>
+</section>
         </>)}
         <footer className="mx-auto max-w-6xl px-6 pb-12 text-sm text-slate-400"><div className="border-t border-white/10 pt-6 text-center space-y-2"><div>Powered by WHMCompleteSolution</div><div>© {new Date().getFullYear()} Blue Panda. All Rights Reserved.</div></div></footer>
         <PlanDialog open={dialogOpen} onOpenChange={setDialogOpen} planId={activePlan}/>

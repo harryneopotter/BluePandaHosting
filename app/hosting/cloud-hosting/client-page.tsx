@@ -24,20 +24,28 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 
 const CLOUD_PLANS = [
   {
-    id: 'cloud-starter',
-    name: 'Cloud Starter',
-    tagline: 'Perfect for development and testing',
-    price: '$19.99/mo',
-    features: ['1 vCPU', '2GB RAM', '25GB SSD', 'Auto-scaling', '99.9% SLA'],
-    badge: 'Popular'
+    id: 'starter-cloud',
+    name: 'Starter Cloud',
+    tagline: 'Auto-scaling, multi-zone redundancy',
+    price: '$75/mo',
+    features: ['Auto-scaling', 'Multi-zone redundancy', '99.95% uptime', 'Load balancing', 'Object storage'],
+    badge: 'Starter'
   },
   {
-    id: 'cloud-pro',
-    name: 'Cloud Pro',
+    id: 'professional-cloud',
+    name: 'Professional Cloud',
     tagline: 'Production-ready cloud infrastructure',
-    price: '$49.99/mo',
-    features: ['4 vCPU', '8GB RAM', '100GB SSD', 'Load Balancer', 'Premium Support'],
-    badge: 'Business'
+    price: '$175/mo',
+    features: ['Auto-scaling', 'Multi-zone redundancy', '99.99% uptime', 'Load balancing', 'CDN included'],
+    badge: 'Professional'
+  },
+  {
+    id: 'enterprise-cloud',
+    name: 'Enterprise Cloud',
+    tagline: 'API-driven infrastructure',
+    price: '$395/mo',
+    features: ['Auto-scaling', 'Multi-zone redundancy', '99.99% uptime', 'Load balancing', 'API-driven infrastructure'],
+    badge: 'Enterprise'
   }
 ];
 
@@ -49,31 +57,31 @@ export default function CloudHostingClientPage() {
       <div className="mx-auto max-w-6xl px-6 py-16">
         {/* Hero Section */}
         <div className="text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-500/10 px-3 py-1 text-xs text-sky-200"><IconZap className="h-3.5 w-3.5"/> AI-Powered Cloud</div>
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-500/10 px-3 py-1 text-xs text-sky-200"><IconZap className="h-3.5 w-3.5"/> API-Driven Cloud</div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-cyan-400 to-fuchsia-400">Cloud Hosting</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
-                Harness the power of the cloud with our AI-enhanced platform. Enjoy unmatched scalability, resilience, and performance that adapts to your needs in real time.
+                Infinitely scalable, resilient, and intelligent cloud hosting, powered by an API-driven infrastructure for ultimate control.
             </p>
         </div>
 
-        {/* AI Features Section */}
+        {/* Features Section */}
         <section id="features" className="my-16">
             <h2 className="mb-8 text-center text-3xl font-bold text-sky-200">The Future of Cloud is Here</h2>
             <div className="grid gap-6 md:grid-cols-3">
                 <FeatureCard
                     icon={<IconCpu className="h-5 w-5"/>}
-                    title="Autonomic Scaling"
-                    desc="Our AI co-pilot scales your resources up or down instantly based on real-time traffic, ensuring you only pay for what you use while handling any load."
+                    title="Auto-Scaling"
+                    desc="Resources scale up or down instantly based on real-time traffic, ensuring you only pay for what you use."
                 />
                 <FeatureCard
                     icon={<IconShield className="h-5 w-5"/>}
-                    title="Self-Healing Infrastructure"
-                    desc="The platform automatically detects and recovers from underlying hardware or network issues, providing a resilient and highly available environment for your apps."
+                    title="Multi-Zone Redundancy"
+                    desc="Your application is automatically distributed across multiple availability zones for high availability."
                 />
                 <FeatureCard
                     icon={<IconZap className="h-5 w-5"/>}
-                    title="Global Anycast Edge"
-                    desc="Your application is served from multiple locations around the world, with our AI directing traffic to the nearest PoP for the lowest possible latency."
+                    title="API-Driven Infrastructure"
+                    desc="Manage your entire infrastructure through a powerful and intuitive API, giving you complete control."
                 />
             </div>
         </section>
@@ -81,7 +89,7 @@ export default function CloudHostingClientPage() {
         {/* Pricing Section */}
         <section id="plans" className="my-16">
             <h2 className="mb-8 text-center text-3xl font-bold text-sky-200">Cloud Hosting Plans</h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {CLOUD_PLANS.map(p => (
                     <Card key={p.id} className="group relative overflow-hidden border border-sky-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(14,165,233,0.15)]">
                         <CardContent className="p-5">
