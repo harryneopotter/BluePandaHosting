@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import TechnicalFeatures from '../../components/TechnicalFeatures';
 
 // --- Reusable Components ---
 
@@ -25,20 +26,28 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 
 const WP_PLANS = [
     {
-        id: 'wp-starter',
-        name: 'WordPress Starter',
-        tagline: 'Managed WordPress for beginners',
-        price: '$29.99/mo',
-        features: ['1 WP Site', 'Auto Updates', 'Daily Backups', 'CDN Included', 'SSL Certificate'],
-        badge: 'Managed'
+        id: 'quantum-wp-solo',
+        name: 'Quantum WP Solo',
+        tagline: 'Perfect for single high-performance WordPress sites',
+        price: '$85/mo',
+        features: ['1 WordPress site', '25GB NVMe SSD storage', '100GB bandwidth/month', '50,000 monthly visits', 'LiteSpeed + LSCache optimization'],
+        badge: 'Solo'
     },
     {
-        id: 'wp-business',
-        name: 'WordPress Business',
-        tagline: 'Professional WordPress hosting',
-        price: '$79.99/mo',
-        features: ['5 WP Sites', 'Premium Themes', 'Advanced Security', 'Performance Optimization', 'Priority Support'],
-        badge: 'Pro'
+        id: 'quantum-wp-professional',
+        name: 'Quantum WP Professional',
+        tagline: 'For agencies and multiple WordPress sites',
+        price: '$175/mo',
+        features: ['5 WordPress sites', '100GB NVMe SSD storage', '250GB bandwidth/month', '250,000 monthly visits', 'Multi-site management dashboard'],
+        badge: 'Professional'
+    },
+    {
+        id: 'quantum-wp-enterprise',
+        name: 'Quantum WP Enterprise',
+        tagline: 'Maximum performance for high-traffic WordPress',
+        price: '$395/mo',
+        features: ['Unlimited WordPress sites', '250GB NVMe SSD storage', '500GB bandwidth/month', '1M+ monthly visits', 'Enterprise caching'],
+        badge: 'Enterprise'
     }
 ];
 
@@ -50,31 +59,41 @@ export default function WordPressHostingClientPage() {
       <div className="mx-auto max-w-6xl px-6 py-16">
         {/* Hero Section */}
         <div className="text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 text-xs text-blue-200"><IconShield className="h-3.5 w-3.5"/> AI-Powered WordPress</div>
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 text-xs text-blue-200"><IconShield className="h-3.5 w-3.5"/> Fully Managed WordPress</div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-400 to-sky-400">Managed WordPress Hosting</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
-                The ultimate hands-free WordPress experience. Our AI-managed platform takes care of performance, security, and updates, so you can focus on creating amazing content.
+                Zero server management. Automatic updates, performance optimization, and security hardening. We handle the technical details so you can focus on your content.
             </p>
         </div>
 
-        {/* AI Features Section */}
+        {/* Why Managed WordPress Section */}
+        <section id="why-managed-wp" className="my-16">
+            <h2 className="mb-8 text-center text-3xl font-bold text-blue-200">Why Managed WordPress?</h2>
+            <div className="text-center max-w-2xl mx-auto">
+                <p className="text-slate-300">
+                    WordPress is easy to install but hard to optimize. It can be slow and insecure if not maintained. We handle all of this automatically, so you can focus on what matters.
+                </p>
+            </div>
+        </section>
+
+        {/* Features Section */}
         <section id="features" className="my-16">
             <h2 className="mb-8 text-center text-3xl font-bold text-blue-200">Your Intelligent WordPress Partner</h2>
             <div className="grid gap-6 md:grid-cols-3">
                 <FeatureCard
                     icon={<IconZap className="h-5 w-5"/>}
-                    title="AI Performance Optimizer"
-                    desc="Our platform analyzes your site and automatically implements caching, image compression, and database optimizations for lightning-fast load times."
+                    title="Performance Optimization"
+                    desc="CMS-specific caching, CDN integration, image optimization, and database query optimization."
                 />
                 <FeatureCard
                     icon={<IconShield className="h-5 w-5"/>}
-                    title="Smart Updates & Patching"
-                    desc="We use AI to test and apply WordPress, plugin, and theme updates in a safe staging environment before pushing them live, preventing breaking changes."
+                    title="Security Management"
+                    desc="Daily malware scanning, automatic security updates, and a firewall specific to your CMS."
                 />
                 <FeatureCard
                     icon={<IconSparkles className="h-5 w-5"/>}
-                    title="Generative Content Assistance"
-                    desc="Stuck on a blog post? Our integrated AI can help you generate ideas, write drafts, and find royalty-free images, right from your WordPress dashboard."
+                    title="Maintenance & Updates"
+                    desc="Automatic core updates with rollback, plugin/theme update management, and database optimization."
                 />
             </div>
         </section>
@@ -82,7 +101,7 @@ export default function WordPressHostingClientPage() {
         {/* Pricing Section */}
         <section id="plans" className="my-16">
             <h2 className="mb-8 text-center text-3xl font-bold text-blue-200">Managed WordPress Plans</h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {WP_PLANS.map(p => (
                     <Card key={p.id} className="group relative overflow-hidden border border-blue-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(59,130,246,0.15)]">
                         <CardContent className="p-5">
@@ -110,6 +129,9 @@ export default function WordPressHostingClientPage() {
                 ))}
             </div>
         </section>
+
+        <TechnicalFeatures />
+
       </div>
     </div>
   );

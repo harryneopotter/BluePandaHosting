@@ -24,73 +24,133 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 
 const VPS_PLANS = [
   {
-    id: "vps1024",
-    name: "VPS 1024",
-    tagline: "Unmanaged VPS for developers",
-    price: "$25.99/mo",
-    features: ["Linux VPS","1 Core CPU","1 GB Memory","40 GB Disk","1024 GB Bandwidth"],
+    id: "quantum-flux",
+    name: "Quantum Flux",
+    tagline: "Entry-level VPS for experienced users",
+    price: "$45/mo",
+    features: ["2 vCPU cores", "4GB DDR4 ECC RAM", "80GB NVMe SSD", "3TB/month Bandwidth"],
     badge: "Starter",
     type: "unmanaged"
   },
   {
-    id: "vps2048",
-    name: "VPS 2048",
-    tagline: "Most popular unmanaged option",
-    price: "$39.99/mo",
-    features: ["Linux VPS","2 vCore CPU","2 GB Memory","60 GB Disk","2048 GB Bandwidth"],
+    id: "quantum-warp",
+    name: "Quantum Warp",
+    tagline: "Mid-tier VPS for growing applications",
+    price: "$85/mo",
+    features: ["4 vCPU cores", "8GB DDR4 ECC RAM", "160GB NVMe SSD", "5TB/month Bandwidth"],
     badge: "Popular",
     type: "unmanaged"
   },
   {
-    id: "vps4096",
-    name: "VPS 4096",
-    tagline: "High performance unmanaged VPS",
-    price: "$59.99/mo",
-    features: ["Linux VPS","3 vCore CPU","4 GB Memory","150 GB Disk","5120 GB Bandwidth"],
+    id: "quantum-nexus",
+    name: "Quantum Nexus",
+    tagline: "High-performance VPS for demanding applications",
+    price: "$165/mo",
+    features: ["8 vCPU cores", "16GB DDR4 ECC RAM", "320GB NVMe SSD", "8TB/month Bandwidth"],
     badge: "Performance",
     type: "unmanaged"
+  }
+];
+
+// --- Page Specific Data ---
+
+const MANAGED_VPS_PLANS = [
+  {
+    id: "managed-quantum-flux",
+    name: "Managed Quantum Flux",
+    tagline: "Full server management for entry-level VPS",
+    price: "$95/mo",
+    features: ["OS installation & hardening", "Weekly security updates", "Basic monitoring & alerts", "24-hour support"],
+    badge: "Managed",
+    type: "managed"
+  },
+  {
+    id: "managed-quantum-warp",
+    name: "Managed Quantum Warp",
+    tagline: "Proactive management with faster support",
+    price: "$145/mo",
+    features: ["Daily security updates", "Web server optimization", "Performance monitoring", "12-hour support"],
+    badge: "Business",
+    type: "managed"
+  },
+  {
+    id: "managed-quantum-nexus",
+    name: "Managed Quantum Nexus",
+    tagline: "White-glove management with priority support",
+    price: "$265/mo",
+    features: ["Real-time security monitoring", "Proactive performance optimization", "Application-level monitoring", "4-hour support"],
+    badge: "Enterprise",
+    type: "managed"
   }
 ];
 
 // --- Page Component ---
 
 export default function VpsHostingClientPage() {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
       <div className="mx-auto max-w-6xl px-6 py-16">
         {/* Hero Section */}
         <div className="text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-fuchsia-400/30 bg-fuchsia-500/10 px-3 py-1 text-xs text-fuchsia-200"><IconCpu className="h-3.5 w-3.5"/> AI-Powered VPS</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-300 via-purple-400 to-sky-400">VPS Hosting</h1>
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-fuchsia-400/30 bg-fuchsia-500/10 px-3 py-1 text-xs text-fuchsia-200"><IconCpu className="h-3.5 w-3.5"/> Virtual Private Servers</div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-300 via-purple-400 to-sky-400">VPS Hosting Built for Performance</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
-                Take full control of your virtual environment. Our VPS hosting gives you the power and flexibility you need, with an AI assistant to manage scaling, security, and performance.
+                Dedicated resources, complete isolation, full control. KVM virtualization with NVMe storage, guaranteed RAM and CPU, and your choice of management level.
             </p>
         </div>
 
-        {/* AI Features Section */}
-        <section id="features" className="my-16">
-            <h2 className="mb-8 text-center text-3xl font-bold text-fuchsia-200">Your Unfair Advantage</h2>
+        {/* Managed vs Unmanaged Section */}
+        <section id="managed-vs-unmanaged" className="my-16">
+            <h2 className="mb-8 text-center text-3xl font-bold text-fuchsia-200">Managed vs. Unmanaged VPS</h2>
+            <div className="grid gap-8 md:grid-cols-2">
+                <Card className="border border-fuchsia-400/20 bg-white/5 p-6">
+                    <h3 className="text-2xl font-bold text-fuchsia-100">Unmanaged VPS</h3>
+                    <p className="text-slate-300 mt-2">You have full control. You handle everything, from OS installation to security hardening.</p>
+                    <Button onClick={() => scrollToSection('unmanaged-plans')} className="mt-4 bg-fuchsia-500/10 border border-fuchsia-400/30 text-fuchsia-200 hover:bg-fuchsia-500/20">
+                        For experienced sysadmins
+                    </Button>
+                </Card>
+                <Card className="border border-purple-400/20 bg-white/5 p-6">
+                    <h3 className="text-2xl font-bold text-purple-100">Managed VPS</h3>
+                    <p className="text-slate-300 mt-2">We handle the technical details. You focus on your application, with our team managing the server.</p>
+                    <Button onClick={() => scrollToSection('managed-plans')} className="mt-4 bg-purple-500/10 border border-purple-400/30 text-purple-200 hover:bg-purple-500/20">
+                        For businesses without IT staff
+                    </Button>
+                </Card>
+            </div>
+        </section>
+
+        {/* When to Choose VPS Section */}
+        <section id="when-to-choose-vps" className="my-16">
+            <h2 className="mb-8 text-center text-3xl font-bold text-fuchsia-200">When to Choose VPS</h2>
             <div className="grid gap-6 md:grid-cols-3">
                 <FeatureCard
                     icon={<IconSparkles className="h-5 w-5"/>}
-                    title="Intelligent Scaling"
-                    desc="Our AI predicts your resource needs and suggests scaling options before you hit a bottleneck, ensuring smooth performance as you grow."
-                />
-                <FeatureCard
-                    icon={<IconShield className="h-5 w-5"/>}
-                    title="Automated Security Hardening"
-                    desc="Your VPS is protected by an AI that constantly scans for vulnerabilities, applies patches, and configures firewall rules to keep you secure."
+                    title="Guaranteed Performance"
+                    desc="Your site consistently hits resource limits on shared hosting and needs guaranteed performance."
                 />
                 <FeatureCard
                     icon={<IconCpu className="h-5 w-5"/>}
-                    title="Performance Optimization"
-                    desc="Get recommendations from our AI on how to optimize your server configuration, database queries, and application code for maximum speed."
+                    title="Custom Software"
+                    desc="You require custom software not available on shared hosting, or need root access for server-level configurations."
+                />
+                <FeatureCard
+                    icon={<IconShield className="h-5 w-5"/>}
+                    title="Better Security"
+                    desc="You have multiple high-traffic sites or need better security isolation for sensitive data."
                 />
             </div>
         </section>
 
-        {/* Pricing Section */}
-        <section id="plans" className="my-16">
+        {/* Unmanaged Pricing Section */}
+        <section id="unmanaged-plans" className="my-16">
             <h2 className="mb-8 text-center text-3xl font-bold text-fuchsia-200">Unmanaged VPS Plans</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {VPS_PLANS.map(p => (
@@ -112,6 +172,38 @@ export default function VpsHostingClientPage() {
                             </ul>
                             <div className="mt-6">
                                 <Button className="w-full bg-fuchsia-500 text-slate-900 hover:bg-fuchsia-400">
+                                    Choose {p.name}
+                                </Button>
+                            </div>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
+        </section>
+
+        {/* Managed Pricing Section */}
+        <section id="managed-plans" className="my-16">
+            <h2 className="mb-8 text-center text-3xl font-bold text-purple-200">Managed VPS Plans</h2>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {MANAGED_VPS_PLANS.map(p => (
+                    <Card key={p.id} className="group relative overflow-hidden border border-purple-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(147,51,234,0.15)]">
+                        <CardContent className="p-5">
+                            <motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity, repeatType:'mirror', duration:3.4, ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(147,51,234,0.4) 50%, transparent 60%)'}}/>
+                            <div className="mb-2 flex items-center gap-2 text-xs text-purple-200">
+                                <span className="rounded-full border border-purple-400/30 bg-purple-500/10 px-2 py-0.5">{p.badge}</span>
+                            </div>
+                            <h3 className="text-lg font-bold text-purple-100">{p.name}</h3>
+                            <p className="mt-1 text-sm text-slate-300">{p.tagline}</p>
+                            <div className="mt-4 text-3xl font-semibold text-purple-200">{p.price}</div>
+                            <ul className="mt-4 space-y-2 text-sm text-slate-200">
+                                {p.features.map(f => (
+                                    <li key={f} className="flex items-center gap-2">
+                                        <span className="h-1.5 w-1.5 rounded-full bg-purple-300"/> {f}
+                                    </li>
+                                ))}
+                            </ul>
+                            <div className="mt-6">
+                                <Button className="w-full bg-purple-500 text-slate-900 hover:bg-purple-400">
                                     Choose {p.name}
                                 </Button>
                             </div>
