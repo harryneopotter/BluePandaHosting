@@ -106,14 +106,20 @@ export default function VpsHostingClientPage() {
                 <Card className="border border-fuchsia-400/20 bg-white/5 p-6">
                     <h3 className="text-2xl font-bold text-fuchsia-100">Unmanaged VPS</h3>
                     <p className="text-slate-300 mt-2">You have full control. You handle everything, from OS installation to security hardening.</p>
-                    <Button className="mt-4 bg-fuchsia-500/10 border border-fuchsia-400/30 text-fuchsia-200 hover:bg-fuchsia-500/20">
+                    <Button 
+                        className="mt-4 bg-fuchsia-500/10 border border-fuchsia-400/30 text-fuchsia-200 hover:bg-fuchsia-500/20"
+                        onClick={() => document.getElementById('unmanaged-plans')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
                         For experienced sysadmins
                     </Button>
                 </Card>
                 <Card className="border border-purple-400/20 bg-white/5 p-6">
                     <h3 className="text-2xl font-bold text-purple-100">Managed VPS</h3>
                     <p className="text-slate-300 mt-2">We handle the technical details. You focus on your application, with our team managing the server.</p>
-                    <Button className="mt-4 bg-purple-500/10 border border-purple-400/30 text-purple-200 hover:bg-purple-500/20">
+                    <Button 
+                        className="mt-4 bg-purple-500/10 border border-purple-400/30 text-purple-200 hover:bg-purple-500/20"
+                        onClick={() => document.getElementById('managed-plans')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
                         For businesses without IT staff
                     </Button>
                 </Card>

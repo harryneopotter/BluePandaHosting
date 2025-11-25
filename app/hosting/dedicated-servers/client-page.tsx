@@ -106,14 +106,20 @@ export default function DedicatedServersClientPage() {
                 <Card className="border border-emerald-400/20 bg-white/5 p-6">
                     <h3 className="text-2xl font-bold text-emerald-100">Unmanaged Dedicated</h3>
                     <p className="text-slate-300 mt-2">You have complete control. You handle everything, from OS installation to security hardening.</p>
-                    <Button className="mt-4 bg-emerald-500/10 border border-emerald-400/30 text-emerald-200 hover:bg-emerald-500/20">
+                    <Button 
+                        className="mt-4 bg-emerald-500/10 border border-emerald-400/30 text-emerald-200 hover:bg-emerald-500/20"
+                        onClick={() => document.getElementById('unmanaged-plans')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
                         For experienced sysadmins
                     </Button>
                 </Card>
                 <Card className="border border-green-400/20 bg-white/5 p-6">
                     <h3 className="text-2xl font-bold text-green-100">Managed Dedicated</h3>
                     <p className="text-slate-300 mt-2">We handle the server. You focus on your application, with our team managing the server.</p>
-                    <Button className="mt-4 bg-green-500/10 border border-green-400/30 text-green-200 hover:bg-green-500/20">
+                    <Button 
+                        className="mt-4 bg-green-500/10 border border-green-400/30 text-green-200 hover:bg-green-500/20"
+                        onClick={() => document.getElementById('managed-plans')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
                         For businesses without IT staff
                     </Button>
                 </Card>
