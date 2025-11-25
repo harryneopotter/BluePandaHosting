@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
 
 // --- Reusable Components ---
 
@@ -150,7 +151,7 @@ export default function DedicatedServersClientPage() {
         </section>
 
         {/* Unmanaged Pricing Section */}
-        <section id="unmanaged-plans" className="my-16 scroll-mt-20">
+        <section id="unmanaged-plans" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-emerald-200">Unmanaged Dedicated Server Plans</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {DEDICATED_PLANS.map(p => (
@@ -182,7 +183,7 @@ export default function DedicatedServersClientPage() {
         </section>
 
         {/* Managed Pricing Section */}
-        <section id="managed-plans" className="my-16 scroll-mt-20">
+        <section id="managed-plans" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-green-200">Managed Dedicated Server Plans</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {MANAGED_DEDICATED_PLANS.map(p => (
