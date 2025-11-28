@@ -63,7 +63,14 @@ const featuresData = [
     }
 ];
 
-const FeatureItem = ({ title, description, impact, retailCost }) => (
+interface FeatureItemProps {
+    title: string;
+    description: string;
+    impact: string;
+    retailCost: string;
+}
+
+const FeatureItem: React.FC<FeatureItemProps> = ({ title, description, impact, retailCost }) => (
     <motion.div
         className="rounded-xl border border-slate-700/50 bg-slate-800/20 p-6"
         initial={{ opacity: 0, y: 20 }}
