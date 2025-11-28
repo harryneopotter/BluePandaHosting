@@ -419,8 +419,8 @@ function PlanDialog({open,onOpenChange,planId}){
               ))}
             </ul>
             <div className="mt-4 flex gap-2">
-              <Button className="bg-cyan-500 hover:bg-cyan-400 text-slate-900">Get started</Button>
-              <Button className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">Compare</Button>
+              <Button className="bg-cyan-500 hover:bg-cyan-400 text-slate-900 shadow-lg shadow-cyan-500/30">Start Your Plan Now</Button>
+              <Button className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">View All Features</Button>
             </div>
           </CardContent>
         </Card>
@@ -848,25 +848,61 @@ export default function QPandaOnePager(){
             <div className="absolute inset-0">{PLAN_NODE_POS.map(n=>(<PlanNode key={n.id} id={n.id} top={n.top} left={n.left} onClick={teleportTo}/>))}</div>
             <div className="relative z-10 mx-auto mt-28 max-w-4xl px-6 text-center">
   <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-xs text-cyan-200">
-    <IconSparkles className="h-3.5 w-3.5"/> Quantum-Grade Hosting Infrastructure
+    <IconSparkles className="h-3.5 w-3.5"/> Premium Hosting Infrastructure
   </div>
   <h1 className="text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400">
-    Web Hosting That Actually Works
+    AI-Powered Hosting That Delivers Unbeatable Speed
   </h1>
-  <p className="mx-auto mt-4 max-w-2xl text-slate-300">
-    Enterprise-grade infrastructure. Premium software stack. Low-density servers. Your site gets the performance and reliability it deserves.
+  <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
+    An AI co-pilot that monitors your site 24/7, optimizes performance in real-time, and instantly deploys your site across our global network for maximum performance and reliability.
   </p>
   <div className="mt-6 flex items-center justify-center gap-3">
-    <Button onClick={openQuantumEntanglement} className="bg-cyan-500 text-slate-900 hover:bg-cyan-400">
-      View Plans
+    <Button onClick={openQuantumEntanglement} className="bg-cyan-500 text-slate-900 hover:bg-cyan-400 shadow-lg shadow-cyan-500/30">
+      Get Started Now
     </Button>
     <Button onClick={handleSeePlans} className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">
-      See What's Included
+      Compare Plans
     </Button>
+  </div>
+
+  {/* Social Proof Above The Fold */}
+  <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-center">
+    <div className="flex items-center gap-2">
+      <div className="flex -space-x-2">
+        <div className="h-8 w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-cyan-400 to-blue-500"></div>
+        <div className="h-8 w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-purple-400 to-pink-500"></div>
+        <div className="h-8 w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-green-400 to-emerald-500"></div>
+      </div>
+      <div className="text-left">
+        <div className="flex items-center gap-1 text-sm font-semibold text-cyan-200">
+          <span>★★★★★</span>
+        </div>
+        <div className="text-xs text-slate-400">4.9/5 from 500+ reviews</div>
+      </div>
+    </div>
+    <div className="h-8 w-px bg-slate-700"></div>
+    <div>
+      <div className="text-2xl font-bold text-cyan-200">10,000+</div>
+      <div className="text-xs text-slate-400">Websites powered</div>
+    </div>
+    <div className="h-8 w-px bg-slate-700"></div>
+    <div>
+      <div className="text-2xl font-bold text-cyan-200">99.9%</div>
+      <div className="text-xs text-slate-400">Uptime guarantee</div>
+    </div>
   </div>
 </div>
             <PandaTrail pos={pandaPos}/>
-            <motion.div className="pointer-events-none fixed z-30" animate={{x:pandaPos.x,y:pandaPos.y}} transition={{type:'spring',stiffness:120,damping:16}}><PandaFace/></motion.div>
+            <motion.div className="group fixed z-30" animate={{x:pandaPos.x,y:pandaPos.y}} transition={{type:'spring',stiffness:120,damping:16}}>
+              <PandaFace/>
+              <motion.div
+                className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg border border-cyan-400/30 bg-slate-900/95 px-2 py-1 text-xs text-cyan-200 opacity-0 backdrop-blur-sm group-hover:opacity-100 transition-opacity"
+                initial={{opacity: 0, y: -5}}
+                whileHover={{opacity: 1, y: 0}}
+              >
+                AI Assistant
+              </motion.div>
+            </motion.div>
             <TeleportRing x={ring.x} y={ring.y} show={ring.show}/>
             <AnimatePresence>{clones.map(c=>(<motion.div key={c.id} initial={{x:c.x,y:c.y,scale:0.6,opacity:0.8}} animate={{y:c.y-40,opacity:0}} exit={{opacity:0}} transition={{duration:0.8,ease:'easeOut'}} className="pointer-events-none fixed z-20"><PandaFace size={38}/></motion.div>))}</AnimatePresence>
           </section>
@@ -889,8 +925,8 @@ export default function QPandaOnePager(){
               {p.features.map(f=>(<li key={f} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-300"/> {f}</li>))}
             </ul>
             <div className="mt-4">
-              <Button className="w-full bg-cyan-500 text-slate-900 hover:bg-cyan-400" onClick={(e)=>{const r=e.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top:window.innerHeight/2; teleportTo(p.id,cx,cy);}}>
-                Choose {p.name}
+              <Button className="w-full bg-cyan-500 text-slate-900 hover:bg-cyan-400 shadow-lg shadow-cyan-500/20" onClick={(e)=>{const r=e.currentTarget?.getBoundingClientRect?.(); const cx=r? r.left+r.width/2:window.innerWidth/2; const cy=r? r.top:window.innerHeight/2; teleportTo(p.id,cx,cy);}}>
+                Start Your {p.badge} Plan
               </Button>
             </div>
           </CardContent>
@@ -1005,12 +1041,12 @@ export default function QPandaOnePager(){
   <Card className="border border-cyan-400/20 bg-gradient-to-r from-cyan-500/10 to-fuchsia-500/10 backdrop-blur-xl">
     <CardContent className="flex flex-col items-center justify-between gap-4 p-8 md:flex-row">
       <div>
-        <h3 className="text-2xl font-bold text-cyan-100">Ready for Better Hosting?</h3>
-        <p className="mt-1 text-slate-300">Get started in minutes. Free migration included.</p>
+        <h3 className="text-2xl font-bold text-cyan-100">Ready to Boost Your Site's Performance?</h3>
+        <p className="mt-1 text-slate-300">Start in minutes. Free migration and 30-day money-back guarantee.</p>
       </div>
       <div className="flex gap-2">
-        <Button onClick={handleSeePlans} className="bg-cyan-500 text-slate-900 hover:bg-cyan-400">
-          <IconRocket className="mr-2 h-4 w-4" /> View Plans & Pricing
+        <Button onClick={handleSeePlans} className="bg-cyan-500 text-slate-900 hover:bg-cyan-400 shadow-lg shadow-cyan-500/30">
+          <IconRocket className="mr-2 h-4 w-4" /> Get Started Today
         </Button>
       </div>
     </CardContent>
