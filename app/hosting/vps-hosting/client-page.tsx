@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
+import { scrollToSection } from '../../lib/scrollUtils';
 
 // --- Reusable Components ---
 
@@ -88,13 +89,6 @@ const MANAGED_VPS_PLANS = [
 // --- Page Component ---
 
 export default function VpsHostingClientPage() {
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
       <div className="mx-auto max-w-6xl px-6 py-16">
