@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
 import TechnicalFeatures from '../../components/TechnicalFeatures';
 
 // --- Reusable Components from QPandaOnePager.jsx ---
@@ -91,7 +92,7 @@ export default function SharedHostingClientPage() {
         </div>
 
         {/* Our Approach Section */}
-        <section id="approach" className="my-16">
+        <section id="approach" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-cyan-200">Our Approach: Premium Infrastructure</h2>
             <div className="grid gap-6 md:grid-cols-2">
                 <div>
@@ -106,7 +107,7 @@ export default function SharedHostingClientPage() {
         </section>
 
         {/* What You Actually Get Section */}
-        <section id="what-you-get" className="my-16">
+        <section id="what-you-get" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-cyan-200">What You Actually Get</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 <FeatureCard icon={<IconZap className="h-5 w-5"/>} title="Speed That Matters" desc="NVMe SSD Storage, LiteSpeed + LSCache, and HTTP/3 Protocol." />
@@ -117,7 +118,7 @@ export default function SharedHostingClientPage() {
         </section>
 
         {/* Pricing Section */}
-        <section id="plans" className="my-16">
+        <section id="plans" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-cyan-200">Choose Your Plan</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {PLANS.map(p => (

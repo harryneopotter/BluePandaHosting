@@ -102,7 +102,7 @@ export default function DedicatedServersClientPage() {
         </div>
 
         {/* Managed vs Unmanaged Section */}
-        <section id="managed-vs-unmanaged" className="my-16">
+        <section id="managed-vs-unmanaged" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-emerald-200">Managed vs. Unmanaged Dedicated</h2>
             <div className="grid gap-8 md:grid-cols-2">
                 <Card className="border border-emerald-400/20 bg-white/5 p-6">
@@ -123,7 +123,7 @@ export default function DedicatedServersClientPage() {
         </section>
 
         {/* When to Choose Dedicated Section */}
-        <section id="when-to-choose-dedicated" className="my-16">
+        <section id="when-to-choose-dedicated" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-emerald-200">When to Choose Dedicated</h2>
             <div className="grid gap-6 md:grid-cols-3">
                 <FeatureCard
