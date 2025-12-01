@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
 import TechnicalFeatures from '../../components/TechnicalFeatures';
 
 // --- Reusable Components ---
@@ -67,7 +68,7 @@ export default function WordPressHostingClientPage() {
         </div>
 
         {/* Why Managed WordPress Section */}
-        <section id="why-managed-wp" className="my-16">
+        <section id="why-managed-wp" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-blue-200">Why Managed WordPress?</h2>
             <div className="text-center max-w-2xl mx-auto">
                 <p className="text-slate-300">
@@ -77,7 +78,7 @@ export default function WordPressHostingClientPage() {
         </section>
 
         {/* Features Section */}
-        <section id="features" className="my-16">
+        <section id="features" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-blue-200">Your Intelligent WordPress Partner</h2>
             <div className="grid gap-6 md:grid-cols-3">
                 <FeatureCard
@@ -99,7 +100,7 @@ export default function WordPressHostingClientPage() {
         </section>
 
         {/* Pricing Section */}
-        <section id="plans" className="my-16">
+        <section id="plans" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-blue-200">Managed WordPress Plans</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {WP_PLANS.map(p => (

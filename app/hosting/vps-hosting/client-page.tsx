@@ -102,7 +102,7 @@ export default function VpsHostingClientPage() {
         </div>
 
         {/* Managed vs Unmanaged Section */}
-        <section id="managed-vs-unmanaged" className="my-16">
+        <section id="managed-vs-unmanaged" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-fuchsia-200">Managed vs. Unmanaged VPS</h2>
             <div className="grid gap-8 md:grid-cols-2">
                 <Card className="border border-fuchsia-400/20 bg-white/5 p-6">
@@ -123,7 +123,7 @@ export default function VpsHostingClientPage() {
         </section>
 
         {/* When to Choose VPS Section */}
-        <section id="when-to-choose-vps" className="my-16">
+        <section id="when-to-choose-vps" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-fuchsia-200">When to Choose VPS</h2>
             <div className="grid gap-6 md:grid-cols-3">
                 <FeatureCard

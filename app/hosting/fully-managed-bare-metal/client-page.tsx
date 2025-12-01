@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
 
 // --- Reusable Components ---
 
@@ -57,7 +58,7 @@ export default function FullyManagedBareMetalClientPage() {
         </div>
 
         {/* AI Features Section */}
-        <section id="features" className="my-16">
+        <section id="features" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-red-200">Your Outsourced Infrastructure Team</h2>
             <div className="grid gap-6 md:grid-cols-3">
                 <FeatureCard
@@ -79,7 +80,7 @@ export default function FullyManagedBareMetalClientPage() {
         </section>
 
         {/* Pricing Section */}
-        <section id="plans" className="my-16">
+        <section id="plans" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-red-200">Managed Bare Metal Plans</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
                 {MANAGED_DEDICATED_PLANS.map(p => (
