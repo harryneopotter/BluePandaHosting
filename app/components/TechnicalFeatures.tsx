@@ -3,7 +3,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const featuresData = [
+interface FeatureItemProps {
+    title: string;
+    description: string;
+    impact: string;
+    retailCost: string;
+}
+
+interface FeatureCategoryProps {
+    category: string;
+    items: FeatureItemProps[];
+}
+
+const featuresData: FeatureCategoryProps[] = [
     {
         category: "Premium Software Stack",
         items: [
@@ -62,13 +74,6 @@ const featuresData = [
         ]
     }
 ];
-
-interface FeatureItemProps {
-    title: string;
-    description: string;
-    impact: string;
-    retailCost: string;
-}
 
 const FeatureItem: React.FC<FeatureItemProps> = ({ title, description, impact, retailCost }) => (
     <motion.div
