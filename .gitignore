@@ -52,3 +52,6 @@ sqlite_mcp_server.db
 # API routes should not exist with static export
 # If you need API functionality, remove 'output: export' from next.config.mjs
 app/api/
+node_modules
+.eslintrc.json
+.next
