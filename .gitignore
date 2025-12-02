@@ -41,7 +41,6 @@ Thumbs.db
 /.kiro
 /.qodo
 .blackboxrules
-.eslintrc.json
 /.prompts
 qpanda-design.md
 QPanda_Code_Review.md
@@ -53,5 +52,4 @@ sqlite_mcp_server.db
 # If you need API functionality, remove 'output: export' from next.config.mjs
 app/api/
 node_modules
-.eslintrc.json
 .next

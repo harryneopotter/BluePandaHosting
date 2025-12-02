@@ -95,8 +95,8 @@ const FeatureCategory: React.FC<FeatureCategoryProps> = ({ category, items }) =>
     <div className="mb-10">
         <h3 className="text-2xl font-bold text-cyan-200 mb-4">{category}</h3>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {items.map((item) => (
-                <FeatureItem key={item.title} {...item} />
+            {items.map((item, index) => (
+                <FeatureItem key={`${category}-item-${index}`} {...item} />
             ))}
         </div>
     </div>
@@ -113,8 +113,8 @@ export default function TechnicalFeatures() {
                     Every hosting plan includes enterprise-grade software and technologies that would cost hundreds of dollars if purchased separately.
                 </p>
             </div>
-            {featuresData.map((cat) => (
-                <FeatureCategory key={cat.category} {...cat} />
+            {featuresData.map((cat, index) => (
+                <FeatureCategory key={`category-${index}`} {...cat} />
             ))}
         </section>
     );
