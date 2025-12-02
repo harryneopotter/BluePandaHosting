@@ -53,3 +53,12 @@ sqlite_mcp_server.db
 app/api/
 node_modules
 .next
+
+# Local TypeScript build info
+tsconfig.tsbuildinfo
+
+# Test artifacts
+tests/screenshots/
+
+# Scratch / temporary verification files
+jules-scratch/
