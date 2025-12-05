@@ -95,7 +95,7 @@ export default function DedicatedServersClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1 text-xs text-emerald-200"><IconRocket className="h-3.5 w-3.5"/> Bare-Metal Performance</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-green-400 to-cyan-400">Dedicated Servers</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-green-400 to-cyan-400">Dedicated Servers</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Entire physical servers dedicated to your applications. Latest AMD Ryzen and Intel Xeon processors, NVMe SSD storage, and 10Gbps networking. No virtualization overhead. No shared resources.
             </p>

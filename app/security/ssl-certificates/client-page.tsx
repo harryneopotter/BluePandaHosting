@@ -58,7 +58,7 @@ export default function SslCertificatesClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-green-400/30 bg-green-500/10 px-3 py-1 text-xs text-green-200"><IconLock className="h-3.5 w-3.5"/> AI-Secured Certificates</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-emerald-400 to-cyan-400">SSL Certificates</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-emerald-400 to-cyan-400">SSL Certificates</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Encrypt your website&apos;s traffic and build trust with your visitors. Our SSL certificates are managed by our AI platform to ensure they are always valid, correctly configured, and renewed on time.
             </p>

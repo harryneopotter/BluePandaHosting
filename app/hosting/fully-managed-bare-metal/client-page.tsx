@@ -51,7 +51,7 @@ export default function FullyManagedBareMetalClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-500/10 px-3 py-1 text-xs text-red-200"><IconLifeBuoy className="h-3.5 w-3.5"/> White Glove Service</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-pink-400 to-fuchsia-400">Fully Managed Bare Metal</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-pink-400 to-fuchsia-400">Fully Managed Bare Metal</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Absolute power, zero administration. Get a dedicated physical server, fully managed and optimized by our AI platform, for your most critical applications.
             </p>

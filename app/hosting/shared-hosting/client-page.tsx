@@ -85,7 +85,7 @@ export default function SharedHostingClientPage() {
       <div className="mx-auto max-w-6xl px-6 py-16">
         {/* Hero Section */}
         <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400">Shared Hosting That Doesn't Suck</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400">Shared Hosting That Doesn't Suck</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Most hosting companies advertise "unlimited everything" for $3/month. They cram 1,000+ websites onto a single server and hope you don't notice. We do the exact opposite.
             </p>

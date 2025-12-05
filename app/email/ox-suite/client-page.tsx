@@ -66,7 +66,7 @@ export default function OxSuiteClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-teal-400/30 bg-teal-500/10 px-3 py-1 text-xs text-teal-200"><IconBriefcase className="h-3.5 w-3.5"/> AI-Powered Productivity</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-cyan-400 to-sky-400">OX Suite Business Email</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-cyan-400 to-sky-400">OX Suite Business Email</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Upgrade your business communication with a professional email and productivity suite. OX Suite, enhanced by our AI, helps your team collaborate more effectively.
             </p>

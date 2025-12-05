@@ -845,50 +845,50 @@ export default function QPandaOnePager(){
           <section className="relative h-[90vh] overflow-hidden">
             <QuantumBackground2D/>
             <div className="pointer-events-none absolute inset-0">{PLAN_NODE_POS.map((n,i)=>(<div key={i} className="absolute" style={{top:`${n.top}%`,left:`${n.left}%`}}><div className="h-1 w-16 origin-left rotate-12 bg-gradient-to-r from-cyan-400/60 to-fuchsia-400/10 blur-[1px]"/></div>))}</div>
-            <div className="absolute inset-0">{PLAN_NODE_POS.map(n=>(<PlanNode key={n.id} id={n.id} top={n.top} left={n.left} onClick={teleportTo}/>))}</div>
-            <div className="relative z-10 mx-auto mt-28 max-w-4xl px-6 text-center">
-  <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-xs text-cyan-200">
-    <IconSparkles className="h-3.5 w-3.5"/> Premium Hosting Infrastructure
+            <div className="absolute inset-0 hidden sm:block">{PLAN_NODE_POS.map(n=>(<PlanNode key={n.id} id={n.id} top={n.top} left={n.left} onClick={teleportTo}/>))}</div>
+            <div className="relative z-10 mx-auto mt-16 sm:mt-20 md:mt-28 max-w-4xl px-4 sm:px-6 text-center">
+  <div className="mb-3 sm:mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 sm:px-3 py-1 text-[10px] sm:text-xs text-cyan-200">
+    <IconSparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5"/> Premium Hosting Infrastructure
   </div>
-  <h1 className="text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400">
+  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400 leading-tight">
     AI-Powered Hosting That Delivers Unbeatable Speed
   </h1>
-  <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
+  <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-slate-300 px-2 sm:px-0">
     An AI co-pilot that monitors your site 24/7, optimizes performance in real-time, and instantly deploys your site across our global network for maximum performance and reliability.
   </p>
-  <div className="mt-6 flex items-center justify-center gap-3">
-    <Button onClick={openQuantumEntanglement} className="bg-cyan-500 text-slate-900 hover:bg-cyan-400 shadow-lg shadow-cyan-500/30">
+  <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+    <Button onClick={openQuantumEntanglement} className="w-full sm:w-auto bg-cyan-500 text-slate-900 hover:bg-cyan-400 shadow-lg shadow-cyan-500/30">
       Get Started Now
     </Button>
-    <Button onClick={handleSeePlans} className="border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">
+    <Button onClick={handleSeePlans} className="w-full sm:w-auto border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">
       Compare Plans
     </Button>
   </div>
 
   {/* Social Proof Above The Fold */}
-  <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-center">
+  <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-center">
     <div className="flex items-center gap-2">
       <div className="flex -space-x-2">
-        <div className="h-8 w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-cyan-400 to-blue-500"></div>
-        <div className="h-8 w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-purple-400 to-pink-500"></div>
-        <div className="h-8 w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-green-400 to-emerald-500"></div>
+        <div className="h-6 w-6 sm:h-8 sm:w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-cyan-400 to-blue-500"></div>
+        <div className="h-6 w-6 sm:h-8 sm:w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-purple-400 to-pink-500"></div>
+        <div className="h-6 w-6 sm:h-8 sm:w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-green-400 to-emerald-500"></div>
       </div>
       <div className="text-left">
-        <div className="flex items-center gap-1 text-sm font-semibold text-cyan-200">
+        <div className="flex items-center gap-1 text-xs sm:text-sm font-semibold text-cyan-200">
           <span>★★★★★</span>
         </div>
-        <div className="text-xs text-slate-400">4.9/5 from 500+ reviews</div>
+        <div className="text-[10px] sm:text-xs text-slate-400">4.9/5 from 500+ reviews</div>
       </div>
     </div>
-    <div className="h-8 w-px bg-slate-700"></div>
+    <div className="hidden sm:block h-8 w-px bg-slate-700"></div>
     <div>
-      <div className="text-2xl font-bold text-cyan-200">10,000+</div>
-      <div className="text-xs text-slate-400">Websites powered</div>
+      <div className="text-lg sm:text-2xl font-bold text-cyan-200">10,000+</div>
+      <div className="text-[10px] sm:text-xs text-slate-400">Websites powered</div>
     </div>
-    <div className="h-8 w-px bg-slate-700"></div>
+    <div className="hidden sm:block h-8 w-px bg-slate-700"></div>
     <div>
-      <div className="text-2xl font-bold text-cyan-200">99.9%</div>
-      <div className="text-xs text-slate-400">Uptime guarantee</div>
+      <div className="text-lg sm:text-2xl font-bold text-cyan-200">99.9%</div>
+      <div className="text-[10px] sm:text-xs text-slate-400">Uptime guarantee</div>
     </div>
   </div>
 </div>

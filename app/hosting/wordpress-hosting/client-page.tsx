@@ -61,7 +61,7 @@ export default function WordPressHostingClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 text-xs text-blue-200"><IconShield className="h-3.5 w-3.5"/> Fully Managed WordPress</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-400 to-sky-400">Managed WordPress Hosting</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-400 to-sky-400">Managed WordPress Hosting</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Zero server management. Automatic updates, performance optimization, and security hardening. We handle the technical details so you can focus on your content.
             </p>

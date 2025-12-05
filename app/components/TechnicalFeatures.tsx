@@ -77,19 +77,19 @@ const featuresData: FeatureCategoryProps[] = [
 
 const FeatureItem: React.FC<FeatureItemProps> = ({ title, description, impact, retailCost }) => (
     <motion.div
-        className="rounded-xl border border-slate-700/50 bg-slate-800/20 p-6"
+        className="group rounded-2xl border border-cyan-400/20 bg-white/5 p-5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.12)]"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
     >
-        <h3 className="text-xl font-bold text-sky-200">{title}</h3>
+        <h3 className="text-lg font-bold text-cyan-100">{title}</h3>
         <p className="mt-2 text-slate-300">{description}</p>
-        <p className="mt-4 text-sm text-sky-300/80 italic">
-            <span className="font-semibold text-sky-200">Real-world impact:</span> {impact}
+        <p className="mt-4 text-sm text-slate-400 italic">
+            <span className="font-semibold text-cyan-200">Real-world impact:</span> {impact}
         </p>
-        <div className="mt-4 text-xs font-semibold uppercase text-sky-200/70">
-            Retail Value: <span className="font-bold text-sky-100">{retailCost}</span>
+        <div className="mt-4 text-xs font-semibold uppercase text-slate-400">
+            Retail Value: <span className="font-bold text-slate-100">{retailCost}</span>
         </div>
     </motion.div>
 );

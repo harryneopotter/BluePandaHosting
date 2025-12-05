@@ -12,6 +12,8 @@
     "start": "next start",
     "lint": "next lint",
     "serve": "serve out -s -l 3000",
+    "playwright:install": "npx playwright install --with-deps",
+    "screenshot": "npm run playwright:install && npx playwright test tests/screenshot.spec.ts --project=chromium --reporter=list",
     "build:debug": "next build && echo 'Build completed' && ls -la out/"
   },
   "dependencies": {

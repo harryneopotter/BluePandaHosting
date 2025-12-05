@@ -51,7 +51,7 @@ export default function FullyManagedCloudClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-pink-400/30 bg-pink-500/10 px-3 py-1 text-xs text-pink-200"><IconLifeBuoy className="h-3.5 w-3.5"/> AI Concierge</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-fuchsia-400 to-purple-400">Fully Managed Cloud Hosting</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-fuchsia-400 to-purple-400">Fully Managed Cloud Hosting</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Experience the scalability of the cloud with the peace of mind of a fully managed service. Our AI platform and expert engineers are your dedicated cloud operations team.
             </p>

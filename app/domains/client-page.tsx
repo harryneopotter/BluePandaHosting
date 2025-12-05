@@ -54,7 +54,7 @@ export default function DomainServicesClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1 text-xs text-indigo-200"><IconGlobe className="h-3.5 w-3.5"/> AI-Powered Domains</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-400">Domain Services</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-400">Domain Services</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Your online identity starts with the perfect domain. Our AI-powered tools help you find available domains, manage your portfolio, and transfer domains seamlessly.
             </p>

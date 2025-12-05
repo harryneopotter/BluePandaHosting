@@ -58,7 +58,7 @@ export default function SpamExpertsClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-400/30 bg-orange-500/10 px-3 py-1 text-xs text-orange-200"><IconShield className="h-3.5 w-3.5"/> AI-Powered Email Security</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-amber-400 to-yellow-400">SpamExperts Email Security</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-amber-400 to-yellow-400">SpamExperts Email Security</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Reclaim your inbox. Our AI-enhanced SpamExperts service filters out spam, viruses, and phishing attacks with near-perfect accuracy, keeping your communication secure and efficient.
             </p>

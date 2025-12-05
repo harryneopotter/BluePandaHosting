@@ -59,7 +59,7 @@ export default function SiteMonitoringClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-400/30 bg-yellow-500/10 px-3 py-1 text-xs text-yellow-200"><IconEye className="h-3.5 w-3.5"/> AI-Powered Monitoring</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-400">Site & Server Monitoring</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-400">Site & Server Monitoring</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Go beyond simple uptime checks. Our AI-powered monitoring service is your early warning system, detecting issues and performance bottlenecks before they impact your users.
             </p>
