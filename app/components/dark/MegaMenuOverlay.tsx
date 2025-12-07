@@ -13,6 +13,11 @@ type Props = {
 };
 
 export default function MegaMenuOverlay({ activeKey, onClose, onMenuEnter, onMenuLeave, render }: Props) {
+  const handleLinkClick: React.MouseEventHandler<HTMLDivElement> = (event) => {
+    const target = (event.target as HTMLElement | null)?.closest('a');
+    if (target) onClose();
+  };
+
   if (typeof window === "undefined") return null;
 
   return createPortal(
@@ -35,7 +40,13 @@ export default function MegaMenuOverlay({ activeKey, onClose, onMenuEnter, onMen
             exit={{ y: -10, opacity: 0 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div id={`mega-${activeKey ?? ''}`} role="menu" aria-label={`${activeKey ?? 'menu'} mega menu`} className="mx-6 rounded-2xl border border-cyan-400/20 bg-gradient-to-b from-slate-900/95 to-slate-950/98 backdrop-blur-xl shadow-2xl">
+            <div
+              id={`mega-${activeKey ?? ''}`}
+              role="menu"
+              aria-label={`${activeKey ?? 'menu'} mega menu`}
+              className="mx-6 rounded-2xl border border-cyan-400/20 bg-gradient-to-b from-slate-900/95 to-slate-950/98 backdrop-blur-xl shadow-2xl"
+              onClick={handleLinkClick}
+            >
               <div className="p-6">
                 {render(activeKey)}
               </div>

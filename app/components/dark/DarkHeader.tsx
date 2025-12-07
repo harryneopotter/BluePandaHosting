@@ -30,6 +30,10 @@ export default function DarkHeader() {
     setActiveMenu(menu);
   };
 
+  const handleNavClick = () => {
+    setActiveMenu(null);
+  };
+
   const closeMenuWithDelay = () => {
     if (timeoutRef.current) {
       window.clearTimeout(timeoutRef.current);
@@ -108,6 +112,11 @@ export default function DarkHeader() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
+  // Close desktop mega menu when route changes
+  useEffect(() => {
+    if (activeMenu) setActiveMenu(null);
+  }, [pathname]);
+
   // Close on route hash change for one-pager navigation
   useEffect(() => {
     const onHash = () => setActiveMenu(null);
@@ -120,12 +129,12 @@ export default function DarkHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
 <Link href="/" className="text-lg font-bold text-cyan-300">Q Panda</Link>
 
-        <nav className="hidden gap-1 text-base text-slate-300 md:flex">
-  <Link href="/" className="px-3 py-2 hover:text-cyan-300">Home</Link>
+          <nav className="hidden gap-1 text-base text-slate-300 md:flex">
+        <Link href="/" onClick={handleNavClick} className="px-3 py-2 hover:text-cyan-300">Home</Link>
 
           {/* Hosting */}
           <div className="relative" onMouseEnter={() => openMenu("hosting")} onMouseLeave={closeMenuWithDelay}>
-            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "hosting"} aria-controls="mega-hosting">
+            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "hosting"} aria-controls="mega-hosting" onClick={handleNavClick}>
               Hosting
               <ChevronDownIcon className={`h-3 w-3 transition-transform ${activeMenu === "hosting" ? "rotate-180" : ""}`} />
             </button>
@@ -133,7 +142,7 @@ export default function DarkHeader() {
 
           {/* Domains */}
           <div className="relative" onMouseEnter={() => openMenu("domains")} onMouseLeave={closeMenuWithDelay}>
-            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "domains"} aria-controls="mega-domains">
+            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "domains"} aria-controls="mega-domains" onClick={handleNavClick}>
               Domains
               <ChevronDownIcon className={`h-3 w-3 transition-transform ${activeMenu === "domains" ? "rotate-180" : ""}`} />
             </button>
@@ -141,7 +150,7 @@ export default function DarkHeader() {
 
           {/* Email */}
           <div className="relative" onMouseEnter={() => openMenu("email")} onMouseLeave={closeMenuWithDelay}>
-            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "email"} aria-controls="mega-email">
+            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "email"} aria-controls="mega-email" onClick={handleNavClick}>
               Email
               <ChevronDownIcon className={`h-3 w-3 transition-transform ${activeMenu === "email" ? "rotate-180" : ""}`} />
             </button>
@@ -149,7 +158,7 @@ export default function DarkHeader() {
 
           {/* Security */}
           <div className="relative" onMouseEnter={() => openMenu("security")} onMouseLeave={closeMenuWithDelay}>
-            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "security"} aria-controls="mega-security">
+            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "security"} aria-controls="mega-security" onClick={handleNavClick}>
               Security
               <ChevronDownIcon className={`h-3 w-3 transition-transform ${activeMenu === "security" ? "rotate-180" : ""}`} />
             </button>
@@ -157,15 +166,15 @@ export default function DarkHeader() {
 
           {/* Support */}
           <div className="relative" onMouseEnter={() => openMenu("support")} onMouseLeave={closeMenuWithDelay}>
-            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "support"} aria-controls="mega-support">
+            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "support"} aria-controls="mega-support" onClick={handleNavClick}>
               Support
               <ChevronDownIcon className={`h-3 w-3 transition-transform ${activeMenu === "support" ? "rotate-180" : ""}`} />
             </button>
           </div>
 
-          <a href="#/blog" className="px-3 py-2 hover:text-cyan-300">Blog</a>
-          <a href="#/status" className="px-3 py-2 hover:text-cyan-300">Status</a>
-          <a href="#/contact" className="px-3 py-2 hover:text-cyan-300">Contact</a>
+          <a href="#/blog" onClick={handleNavClick} className="px-3 py-2 hover:text-cyan-300">Blog</a>
+          <a href="#/status" onClick={handleNavClick} className="px-3 py-2 hover:text-cyan-300">Status</a>
+          <a href="#/contact" onClick={handleNavClick} className="px-3 py-2 hover:text-cyan-300">Contact</a>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -216,7 +225,7 @@ export default function DarkHeader() {
           {mobileOpen && (
             <motion.div
               ref={mobileRef}
-              className="md:hidden fixed inset-0 top-0 z-[220] bg-slate-950"
+              className="md:hidden fixed inset-0 top-0 z-[220] bg-slate-950 min-h-screen h-full overflow-y-auto"
               role="dialog"
               aria-modal="true"
               initial={{ opacity: 0 }}
