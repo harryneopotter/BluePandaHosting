@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect, useContext, createContext } from "r
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { PUBLIC_CONFIG } from "../config/publicConfig";
+import LuminousCard from "./LuminousCard";
 
 // ——— Icons (inline) ———
 const IconSparkles = (p) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M12 3l1.5 3.5L17 8l-3.5 1.5L12 13l-1.5-3.5L7 8l3.5-1.5L12 3z"/><path d="M5 15l.75 1.75L7.5 17.5 5.75 18.25 5 20l-.75-1.75L2.5 17.5 4.25 16.75 5 15z"/><path d="M18.5 14l.5 1.25L20.25 16l-1.25.75L18.5 18l-.5-1.25L16.75 16l1.25-.75.5-1.25z"/></svg>);
@@ -912,9 +913,8 @@ export default function QPandaOnePager(){
     <h3 className="mb-6 text-2xl font-bold text-cyan-200">Shared Hosting Plans</h3>
     <div className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-3 ${highlightPlans?'rounded-3xl ring-2 ring-cyan-400/40 animate-pulse':''}`}>
       {PLANS.map(p => (
-        <Card key={p.id} className="group relative overflow-hidden border border-cyan-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)]">
-          <CardContent className="p-5">
-            <motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity,repeatType:'mirror',duration:3.4,ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(56,189,248,0.4) 50%, transparent 60%)'}}/>
+        <LuminousCard key={p.id} className="group relative h-full">
+          <div className="p-5">
             <div className="mb-2 flex items-center gap-2 text-xs text-cyan-200">
               <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-0.5">{p.badge}</span>
             </div>
@@ -929,8 +929,8 @@ export default function QPandaOnePager(){
                 Start Your {p.badge} Plan
               </Button>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </LuminousCard>
       ))}
     </div>
   </div>
@@ -1061,7 +1061,17 @@ export default function QPandaOnePager(){
 }
 
 // ——— Feature/Metric/Quote/FAQ ———
-const FeatureCard=({icon,title,desc})=>(<div className="group rounded-2xl border border-cyan-400/20 bg-white/5 p-5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 hover:bg-white/7"><div className="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-500/10 px-2 py-1 text-xs text-cyan-200">{icon} <span>{title}</span></div><p className="text-slate-300">{desc}</p><div className="mt-4 h-0.5 w-0 bg-gradient-to-r from-cyan-400 to-fuchsia-400 transition-all duration-500 group-hover:w-full"/></div>);
+const FeatureCard=({icon,title,desc})=>(
+  <LuminousCard className="h-full">
+    <div className="p-5">
+      <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-500/10 px-2 py-1 text-xs text-cyan-200">
+        {icon} <span>{title}</span>
+      </div>
+      <p className="text-slate-300">{desc}</p>
+      <div className="mt-4 h-0.5 w-0 bg-gradient-to-r from-cyan-400 to-fuchsia-400 transition-all duration-500 group-hover:w-full"/>
+    </div>
+  </LuminousCard>
+);
 const MetricCard=({label,value,sub})=>(<Card className="border border-cyan-400/20 bg-white/5 transition-transform duration-300 hover:-translate-y-0.5 text-center"><CardContent className="p-6"><div className="text-sm text-slate-300">{label}</div><motion.div initial={{opacity:0,y:4}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.4,ease:[0.16,1,0.3,1]}} className="mt-1 text-3xl font-extrabold text-cyan-200">{value}</motion.div><div className="mt-1 text-xs text-slate-400">{sub}</div></CardContent></Card>);
 const QuoteCard=({quote,author})=>(<Card className="border border-cyan-400/20 bg-white/5 transition-transform duration-300 hover:-translate-y-0.5"><CardContent className="p-6"><p className="text-slate-200">“{quote}”</p><div className="mt-3 text-sm text-slate-400">— {author}</div></CardContent></Card>);
 function FAQItem({q,a}){ const [open,setOpen]=useState(false); return (<div className="px-4 py-4"><button type="button" onClick={()=>setOpen(o=>!o)} className="flex w-full items-center justify-between gap-4 text-left"><span className="text-cyan-100">{q}</span><span className="rounded-full border border-cyan-400/30 px-2 py-0.5 text-xs text-cyan-200">{open?'−':'+'}</span></button><AnimatePresence initial={false}>{open&&(<motion.p initial={{height:0,opacity:0}} animate={{height:'auto',opacity:1}} exit={{height:0,opacity:0}} transition={{duration:0.25,ease:[0.16,1,0.3,1]}} className="mt-2 overflow-hidden pr-8 text-slate-300">{a}</motion.p>)}</AnimatePresence></div>); }
