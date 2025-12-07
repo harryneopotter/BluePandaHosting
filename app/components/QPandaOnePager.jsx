@@ -842,21 +842,21 @@ export default function QPandaOnePager(){
       <div className="min-h-screen w-full bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
 		<StaticOrnaments />
         {route.name!=='home'? (<SitePages route={route}/>) : (<>
-          <section className="relative min-h-[90vh] overflow-hidden flex items-center">
+          <section className="relative min-h-[90vh] overflow-hidden">
             <QuantumBackground2D/>
             <div className="pointer-events-none absolute inset-0">{PLAN_NODE_POS.map((n,i)=>(<div key={i} className="absolute" style={{top:`${n.top}%`,left:`${n.left}%`}}><div className="h-1 w-16 origin-left rotate-12 bg-gradient-to-r from-cyan-400/60 to-fuchsia-400/10 blur-[1px]"/></div>))}</div>
             <div className="absolute inset-0 hidden sm:block">{PLAN_NODE_POS.map(n=>(<PlanNode key={n.id} id={n.id} top={n.top} left={n.left} onClick={teleportTo}/>))}</div>
-            <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center py-16 sm:py-20">
-  <div className="mb-3 sm:mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 sm:px-3 py-1 text-[10px] sm:text-xs text-cyan-200">
-    <IconSparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5"/> Premium Hosting Infrastructure
+            <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center pt-14 pb-16 sm:pt-20 sm:pb-20 space-y-4 sm:space-y-5">
+  <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1.5 text-xs sm:text-sm md:text-base text-cyan-200 shadow-[0_8px_30px_rgba(14,165,233,0.12)]">
+    <IconSparkles className="h-4 w-4 sm:h-5 sm:w-5"/> Premium Hosting Infrastructure
   </div>
-  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400 leading-tight">
+  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400 leading-tight">
     AI-Powered Hosting That Delivers Unbeatable Speed
   </h1>
-  <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-slate-300 px-2 sm:px-0">
+  <p className="mx-auto max-w-2xl text-base sm:text-lg md:text-xl text-slate-200 px-2 sm:px-0">
     An AI co-pilot that monitors your site 24/7, optimizes performance in real-time, and instantly deploys your site across our global network for maximum performance and reliability.
   </p>
-  <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-3 sm:pt-4">
     <Button onClick={openQuantumEntanglement} className="w-full sm:w-auto bg-cyan-500 text-slate-900 hover:bg-cyan-400 shadow-lg shadow-cyan-500/30">
       Get Started Now
     </Button>
@@ -866,7 +866,7 @@ export default function QPandaOnePager(){
   </div>
 
   {/* Social Proof Above The Fold */}
-  <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-center">
+  <div className="pt-6 sm:pt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-center">
     <div className="flex items-center gap-2">
       <div className="flex -space-x-2">
         <div className="h-6 w-6 sm:h-8 sm:w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-cyan-400 to-blue-500"></div>
