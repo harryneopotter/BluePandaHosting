@@ -842,11 +842,11 @@ export default function QPandaOnePager(){
       <div className="min-h-screen w-full bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
 		<StaticOrnaments />
         {route.name!=='home'? (<SitePages route={route}/>) : (<>
-          <section className="relative h-[90vh] overflow-hidden">
+          <section className="relative min-h-[90vh] overflow-hidden flex items-center">
             <QuantumBackground2D/>
             <div className="pointer-events-none absolute inset-0">{PLAN_NODE_POS.map((n,i)=>(<div key={i} className="absolute" style={{top:`${n.top}%`,left:`${n.left}%`}}><div className="h-1 w-16 origin-left rotate-12 bg-gradient-to-r from-cyan-400/60 to-fuchsia-400/10 blur-[1px]"/></div>))}</div>
             <div className="absolute inset-0 hidden sm:block">{PLAN_NODE_POS.map(n=>(<PlanNode key={n.id} id={n.id} top={n.top} left={n.left} onClick={teleportTo}/>))}</div>
-            <div className="relative z-10 mx-auto mt-16 sm:mt-20 md:mt-28 max-w-4xl px-4 sm:px-6 text-center">
+            <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center py-16 sm:py-20">
   <div className="mb-3 sm:mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 sm:px-3 py-1 text-[10px] sm:text-xs text-cyan-200">
     <IconSparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5"/> Premium Hosting Infrastructure
   </div>
