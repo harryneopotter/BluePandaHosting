@@ -52,3 +52,12 @@ This file logs all tasks, changes made, and the rationale behind each change. It
 **Change Summary:** Added touch-friendly tap highlight (active ring + slight scale) with `whileTap` spring feedback and boosted glow contrast for mobile; ran `npx playwright test tests/demo.spec.ts` (passed).
 **Rationale:** Make the luminous treatment visible on touch devices and verify nav/menu flow remains stable.
 **Status:** Completed
+
+---
+
+## [2025-12-09] Fix build crash for luminous card
+**Task:** Ensure luminous card is a client component for framer-motion
+**Files Changed:** `app/components/LuminousCard.tsx`
+**Change Summary:** Added `"use client"` directive so framer-motion hooks run on the client, resolving the Next.js prerender `createContext` error on `/hosting`.
+**Rationale:** Prevent build-time crash when the luminous card is rendered from server components.
+**Status:** Completed
