@@ -1,10 +1,9 @@
 "use client";
 
-"use client";
 import React from "react";
 import { motion } from "framer-motion";
 
-export type LuminousCardProps = {
+export type LuminousCardProps = Omit<React.ComponentProps<typeof motion.div>, "children"> & {
   children: React.ReactNode;
   className?: string;
 };
@@ -12,15 +11,16 @@ export type LuminousCardProps = {
 export const luminousCardBase =
   "group relative overflow-hidden rounded-2xl border border-cyan-400/25 bg-slate-950/60 backdrop-blur-xl shadow-[0_10px_40px_-26px_rgba(56,189,248,0.45)] touch-manipulation";
 export const luminousCardHover =
-  "transition-[transform,box-shadow,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_20px_70px_-30px_rgba(56,189,248,0.6)] focus-visible:-translate-y-1 focus-visible:shadow-[0_20px_70px_-30px_rgba(56,189,248,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 active:translate-y-0 active:scale-[0.995]";
+  "transition-[transform,box-shadow,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_20px_70px_-30px_rgba(56,189,248,0.6)] focus-visible:-translate-y-1 focus-visible:shadow-[0_20px_70px_-30px_rgba(56,189,248,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 active:translate-y-0";
 export const luminousCardClassName = `${luminousCardBase} ${luminousCardHover}`;
 
-export function LuminousCard({ children, className = "" }: LuminousCardProps) {
+export function LuminousCard({ children, className = "", ...rest }: LuminousCardProps) {
   return (
     <motion.div
       className={`${luminousCardClassName} ${className}`}
-      whileTap={{ scale: 0.985, opacity: 0.96 }}
-      transition={{ type: "spring", stiffness: 320, damping: 26 }}
+      whileTap={{ scale: 0.97, opacity: 0.94, boxShadow: "0 30px 80px -38px rgba(56,189,248,0.75), 0 12px 36px -28px rgba(236,72,153,0.6)", filter: "brightness(1.04)" }}
+      transition={{ type: "spring", stiffness: 260, damping: 20, mass: 0.9 }}
+      {...rest}
     >
       <div
         aria-hidden
@@ -36,7 +36,7 @@ export function LuminousCard({ children, className = "" }: LuminousCardProps) {
       <div aria-hidden className="absolute inset-y-0 right-0 w-px bg-gradient-to-b from-transparent via-transparent to-fuchsia-400/30 opacity-60" />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition duration-150 ease-out group-active:opacity-60 group-active:ring-2 group-active:ring-cyan-300/70 group-active:ring-offset-2 group-active:ring-offset-slate-950/80"
+        className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition duration-200 ease-out group-active:opacity-90 group-active:ring-3 group-active:ring-cyan-200/80 group-active:ring-offset-2 group-active:ring-offset-slate-950/80"
       />
       <div className="relative z-10">{children}</div>
     </motion.div>

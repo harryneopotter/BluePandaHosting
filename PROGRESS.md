@@ -61,3 +61,21 @@ This file logs all tasks, changes made, and the rationale behind each change. It
 **Change Summary:** Added `"use client"` directive so framer-motion hooks run on the client, resolving the Next.js prerender `createContext` error on `/hosting`.
 **Rationale:** Prevent build-time crash when the luminous card is rendered from server components.
 **Status:** Completed
+
+---
+
+## [2025-12-09] Boost tap feedback and apply luminous shell broadly
+**Task:** Make luminous card tap animation more visible on mobile and use it across active cards
+**Files Changed:** `app/components/LuminousCard.tsx`
+**Change Summary:** Strengthened tap feedback with deeper scale, brightness, and glow; allowed motion props passthrough. Reverted legacy `QPandaOnePager.jsx` wrapper change after user confirmed the file is unused.
+**Rationale:** Improve tap visibility on phones while keeping changes scoped to active surfaces.
+**Status:** Completed (tests not re-run; visual check recommended)
+
+---
+
+## [2025-12-09] Apply luminous wrapper to active hosting pages
+**Task:** Extend LuminousCard usage to active plan/feature cards across hosting routes
+**Files Changed:** `app/hosting/shared-hosting/client-page.tsx`, `app/hosting/vps-hosting/client-page.tsx`, `app/hosting/fully-managed-vps/client-page.tsx`, `app/hosting/dedicated-servers/client-page.tsx`, `app/hosting/fully-managed-bare-metal/client-page.tsx`, `app/hosting/cloud-hosting/client-page.tsx`, `app/hosting/fully-managed-cloud/client-page.tsx`, `app/hosting/wordpress-hosting/client-page.tsx`
+**Change Summary:** Imported `LuminousCard` and wrapped shared `Card` helpers plus feature cards for consistent luminous styling and tap feedback on plan grids and feature tiles across all active hosting pages.
+**Rationale:** Deliver uniform tap/hover affordance and visual cohesion across all customer-facing hosting pages while avoiding legacy files.
+**Status:** Completed (tests not re-run; build previously green; spot lint check clean)
