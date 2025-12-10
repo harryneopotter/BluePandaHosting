@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import LuminousCard from "@/app/components/LuminousCard";
+import LuminousCard from "../../components/LuminousCard";
 
 export default function TicketsPage() {
   const [data, setData] = useState<any>(null);

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import LuminousCard from '@/app/components/LuminousCard';
+import LuminousCard from '../../components/LuminousCard';
 
 // --- Reusable Components ---
 

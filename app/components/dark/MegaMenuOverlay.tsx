@@ -32,7 +32,7 @@ export default function MegaMenuOverlay({ activeKey, onClose, onMenuEnter, onMen
           onMouseEnter={onMenuEnter}
           onMouseLeave={onMenuLeave}
         >
-          <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" onClick={onClose} />
+          <div data-testid="mega-overlay-backdrop" className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" onClick={onClose} />
           <motion.div
             className="relative z-[151] mx-auto mt-16 w-full max-w-6xl"
             initial={{ y: -20, opacity: 0 }}

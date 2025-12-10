@@ -34,6 +34,10 @@ export default function DarkHeader() {
     setActiveMenu(null);
   };
 
+  const toggleMenu = (menu: typeof activeMenu) => {
+    setActiveMenu((prev) => (prev === menu ? null : menu));
+  };
+
   const closeMenuWithDelay = () => {
     if (timeoutRef.current) {
       window.clearTimeout(timeoutRef.current);
@@ -134,7 +138,7 @@ export default function DarkHeader() {
 
           {/* Hosting */}
           <div className="relative" onMouseEnter={() => openMenu("hosting")} onMouseLeave={closeMenuWithDelay}>
-            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "hosting"} aria-controls="mega-hosting" onClick={handleNavClick}>
+            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "hosting"} aria-controls="mega-hosting" onClick={() => toggleMenu("hosting")}>
               Hosting
               <ChevronDownIcon className={`h-3 w-3 transition-transform ${activeMenu === "hosting" ? "rotate-180" : ""}`} />
             </button>
@@ -142,7 +146,7 @@ export default function DarkHeader() {
 
           {/* Domains */}
           <div className="relative" onMouseEnter={() => openMenu("domains")} onMouseLeave={closeMenuWithDelay}>
-            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "domains"} aria-controls="mega-domains" onClick={handleNavClick}>
+            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "domains"} aria-controls="mega-domains" onClick={() => toggleMenu("domains")}>
               Domains
               <ChevronDownIcon className={`h-3 w-3 transition-transform ${activeMenu === "domains" ? "rotate-180" : ""}`} />
             </button>
@@ -150,7 +154,7 @@ export default function DarkHeader() {
 
           {/* Email */}
           <div className="relative" onMouseEnter={() => openMenu("email")} onMouseLeave={closeMenuWithDelay}>
-            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "email"} aria-controls="mega-email" onClick={handleNavClick}>
+            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "email"} aria-controls="mega-email" onClick={() => toggleMenu("email")}>
               Email
               <ChevronDownIcon className={`h-3 w-3 transition-transform ${activeMenu === "email" ? "rotate-180" : ""}`} />
             </button>
@@ -158,7 +162,7 @@ export default function DarkHeader() {
 
           {/* Security */}
           <div className="relative" onMouseEnter={() => openMenu("security")} onMouseLeave={closeMenuWithDelay}>
-            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "security"} aria-controls="mega-security" onClick={handleNavClick}>
+            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "security"} aria-controls="mega-security" onClick={() => toggleMenu("security")}>
               Security
               <ChevronDownIcon className={`h-3 w-3 transition-transform ${activeMenu === "security" ? "rotate-180" : ""}`} />
             </button>
@@ -166,7 +170,7 @@ export default function DarkHeader() {
 
           {/* Support */}
           <div className="relative" onMouseEnter={() => openMenu("support")} onMouseLeave={closeMenuWithDelay}>
-            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "support"} aria-controls="mega-support" onClick={handleNavClick}>
+            <button type="button" className="flex items-center gap-1 px-3 py-2 hover:text-cyan-300" aria-haspopup="true" aria-expanded={activeMenu === "support"} aria-controls="mega-support" onClick={() => toggleMenu("support")}>
               Support
               <ChevronDownIcon className={`h-3 w-3 transition-transform ${activeMenu === "support" ? "rotate-180" : ""}`} />
             </button>
