@@ -11,15 +11,22 @@ export type LuminousCardProps = Omit<React.ComponentProps<typeof motion.div>, "c
 export const luminousCardBase =
   "group relative overflow-hidden rounded-2xl border border-cyan-400/25 bg-slate-950/60 backdrop-blur-xl shadow-[0_10px_40px_-26px_rgba(56,189,248,0.45)] touch-manipulation";
 export const luminousCardHover =
-  "transition-[transform,box-shadow,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_20px_70px_-30px_rgba(56,189,248,0.6)] focus-visible:-translate-y-1 focus-visible:shadow-[0_20px_70px_-30px_rgba(56,189,248,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 active:translate-y-0";
+  "transition-[transform,box-shadow,opacity,filter] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-[0_25px_80px_-20px_rgba(56,189,248,0.55)] hover:brightness-[1.02] focus-visible:-translate-y-1.5 focus-visible:shadow-[0_25px_80px_-20px_rgba(56,189,248,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 active:translate-y-0 active:shadow-[0_5px_20px_-10px_rgba(56,189,248,0.4)] active:brightness-100";
 export const luminousCardClassName = `${luminousCardBase} ${luminousCardHover}`;
 
 export function LuminousCard({ children, className = "", ...rest }: LuminousCardProps) {
   return (
     <motion.div
       className={`${luminousCardClassName} ${className}`}
-      whileTap={{ scale: 0.97, opacity: 0.94, boxShadow: "0 30px 80px -38px rgba(56,189,248,0.75), 0 12px 36px -28px rgba(236,72,153,0.6)", filter: "brightness(1.04)" }}
-      transition={{ type: "spring", stiffness: 260, damping: 20, mass: 0.9 }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ 
+        duration: 0.5, 
+        ease: "easeOut",
+        scale: { type: "spring", stiffness: 300, damping: 20 }
+      }}
+      whileTap={{ scale: 0.96 }}
       {...rest}
     >
       <div

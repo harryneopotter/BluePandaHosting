@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import LuminousCard from '../components/LuminousCard';
 
 // --- Reusable Components ---
 
@@ -80,8 +81,8 @@ export default function DomainServicesClientPage() {
                 <h3 className="mb-6 text-2xl font-bold text-indigo-200">Domain Registration</h3>
                 <div className="grid gap-6 sm:grid-cols-2">
                     {REGISTRATION_PLANS.map(p => (
-                        <Card key={p.id} className="group relative overflow-hidden border border-indigo-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(99,102,241,0.15)]">
-                            <CardContent className="p-5">
+                        <LuminousCard key={p.id} className="h-full">
+                            <div className="p-5">
                                 <div className="mb-2 flex items-center gap-2 text-xs text-indigo-200">
                                     <span className="rounded-full border border-indigo-400/30 bg-indigo-500/10 px-2 py-0.5">{p.badge}</span>
                                 </div>
@@ -95,8 +96,8 @@ export default function DomainServicesClientPage() {
                                         </li>
                                     ))}
                                 </ul>
-                            </CardContent>
-                        </Card>
+                            </div>
+                        </LuminousCard>
                     ))}
                 </div>
             </div>

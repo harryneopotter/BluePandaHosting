@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import LuminousCard from "@/app/components/LuminousCard";
 
 export default function TicketsPage() {
   const [data, setData] = useState<any>(null);
@@ -34,12 +35,12 @@ export default function TicketsPage() {
         {loading && <p className="mt-4 text-slate-300">Loading…</p>}
         {error && <p className="mt-4 text-red-400">{error}</p>}
         {!loading && !error && (
-          <div className="mt-6 rounded-2xl border border-cyan-400/20 bg-white/5 divide-y divide-cyan-400/10">
+          <LuminousCard className="mt-6 divide-y divide-cyan-400/10">
             {tickets.length === 0 ? (
               <div className="p-4 text-slate-300">No tickets found.</div>
             ) : (
               tickets.map((t: any) => (
-                <div key={t.id} className="p-4 flex items-center justify-between">
+                <div key={t.id} className="p-4 flex items-center justify-between hover:bg-white/5 transition-colors">
                   <div>
                     <div className="font-mono">#{t.id}</div>
                     <div className="text-sm text-slate-300">{t.subject}</div>
@@ -50,7 +51,7 @@ export default function TicketsPage() {
                 </div>
               ))
             )}
-          </div>
+          </LuminousCard>
         )}
       </div>
     </div>

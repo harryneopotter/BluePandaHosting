@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import LuminousCard from '@/app/components/LuminousCard';
 
 // --- Reusable Components ---
 
@@ -14,11 +15,13 @@ const Card = ({className="", children, ...p}: {className?: string, children: Rea
 const CardContent = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<div className={`${className}`} {...p}>{children}</div>);
 const Button = ({className="", children, ...p}: {className?: string, children: React.ReactNode, onClick?: () => void}) => (<button type="button" className={`inline-flex items-center justify-center rounded-xl px-3 py-2 text-sm font-medium transition ${className}`} {...p}>{children}</button>);
 const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string, desc: string}) => (
-    <div className="group rounded-2xl border border-yellow-400/20 bg-white/5 p-5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 hover:bg-white/7">
-        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-yellow-400/20 bg-yellow-500/10 px-2 py-1 text-xs text-yellow-200">{icon} <span>{title}</span></div>
-        <p className="text-slate-300">{desc}</p>
-        <div className="mt-4 h-0.5 w-0 bg-gradient-to-r from-yellow-400 to-amber-400 transition-all duration-500 group-hover:w-full"/>
-    </div>
+    <LuminousCard className="h-full">
+        <div className="p-5">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-yellow-400/20 bg-yellow-500/10 px-2 py-1 text-xs text-yellow-200">{icon} <span>{title}</span></div>
+            <p className="text-slate-300">{desc}</p>
+            <div className="mt-4 h-0.5 w-0 bg-gradient-to-r from-yellow-400 to-amber-400 transition-all duration-500 group-hover:w-full"/>
+        </div>
+    </LuminousCard>
 );
 
 // --- Page Specific Data ---
@@ -92,9 +95,8 @@ export default function SiteMonitoringClientPage() {
             <h2 className="mb-8 text-center text-3xl font-bold text-yellow-200">Monitoring Plans</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {MONITORING_PLANS.map(p => (
-                    <Card key={p.id} className="group relative overflow-hidden border border-yellow-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(251,191,36,0.15)]">
-                        <CardContent className="p-5">
-                            <motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity, repeatType:'mirror', duration:3.4, ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(251,191,36,0.4) 50%, transparent 60%)'}}/>
+                    <LuminousCard key={p.id} className="h-full">
+                        <div className="p-5">
                             <div className="mb-2 flex items-center gap-2 text-xs text-yellow-200">
                                 <span className="rounded-full border border-yellow-400/30 bg-yellow-500/10 px-2 py-0.5">{p.badge}</span>
                             </div>
@@ -113,8 +115,8 @@ export default function SiteMonitoringClientPage() {
                                     Add Monitoring
                                 </Button>
                             </div>
-                        </CardContent>
-                    </Card>
+                        </div>
+                    </LuminousCard>
                 ))}
             </div>
         </section>

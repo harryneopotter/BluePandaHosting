@@ -79,3 +79,34 @@ This file logs all tasks, changes made, and the rationale behind each change. It
 **Change Summary:** Imported `LuminousCard` and wrapped shared `Card` helpers plus feature cards for consistent luminous styling and tap feedback on plan grids and feature tiles across all active hosting pages.
 **Rationale:** Deliver uniform tap/hover affordance and visual cohesion across all customer-facing hosting pages while avoiding legacy files.
 **Status:** Completed (tests not re-run; build previously green; spot lint check clean)
+
+---
+
+## [2025-12-10] Enhance Motion & Broad Rollout
+**Task:** Enhance card motion and apply LuminousCard to remaining pages
+**Files Changed:** `app/components/LuminousCard.tsx`, `app/components/TechnicalFeatures.tsx`, `app/components/QPandaOnePager.jsx`, `app/domains/client-page.tsx`, `app/email/ox-suite/client-page.tsx`, `app/email/spamexperts/client-page.tsx`, `app/security/site-monitoring/client-page.tsx`, `app/security/ssl-certificates/client-page.tsx`
+**Change Summary:** 
+- Updated `LuminousCard` with stronger hover lift (`-translate-y-1.5`), brightness boost (`brightness-[1.02]`), and tap scale (`0.96`).
+- Replaced standard cards with `LuminousCard` in Homepage, Domains, Email, and Security pages.
+**Rationale:** User requested more apparent motion and consistent application of the luminous style across "other cards on other pages".
+**Status:** Completed
+
+---
+
+## [2025-12-10] Slide-in Entry Motion
+**Task:** Add slide-in entry animation to LuminousCard
+**Files Changed:** `app/components/LuminousCard.tsx`, `app/support/tickets/page.tsx`, `app/billing/invoices/page.tsx`
+**Change Summary:** 
+- Added `initial`, `whileInView`, and `viewport` props to `LuminousCard` to create a smooth slide-up entry animation (opacity 0->1, y 30->0) when cards enter the viewport.
+- Extended `LuminousCard` usage to Support Tickets and Invoices pages.
+**Rationale:** User requested "slide in entry transition" inspired by spaceship.com and antigravity.google.
+**Status:** Completed
+
+---
+
+## [2025-12-10] Legacy Artifact Documentation
+**Task:** Document QPandaOnePager.jsx status
+**Files Changed:** PROGRESS.md, memory-bank/progress.md
+**Change Summary:** Explicitly noted that `app/components/QPandaOnePager.jsx` is a legacy artifact.
+**Rationale:** Although phased out, it is currently used by the homepage and must not be removed or modified further until a full homepage replacement is ready.
+**Status:** Completed

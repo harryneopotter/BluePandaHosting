@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import LuminousCard from './LuminousCard';
 
 interface FeatureItemProps {
     title: string;
@@ -76,8 +77,8 @@ const featuresData: FeatureCategoryProps[] = [
 ];
 
 const FeatureItem: React.FC<FeatureItemProps> = ({ title, description, impact, retailCost }) => (
-    <motion.div
-        className="group rounded-2xl border border-cyan-400/20 bg-white/5 p-5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.12)]"
+    <LuminousCard
+        className="p-5"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -91,7 +92,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ title, description, impact, r
         <div className="mt-4 text-xs font-semibold uppercase text-slate-400">
             Retail Value: <span className="font-bold text-slate-100">{retailCost}</span>
         </div>
-    </motion.div>
+    </LuminousCard>
 );
 
 const TechnicalFeatures = () => {
