@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
+import { LuminousCard } from '../../components/LuminousCard';
 
 // --- Reusable Components ---
 
@@ -9,15 +11,15 @@ const IconCpu = (p: any) => (<svg viewBox="0 0 24 24" width="1em" height="1em" f
 const IconShield = (p: any) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M12 2l7 3v6c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z"/></svg>);
 const IconLifeBuoy = (p: any) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8l-5.74 9.94M15.75 12l-7.5 0M12 2.25v3M12 18.75v3"/></svg>);
 
-const Card = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<div className={`rounded-2xl ${className}`} {...p}>{children}</div>);
+const Card = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<LuminousCard className={className} {...p}>{children}</LuminousCard>);
 const CardContent = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<div className={`${className}`} {...p}>{children}</div>);
 const Button = ({className="", children, ...p}: {className?: string, children: React.ReactNode, onClick?: () => void}) => (<button type="button" className={`inline-flex items-center justify-center rounded-xl px-3 py-2 text-sm font-medium transition ${className}`} {...p}>{children}</button>);
 const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string, desc: string}) => (
-    <div className="group rounded-2xl border border-purple-400/20 bg-white/5 p-5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 hover:bg-white/7">
+    <LuminousCard className="group border border-purple-400/20 bg-white/5 p-5 backdrop-blur-xl">
         <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-purple-400/20 bg-purple-500/10 px-2 py-1 text-xs text-purple-200">{icon} <span>{title}</span></div>
         <p className="text-slate-300">{desc}</p>
         <div className="mt-4 h-0.5 w-0 bg-gradient-to-r from-purple-400 to-fuchsia-400 transition-all duration-500 group-hover:w-full"/>
-    </div>
+    </LuminousCard>
 );
 
 // --- Page Specific Data ---
@@ -61,14 +63,14 @@ export default function FullyManagedVpsClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 px-3 py-1 text-xs text-purple-200"><IconLifeBuoy className="h-3.5 w-3.5"/> Fully Managed by AI</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400">Fully Managed VPS Hosting</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400">Fully Managed VPS Hosting</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 All the power of a Virtual Private Server, with none of the hassle. Our AI-powered management platform handles all the technical details, so you can focus on what you do best.
             </p>
         </div>
 
         {/* AI Features Section */}
-        <section id="features" className="my-16">
+        <section id="features" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-purple-200">Your AI Systems Administrator</h2>
             <div className="grid gap-6 md:grid-cols-3">
                 <FeatureCard
@@ -90,7 +92,7 @@ export default function FullyManagedVpsClientPage() {
         </section>
 
         {/* Pricing Section */}
-        <section id="plans" className="my-16">
+        <section id="plans" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-purple-200">Managed VPS Plans</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {MANAGED_VPS_PLANS.map(p => (

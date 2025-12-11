@@ -1,14 +1,20 @@
 {
   "name": "qpanda-next",
-  "version": "1.0.0",
   "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && echo 'Build complete, contents:' && ls -la out/ && echo 'Index file:' && head -n 20 out/index.html",
     "start": "next start",
     "lint": "next lint",
-    "test": "playwright test",
-    "test:ui": "playwright test --ui"
+    "serve": "serve out -s -l 3000",
+    "playwright:install": "npx playwright install --with-deps",
+    "screenshot": "npm run playwright:install && npx playwright test tests/screenshot.spec.ts --project=chromium --reporter=list",
+    "build:debug": "next build && echo 'Build completed' && ls -la out/"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -29,8 +35,5 @@
     "serve": "^14.2.1",
     "tailwindcss": "3.4.6",
     "typescript": "^5.5.4"
-  },
-  "engines": {
-    "node": ">=18"
   }
 }

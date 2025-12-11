@@ -2,6 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
+import TechnicalFeatures from '../../components/TechnicalFeatures';
+import { LuminousCard } from '../../components/LuminousCard';
 
 // --- Reusable Components from QPandaOnePager.jsx ---
 
@@ -11,15 +14,15 @@ const IconShield = (p: any) => (<svg viewBox="0 0 24 24" width="1em" height="1em
 const IconRocket = (p: any) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M14 3c4 1 7 4 7 8-2 0-5 1-7 3-2 2-3 5-3 7-4 0-7-3-8-7 2 0 5-1 7-3 2-2 3-5 4-8z"/><path d="M6 18l2-2M8 20l2-2"/></svg>);
 const IconLifeBuoy = (p: any) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8l-5.74 9.94M15.75 12l-7.5 0M12 2.25v3M12 18.75v3"/></svg>);
 
-const Card = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<div className={`rounded-2xl ${className}`} {...p}>{children}</div>);
+const Card = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<LuminousCard className={className} {...p}>{children}</LuminousCard>);
 const CardContent = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<div className={`${className}`} {...p}>{children}</div>);
 const Button = ({className="", children, ...p}: {className?: string, children: React.ReactNode, onClick?: () => void}) => (<button type="button" className={`inline-flex items-center justify-center rounded-xl px-3 py-2 text-sm font-medium transition ${className}`} {...p}>{children}</button>);
 const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string, desc: string}) => (
-    <div className="group rounded-2xl border border-cyan-400/20 bg-white/5 p-5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 hover:bg-white/7">
-        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-500/10 px-2 py-1 text-xs text-cyan-200">{icon} <span>{title}</span></div>
-        <p className="text-slate-300">{desc}</p>
-        <div className="mt-4 h-0.5 w-0 bg-gradient-to-r from-cyan-400 to-fuchsia-400 transition-all duration-500 group-hover:w-full"/>
-    </div>
+  <LuminousCard className="group border border-cyan-400/20 bg-white/5 p-5 backdrop-blur-xl">
+    <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-500/10 px-2 py-1 text-xs text-cyan-200">{icon} <span>{title}</span></div>
+    <p className="text-slate-300">{desc}</p>
+    <div className="mt-4 h-0.5 w-0 bg-gradient-to-r from-cyan-400 to-fuchsia-400 transition-all duration-500 group-hover:w-full"/>
+  </LuminousCard>
 );
 
 // --- Page Specific Data ---
@@ -83,14 +86,14 @@ export default function SharedHostingClientPage() {
       <div className="mx-auto max-w-6xl px-6 py-16">
         {/* Hero Section */}
         <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400">Shared Hosting That Doesn't Suck</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400">Shared Hosting That Doesn't Suck</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Most hosting companies advertise "unlimited everything" for $3/month. They cram 1,000+ websites onto a single server and hope you don't notice. We do the exact opposite.
             </p>
         </div>
 
         {/* Our Approach Section */}
-        <section id="approach" className="my-16">
+        <section id="approach" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-cyan-200">Our Approach: Premium Infrastructure</h2>
             <div className="grid gap-6 md:grid-cols-2">
                 <div>
@@ -105,7 +108,7 @@ export default function SharedHostingClientPage() {
         </section>
 
         {/* What You Actually Get Section */}
-        <section id="what-you-get" className="my-16">
+        <section id="what-you-get" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-cyan-200">What You Actually Get</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 <FeatureCard icon={<IconZap className="h-5 w-5"/>} title="Speed That Matters" desc="NVMe SSD Storage, LiteSpeed + LSCache, and HTTP/3 Protocol." />
@@ -116,7 +119,7 @@ export default function SharedHostingClientPage() {
         </section>
 
         {/* Pricing Section */}
-        <section id="plans" className="my-16">
+        <section id="plans" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-cyan-200">Choose Your Plan</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {PLANS.map(p => (
@@ -146,6 +149,9 @@ export default function SharedHostingClientPage() {
                 ))}
             </div>
         </section>
+
+        <TechnicalFeatures />
+
       </div>
     </div>
   );

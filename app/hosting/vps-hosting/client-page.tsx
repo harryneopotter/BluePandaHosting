@@ -2,7 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
 import { scrollToSection } from '../../lib/scrollUtils';
+import { LuminousCard } from '../../components/LuminousCard';
 
 // --- Reusable Components ---
 
@@ -10,15 +12,15 @@ const IconSparkles = (p: any) => (<svg viewBox="0 0 24 24" width="1em" height="1
 const IconCpu = (p: any) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>);
 const IconShield = (p: any) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M12 2l7 3v6c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z"/></svg>);
 
-const Card = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<div className={`rounded-2xl ${className}`} {...p}>{children}</div>);
+const Card = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<LuminousCard className={className} {...p}>{children}</LuminousCard>);
 const CardContent = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<div className={`${className}`} {...p}>{children}</div>);
 const Button = ({className="", children, ...p}: {className?: string, children: React.ReactNode, onClick?: () => void}) => (<button type="button" className={`inline-flex items-center justify-center rounded-xl px-3 py-2 text-sm font-medium transition ${className}`} {...p}>{children}</button>);
 const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string, desc: string}) => (
-    <div className="group rounded-2xl border border-fuchsia-400/20 bg-white/5 p-5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 hover:bg-white/7">
+    <LuminousCard className="group border border-fuchsia-400/20 bg-white/5 p-5 backdrop-blur-xl">
         <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-fuchsia-400/20 bg-fuchsia-500/10 px-2 py-1 text-xs text-fuchsia-200">{icon} <span>{title}</span></div>
         <p className="text-slate-300">{desc}</p>
         <div className="mt-4 h-0.5 w-0 bg-gradient-to-r from-fuchsia-400 to-purple-400 transition-all duration-500 group-hover:w-full"/>
-    </div>
+    </LuminousCard>
 );
 
 // --- Page Specific Data ---
@@ -94,14 +96,14 @@ export default function VpsHostingClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-fuchsia-400/30 bg-fuchsia-500/10 px-3 py-1 text-xs text-fuchsia-200"><IconCpu className="h-3.5 w-3.5"/> Virtual Private Servers</div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-300 via-purple-400 to-sky-400">VPS Hosting Built for Performance</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-300 via-purple-400 to-sky-400">VPS Hosting Built for Performance</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Dedicated resources, complete isolation, full control. KVM virtualization with NVMe storage, guaranteed RAM and CPU, and your choice of management level.
             </p>
         </div>
 
         {/* Managed vs Unmanaged Section */}
-        <section id="managed-vs-unmanaged" className="my-16">
+        <section id="managed-vs-unmanaged" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-fuchsia-200">Managed vs. Unmanaged VPS</h2>
             <div className="grid gap-8 md:grid-cols-2">
                 <Card className="border border-fuchsia-400/20 bg-white/5 p-6">
@@ -122,7 +124,7 @@ export default function VpsHostingClientPage() {
         </section>
 
         {/* When to Choose VPS Section */}
-        <section id="when-to-choose-vps" className="my-16">
+        <section id="when-to-choose-vps" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-fuchsia-200">When to Choose VPS</h2>
             <div className="grid gap-6 md:grid-cols-3">
                 <FeatureCard
@@ -144,7 +146,7 @@ export default function VpsHostingClientPage() {
         </section>
 
         {/* Unmanaged Pricing Section */}
-        <section id="unmanaged-plans" className="my-16 scroll-mt-20">
+        <section id="unmanaged-plans" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-fuchsia-200">Unmanaged VPS Plans</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {VPS_PLANS.map(p => (
@@ -176,7 +178,7 @@ export default function VpsHostingClientPage() {
         </section>
 
         {/* Managed Pricing Section */}
-        <section id="managed-plans" className="my-16 scroll-mt-20">
+        <section id="managed-plans" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
             <h2 className="mb-8 text-center text-3xl font-bold text-purple-200">Managed VPS Plans</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {MANAGED_VPS_PLANS.map(p => (
