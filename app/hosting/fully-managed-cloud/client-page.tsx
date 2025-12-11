@@ -2,8 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
-import { LuminousCard } from '../../components/LuminousCard';
 
 // --- Reusable Components ---
 
@@ -11,15 +9,15 @@ const IconZap = (p: any) => (<svg viewBox="0 0 24 24" width="1em" height="1em" f
 const IconShield = (p: any) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M12 2l7 3v6c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z"/></svg>);
 const IconLifeBuoy = (p: any) => (<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8l-5.74 9.94M15.75 12l-7.5 0M12 2.25v3M12 18.75v3"/></svg>);
 
-const Card = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<LuminousCard className={className} {...p}>{children}</LuminousCard>);
+const Card = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<div className={`rounded-2xl ${className}`} {...p}>{children}</div>);
 const CardContent = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<div className={`${className}`} {...p}>{children}</div>);
 const Button = ({className="", children, ...p}: {className?: string, children: React.ReactNode, onClick?: () => void}) => (<button type="button" className={`inline-flex items-center justify-center rounded-xl px-3 py-2 text-sm font-medium transition ${className}`} {...p}>{children}</button>);
 const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string, desc: string}) => (
-    <LuminousCard className="group border border-pink-400/20 bg-white/5 p-5 backdrop-blur-xl">
+    <div className="group rounded-2xl border border-pink-400/20 bg-white/5 p-5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 hover:bg-white/7">
         <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-pink-400/20 bg-pink-500/10 px-2 py-1 text-xs text-pink-200">{icon} <span>{title}</span></div>
         <p className="text-slate-300">{desc}</p>
         <div className="mt-4 h-0.5 w-0 bg-gradient-to-r from-pink-400 to-fuchsia-400 transition-all duration-500 group-hover:w-full"/>
-    </LuminousCard>
+    </div>
 );
 
 // --- Page Specific Data ---
@@ -52,14 +50,14 @@ export default function FullyManagedCloudClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-pink-400/30 bg-pink-500/10 px-3 py-1 text-xs text-pink-200"><IconLifeBuoy className="h-3.5 w-3.5"/> AI Concierge</div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-fuchsia-400 to-purple-400">Fully Managed Cloud Hosting</h1>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-fuchsia-400 to-purple-400">Fully Managed Cloud Hosting</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Experience the scalability of the cloud with the peace of mind of a fully managed service. Our AI platform and expert engineers are your dedicated cloud operations team.
             </p>
         </div>
 
         {/* AI Features Section */}
-        <section id="features" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
+        <section id="features" className="my-16">
             <h2 className="mb-8 text-center text-3xl font-bold text-pink-200">Your Cloud, Our Responsibility</h2>
             <div className="grid gap-6 md:grid-cols-3">
                 <FeatureCard
@@ -81,7 +79,7 @@ export default function FullyManagedCloudClientPage() {
         </section>
 
         {/* Pricing Section */}
-        <section id="plans" className={`my-16 ${SCROLL_MARGIN_CLASS}`}>
+        <section id="plans" className="my-16">
             <h2 className="mb-8 text-center text-3xl font-bold text-pink-200">Managed Cloud Plans</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
                 {MANAGED_CLOUD_PLANS.map(p => (

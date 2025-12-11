@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import LuminousCard from './LuminousCard';
 
 interface FeatureItemProps {
     title: string;
@@ -77,52 +76,46 @@ const featuresData: FeatureCategoryProps[] = [
 ];
 
 const FeatureItem: React.FC<FeatureItemProps> = ({ title, description, impact, retailCost }) => (
-    <LuminousCard
-        className="p-5"
+    <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
         viewport={{ once: true }}
+        className="rounded-xl bg-white/5 p-5 border border-cyan-500/20 backdrop-blur-sm"
     >
-        <h3 className="text-lg font-bold text-cyan-100">{title}</h3>
-        <p className="mt-2 text-slate-300">{description}</p>
-        <p className="mt-4 text-sm text-slate-400 italic">
-            <span className="font-semibold text-cyan-200">Real-world impact:</span> {impact}
-        </p>
-        <div className="mt-4 text-xs font-semibold uppercase text-slate-400">
-            Retail Value: <span className="font-bold text-slate-100">{retailCost}</span>
+        <div className="flex items-center justify-between">
+            <h4 className="font-semibold text-cyan-100">{title}</h4>
+            <span className="text-xs text-emerald-300 bg-emerald-500/20 px-2 py-1 rounded-full">{retailCost}</span>
         </div>
-    </LuminousCard>
+        <p className="mt-2 text-sm text-slate-300">{description}</p>
+        <p className="mt-2 text-sm text-cyan-200"><span className="font-medium">Impact:</span> {impact}</p>
+    </motion.div>
 );
 
-const TechnicalFeatures = () => {
-    return (
-        <section className="py-16 sm:py-24">
-            <div className="mx-auto max-w-6xl px-6">
-                <div className="text-center">
-                    <h2 className="text-3xl font-extrabold text-transparent sm:text-4xl bg-clip-text bg-gradient-to-r from-sky-300 to-cyan-400">
-                        Our Technology Stack
-                    </h2>
-                    <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
-                        We don&apos;t just provide hosting; we provide a high-performance platform. Every piece of software in our stack is chosen to deliver the best speed, security, and reliability.
-                    </p>
-                </div>
+const FeatureCategory: React.FC<FeatureCategoryProps> = ({ category, items }) => (
+    <div className="mb-10">
+        <h3 className="text-2xl font-bold text-cyan-200 mb-4">{category}</h3>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {items.map((item, index) => (
+                <FeatureItem key={`${category}-item-${index}`} {...item} />
+            ))}
+        </div>
+    </div>
+);
 
-                <div className="mt-12 space-y-12">
-                    {featuresData.map((category) => (
-                        <div key={category.category}>
-                            <h3 className="text-2xl font-bold text-center text-sky-200">{category.category}</h3>
-                            <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                                {category.items.map((feature) => (
-                                    <FeatureItem key={feature.title} {...feature} />
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
+export default function TechnicalFeatures() {
+    return (
+        <section className="py-16">
+            <div className="text-center mb-12">
+                <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-emerald-300">
+                    Included Premium Features
+                </h2>
+                <p className="mt-4 max-w-2xl mx-auto text-slate-300">
+                    Every hosting plan includes enterprise-grade software and technologies that would cost hundreds of dollars if purchased separately.
+                </p>
             </div>
+            {featuresData.map((cat, index) => (
+                <FeatureCategory key={`category-${index}`} {...cat} />
+            ))}
         </section>
     );
-};
-
-export default TechnicalFeatures;
+}

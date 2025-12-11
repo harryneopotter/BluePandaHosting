@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import LuminousCard from "../../components/LuminousCard";
 
 export default function InvoicesPage() {
   const [data, setData] = useState<any>(null);
@@ -32,12 +31,12 @@ export default function InvoicesPage() {
         {loading && <p className="mt-4 text-slate-300">Loading…</p>}
         {error && <p className="mt-4 text-red-400">{error}</p>}
         {!loading && !error && (
-          <LuminousCard className="mt-6 divide-y divide-cyan-400/10">
+          <div className="mt-6 rounded-2xl border border-cyan-400/20 bg-white/5 divide-y divide-cyan-400/10">
             {invoices.length === 0 ? (
               <div className="p-4 text-slate-300">No invoices found.</div>
             ) : (
               invoices.map((inv: any) => (
-                <div key={inv.id} className="p-4 flex items-center justify-between hover:bg-white/5 transition-colors">
+                <div key={inv.id} className="p-4 flex items-center justify-between">
                   <div>
                     <div className="font-mono">#{inv.id}</div>
                     <div className="text-sm text-slate-300">Status: {inv.status}</div>
@@ -61,7 +60,7 @@ export default function InvoicesPage() {
                 </div>
               ))
             )}
-          </LuminousCard>
+          </div>
         )}
       </div>
     </div>
