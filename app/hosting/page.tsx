@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { LuminousCard } from '../components/LuminousCard'
 
 export const metadata: Metadata = {
   title: 'Hosting — QuantumPanda',
@@ -27,7 +26,7 @@ export default function HostingPage() {
           <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-xs text-cyan-200">
             Quantum‑native Hosting
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400">
             Choose the right platform for your project
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-slate-300">
@@ -39,13 +38,20 @@ export default function HostingPage() {
       <section className="mx-auto max-w-6xl px-6 pb-20">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((c) => (
-            <Link key={c.href} href={c.href} className="group block focus-visible:outline-none">
-              <LuminousCard className="h-full">
-                <div className="p-6">
-                  <div className="mb-1 text-lg font-bold text-cyan-100">{c.title}</div>
-                  <div className="text-sm text-slate-300">{c.desc}</div>
-                </div>
-              </LuminousCard>
+            <Link
+              key={c.href}
+              href={c.href}
+              className="group relative overflow-hidden rounded-2xl border border-cyan-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)]"
+            >
+              <div className="p-6">
+                <div className="mb-1 text-lg font-bold text-cyan-100">{c.title}</div>
+                <div className="text-sm text-slate-300">{c.desc}</div>
+              </div>
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -inset-1 z-[1] opacity-10"
+                style={{ background: 'linear-gradient(110deg, transparent 40%, rgba(56,189,248,0.4) 50%, transparent 60%)' }}
+              />
             </Link>
           ))}
         </div>

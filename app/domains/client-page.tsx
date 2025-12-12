@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import LuminousCard from '../components/LuminousCard';
 
 // --- Reusable Components ---
 
@@ -55,7 +54,7 @@ export default function DomainServicesClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1 text-xs text-indigo-200"><IconGlobe className="h-3.5 w-3.5"/> AI-Powered Domains</div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-400">Domain Services</h1>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-400">Domain Services</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Your online identity starts with the perfect domain. Our AI-powered tools help you find available domains, manage your portfolio, and transfer domains seamlessly.
             </p>
@@ -81,8 +80,8 @@ export default function DomainServicesClientPage() {
                 <h3 className="mb-6 text-2xl font-bold text-indigo-200">Domain Registration</h3>
                 <div className="grid gap-6 sm:grid-cols-2">
                     {REGISTRATION_PLANS.map(p => (
-                        <LuminousCard key={p.id} className="h-full">
-                            <div className="p-5">
+                        <Card key={p.id} className="group relative overflow-hidden border border-indigo-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(99,102,241,0.15)]">
+                            <CardContent className="p-5">
                                 <div className="mb-2 flex items-center gap-2 text-xs text-indigo-200">
                                     <span className="rounded-full border border-indigo-400/30 bg-indigo-500/10 px-2 py-0.5">{p.badge}</span>
                                 </div>
@@ -96,8 +95,8 @@ export default function DomainServicesClientPage() {
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
-                        </LuminousCard>
+                            </CardContent>
+                        </Card>
                     ))}
                 </div>
             </div>

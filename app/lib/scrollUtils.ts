@@ -7,7 +7,7 @@ export const scrollToSection = (sectionId: string): void => {
   if (section) {
     section.scrollIntoView({ behavior: 'smooth' });
   } else {
-    if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'development') {
       console.warn(`[scrollToSection] Element with id "${sectionId}" not found.`);
     }
   }

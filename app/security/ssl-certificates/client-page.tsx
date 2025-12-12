@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import LuminousCard from '../../components/LuminousCard';
 
 // --- Reusable Components ---
 
@@ -14,13 +13,11 @@ const Card = ({className="", children, ...p}: {className?: string, children: Rea
 const CardContent = ({className="", children, ...p}: {className?: string, children: React.ReactNode}) => (<div className={`${className}`} {...p}>{children}</div>);
 const Button = ({className="", children, ...p}: {className?: string, children: React.ReactNode, onClick?: () => void}) => (<button type="button" className={`inline-flex items-center justify-center rounded-xl px-3 py-2 text-sm font-medium transition ${className}`} {...p}>{children}</button>);
 const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string, desc: string}) => (
-    <LuminousCard className="h-full">
-        <div className="p-5">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-green-400/20 bg-green-500/10 px-2 py-1 text-xs text-green-200">{icon} <span>{title}</span></div>
-            <p className="text-slate-300">{desc}</p>
-            <div className="mt-4 h-0.5 w-0 bg-gradient-to-r from-green-400 to-emerald-400 transition-all duration-500 group-hover:w-full"/>
-        </div>
-    </LuminousCard>
+    <div className="group rounded-2xl border border-green-400/20 bg-white/5 p-5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 hover:bg-white/7">
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-green-400/20 bg-green-500/10 px-2 py-1 text-xs text-green-200">{icon} <span>{title}</span></div>
+        <p className="text-slate-300">{desc}</p>
+        <div className="mt-4 h-0.5 w-0 bg-gradient-to-r from-green-400 to-emerald-400 transition-all duration-500 group-hover:w-full"/>
+    </div>
 );
 
 // --- Page Specific Data ---
@@ -61,7 +58,7 @@ export default function SslCertificatesClientPage() {
         {/* Hero Section */}
         <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-green-400/30 bg-green-500/10 px-3 py-1 text-xs text-green-200"><IconLock className="h-3.5 w-3.5"/> AI-Secured Certificates</div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-emerald-400 to-cyan-400">SSL Certificates</h1>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-emerald-400 to-cyan-400">SSL Certificates</h1>
             <p className="mx-auto mt-4 max-w-2xl text-slate-300">
                 Encrypt your website&apos;s traffic and build trust with your visitors. Our SSL certificates are managed by our AI platform to ensure they are always valid, correctly configured, and renewed on time.
             </p>
@@ -94,8 +91,9 @@ export default function SslCertificatesClientPage() {
             <h2 className="mb-8 text-center text-3xl font-bold text-green-200">Choose Your Certificate</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {SSL_PLANS.map(p => (
-                    <LuminousCard key={p.id} className="h-full">
-                        <div className="p-5">
+                    <Card key={p.id} className="group relative overflow-hidden border border-green-400/20 bg-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(34,197,94,0.15)]">
+                        <CardContent className="p-5">
+                            <motion.div aria-hidden className="pointer-events-none absolute -inset-1 z-[1] opacity-10" initial={{x:-220}} animate={{x:220}} transition={{repeat:Infinity, repeatType:'mirror', duration:3.4, ease:'linear'}} style={{background:'linear-gradient(110deg, transparent 40%, rgba(34,197,94,0.4) 50%, transparent 60%)'}}/>
                             <div className="mb-2 flex items-center gap-2 text-xs text-green-200">
                                 <span className="rounded-full border border-green-400/30 bg-green-500/10 px-2 py-0.5">{p.badge}</span>
                             </div>
@@ -114,8 +112,8 @@ export default function SslCertificatesClientPage() {
                                     Get Certificate
                                 </Button>
                             </div>
-                        </div>
-                    </LuminousCard>
+                        </CardContent>
+                    </Card>
                 ))}
             </div>
         </section>
