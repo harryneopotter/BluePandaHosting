@@ -118,8 +118,8 @@ export default function DarkHeader() {
 
   // Close desktop mega menu when route changes
   useEffect(() => {
-    if (activeMenu) setActiveMenu(null);
-  }, [pathname, activeMenu]);
+    setActiveMenu(null);
+  }, [pathname]);
 
   // Close on route hash change for one-pager navigation
   useEffect(() => {
