@@ -852,17 +852,20 @@ export default function QPandaOnePager(){
     <IconSparkles className="h-4 w-4 sm:h-5 sm:w-5"/> Premium Hosting Infrastructure
   </div>
   <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400 leading-tight">
-    AI-Powered Hosting That Delivers Unbeatable Speed
+    QPanda — Hosting that adapts before problems show up
   </h1>
   <p className="mx-auto max-w-2xl text-base sm:text-lg md:text-xl text-slate-200 px-2 sm:px-0">
-    An AI co-pilot that monitors your site 24/7, optimizes performance in real-time, and instantly deploys your site across our global network for maximum performance and reliability.
+    Smart hosting with built-in AI assistance for performance, security, and scale — without changing how you work.
+  </p>
+  <p className="mx-auto max-w-2xl text-sm sm:text-base text-slate-400 px-2 sm:px-0">
+    QPanda continuously monitors your site, anticipates common infrastructure issues, and helps deploy fixes safely and automatically.
   </p>
   <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-3 sm:pt-4">
     <Button onClick={openQuantumEntanglement} className="w-full sm:w-auto bg-cyan-500 text-slate-900 hover:bg-cyan-400 shadow-lg shadow-cyan-500/30">
-      Get Started Now
+      Get started
     </Button>
     <Button onClick={handleSeePlans} className="w-full sm:w-auto border border-cyan-400/40 text-cyan-200 hover:bg-cyan-500/10">
-      Compare Plans
+      See plans
     </Button>
   </div>
 
@@ -894,7 +897,7 @@ export default function QPandaOnePager(){
   </div>
 </div>
             <PandaTrail pos={pandaPos}/>
-            <motion.div className="group fixed z-30" animate={{x:pandaPos.x,y:pandaPos.y}} transition={{type:'spring',stiffness:120,damping:16}}>
+            <motion.div className="group fixed z-30" style={{left: pandaPos.x, top: pandaPos.y}} animate={{x:pandaPos.x,y:pandaPos.y}} transition={{type:'spring',stiffness:120,damping:16}}>
               <PandaFace/>
               <motion.div
                 className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg border border-cyan-400/30 bg-slate-900/95 px-2 py-1 text-xs text-cyan-200 opacity-0 backdrop-blur-sm group-hover:opacity-100 transition-opacity"
@@ -911,6 +914,7 @@ export default function QPandaOnePager(){
           <section ref={plansRef} id="plans" className="relative z-10 mx-auto -mt-10 max-w-6xl px-6 pb-24">
   <div className="mb-12">
     <h3 className="mb-6 text-2xl font-bold text-cyan-200">Shared Hosting Plans</h3>
+    <p className="mb-4 text-sm text-slate-400">Simple, reliable hosting for everyday websites — with AI quietly handling performance and security in the background.</p>
     <div className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-3 ${highlightPlans?'rounded-3xl ring-2 ring-cyan-400/40 animate-pulse':''}`}>
       {PLANS.map(p => (
         <LuminousCard key={p.id} className="group relative h-full">
@@ -963,6 +967,16 @@ export default function QPandaOnePager(){
       <div className="text-3xl font-bold text-cyan-200">30 days</div>
       <div className="text-sm text-slate-400">Money-back guarantee</div>
     </div>
+  </div>
+</section>
+
+{/* AI FEATURES (concise, benefit-first) */}
+<section id="ai-features" className="mx-auto max-w-6xl px-6 pb-24">
+  <h2 className="mb-8 text-center text-3xl font-bold text-cyan-200">AI assistance, focused on real operational problems</h2>
+  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <FeatureCard icon={<IconSparkles className="h-5 w-5" />} title="Smarter deployments" desc="Test and roll out changes safely by comparing multiple deployment paths and keeping the best-performing version live." />
+    <FeatureCard icon={<IconShield className="h-5 w-5" />} title="Threat detection before impact" desc="Identify unusual patterns and block common threats early — before they affect your site or customers." />
+    <FeatureCard icon={<IconCpu className="h-5 w-5" />} title="Scaling without guesswork" desc="Resources adjust based on real traffic patterns, so your site stays responsive during spikes without manual intervention." />
   </div>
 </section>
 
@@ -1031,9 +1045,10 @@ export default function QPandaOnePager(){
 <section id="faq" className="mx-auto max-w-6xl px-6 pb-24">
   <h3 className="mb-6 text-2xl font-bold text-cyan-100">Frequently Asked Questions</h3>
   <div className="divide-y divide-white/10 rounded-2xl border border-cyan-400/20 bg-white/5">
-    <FAQItem q="Why are you more expensive than budget hosts?" a="We limit server density and include premium software worth over $150/month. Better infrastructure delivers better results." />
-    <FAQItem q="Can I try it risk-free?" a="Yes, we have a 30-day money-back guarantee. If you're not satisfied, we'll refund your payment." />
-    <FAQItem q="Will you migrate my existing site?" a="Yes, we offer free basic migration with all plans." />
+    <FAQItem q="Can I bring my existing site or domain?" a="Yes. You can migrate an existing site or domain to QPanda, and we’ll help ensure a smooth transition with minimal disruption." />
+    <FAQItem q="Do I need to understand AI or cloud infrastructure?" a="No. AI assistance runs in the background. You continue managing your site as usual, with additional support when needed." />
+    <FAQItem q="Is QPanda suitable for high-traffic or growing sites?" a="Yes. Plans range from shared hosting to dedicated servers, with scalable options as your needs grow." />
+    <FAQItem q="What happens if something goes wrong?" a="You have access to support and clear system status. AI suggestions are advisory — changes are never applied without review." />
   </div>
 </section>
 
@@ -1041,13 +1056,14 @@ export default function QPandaOnePager(){
   <Card className="border border-cyan-400/20 bg-gradient-to-r from-cyan-500/10 to-fuchsia-500/10 backdrop-blur-xl">
     <CardContent className="flex flex-col items-center justify-between gap-4 p-8 md:flex-row">
       <div>
-        <h3 className="text-2xl font-bold text-cyan-100">Ready to Boost Your Site's Performance?</h3>
-        <p className="mt-1 text-slate-300">Start in minutes. Free migration and 30-day money-back guarantee.</p>
+        <h3 className="text-2xl font-bold text-cyan-100">Ready to host with confidence?</h3>
+        <p className="mt-1 text-slate-300">Start small, scale when needed, and let intelligent assistance handle the routine work.</p>
       </div>
       <div className="flex gap-2">
         <Button onClick={handleSeePlans} className="bg-cyan-500 text-slate-900 hover:bg-cyan-400 shadow-lg shadow-cyan-500/30">
-          <IconRocket className="mr-2 h-4 w-4" /> Get Started Today
+          Get started
         </Button>
+        <a href="#/contact" className="inline-flex items-center rounded-xl border border-cyan-400/30 px-3 py-2 text-cyan-200 hover:bg-cyan-500/10">Talk to sales</a>
       </div>
     </CardContent>
   </Card>

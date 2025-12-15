@@ -110,3 +110,22 @@ This file logs all tasks, changes made, and the rationale behind each change. It
 **Change Summary:** Explicitly noted that `app/components/QPandaOnePager.jsx` is a legacy artifact.
 **Rationale:** Although phased out, it is currently used by the homepage and must not be removed or modified further until a full homepage replacement is ready.
 **Status:** Completed
+
+---
+
+## [2025-12-15] Homepage copy update (QPanda copy guide)
+**Task:** Apply copy replacements across the homepage per `Qpanda-copy-guide.md`
+**Files Changed:** `app/components/QPandaOnePager.jsx`
+**Change Summary:**
+- Replaced hero headline text with: "QPanda — Hosting that adapts before problems show up".
+- Updated hero subheading to: "Smart hosting with built-in AI assistance for performance, security, and scale — without changing how you work." and added a supporting line: "QPanda continuously monitors your site, anticipates common infrastructure issues, and helps deploy fixes safely and automatically."
+- Updated primary/secondary CTA labels to: `Get started` and `See plans`.
+- Added reassurance sentence under the `Shared Hosting Plans` header: "Simple, reliable hosting for everyday websites — with AI quietly handling performance and security in the background."
+- Tuned a `POSTS` excerpt to remove "Teleport-ready" wording and replace with more concrete phrasing: "Smarter deployments, predictive shield, and tuned edge functions."
+- Inserted a new `AI features` section (`ai-features`) containing three `FeatureCard` tiles: `Smarter deployments`, `Threat detection before impact`, and `Scaling without guesswork` (copy taken verbatim from the guide).
+- Replaced FAQ block with four new Q&A items per the guide (migration, AI complexity, suitability for high-traffic sites, and incident handling/support).
+- Updated final CTA card to: heading "Ready to host with confidence?", subtext "Start small, scale when needed, and let intelligent assistance handle the routine work.", buttons `Get started` and `Talk to sales`.
+- Added a small fix to the panda positioning so the mascot has initial `style={{left: pandaPos.x, top: pandaPos.y}}` to ensure visibility before Framer Motion hydration.
+
+**Rationale:** Replace hype-y or physics metaphors with clear, trust-building, benefit-first copy while keeping layouts and components intact; improve clarity for non-technical buyers and succinct problem-focused messaging for technical users.
+**Status:** Completed
