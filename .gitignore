@@ -2,6 +2,9 @@
 node_modules/
 .next/
 .env*.local
+.gitignore/chatmodes/
+.gitignore/instructions/
+.gitignore/prompts
 
 # HTML concept files
 ai_hosting_concept_1.html
