@@ -1,28 +1,34 @@
 import './globals.css';
 import DarkHeader from './components/dark/DarkHeader';
 import Script from 'next/script';
+import { PUBLIC_CONFIG } from './config/publicConfig';
+
+const appUrl = PUBLIC_CONFIG.app.url;
 
 export const metadata = {
-  title: "Q Panda - AI-Powered Hosting That Delivers Unbeatable Speed | Premium Web Hosting",
-  description: "Enterprise-grade AI-powered web hosting with LiteSpeed, CloudLinux, and Imunify360. Low-density servers (max 350 accounts), 99.9% uptime, and 24/7 support. Perfect for WordPress, e-commerce, and business websites.",
-  keywords: "web hosting, AI hosting, fast web hosting, managed WordPress hosting, VPS hosting, cloud hosting, LiteSpeed hosting, secure web hosting, premium hosting",
-  authors: [{ name: "Blue Panda Hosting" }],
-  creator: "Blue Panda Hosting",
-  publisher: "Blue Panda Hosting",
+  title: "QPanda | Premium Hosting With Migration Help",
+  description:
+    "Premium hosting with migration help, lower-noise infrastructure, and human support for teams moving beyond crowded commodity platforms.",
+  keywords:
+    "premium hosting, migration help, managed hosting, shared hosting, VPS hosting, cloud hosting, dedicated servers, human support",
+  authors: [{ name: "QPanda" }],
+  creator: "QPanda",
+  publisher: "QPanda",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://qpanda.bluepanda.cloud'),
+  metadataBase: new URL(appUrl),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "Q Panda - AI-Powered Hosting That Delivers Unbeatable Speed",
-    description: "Enterprise-grade AI-powered web hosting with 99.9% uptime guarantee. Low-density servers, premium software stack, and real human support.",
-    url: 'https://qpanda.bluepanda.cloud',
-    siteName: 'Q Panda Hosting',
+    title: "QPanda | Premium Hosting With Migration Help",
+    description:
+      "Hosting for teams that are done gambling on crowded, generic platforms, with migration help and responsive human support.",
+    url: appUrl,
+    siteName: 'QPanda',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -30,14 +36,15 @@ export const metadata = {
         url: '/assets/qpanda.jpg',
         width: 1200,
         height: 630,
-        alt: 'Q Panda - Premium AI-Powered Web Hosting',
+        alt: 'QPanda premium hosting',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Q Panda - AI-Powered Hosting That Delivers Unbeatable Speed",
-    description: "Enterprise-grade AI-powered web hosting with 99.9% uptime guarantee.",
+    title: "QPanda | Premium Hosting With Migration Help",
+    description:
+      "Hosting with migration help, calmer operations, and responsive human support for teams leaving generic platforms.",
     images: ['/assets/qpanda.jpg'],
   },
   robots: {
@@ -62,11 +69,11 @@ export const metadata = {
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Blue Panda Hosting & Designs',
+  name: 'QPanda',
   alternateName: 'Q Panda',
-  url: 'https://qpanda.bluepanda.cloud',
-  logo: 'https://qpanda.bluepanda.cloud/favicon.svg',
-  description: 'Premium AI-powered web hosting solutions with enterprise-grade infrastructure',
+  url: appUrl,
+  logo: `${appUrl}/favicon.svg`,
+  description: 'Premium hosting with migration help and responsive human support.',
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'Customer Service',
@@ -79,11 +86,6 @@ const structuredData = {
     // 'https://facebook.com/qpanda',
     // 'https://linkedin.com/company/qpanda'
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '500'
-  },
   offers: {
     '@type': 'AggregateOffer',
     priceCurrency: 'USD',
@@ -99,36 +101,36 @@ const serviceSchema = {
   serviceType: 'Web Hosting',
   provider: {
     '@type': 'Organization',
-    name: 'Blue Panda Hosting & Designs',
-    url: 'https://qpanda.bluepanda.cloud'
+    name: 'QPanda',
+    url: appUrl
   },
   areaServed: 'Worldwide',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Web Hosting Services',
+    name: 'Hosting and migration services',
     itemListElement: [
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
           name: 'Shared Hosting',
-          description: 'AI-powered shared hosting with LiteSpeed and CloudLinux'
+          description: 'Shared hosting for business sites that need calmer operations and clearer support.'
         }
       },
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'VPS Hosting',
-          description: 'Virtual private servers with dedicated resources'
+          name: 'Migration Service',
+          description: 'Migration planning, transfer support, and cutover help for hosting moves.'
         }
       },
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Managed WordPress Hosting',
-          description: 'Optimized WordPress hosting with automatic updates'
+          name: 'Advanced Hosting Paths',
+          description: 'Managed VPS, cloud, and dedicated infrastructure for higher-control workloads.'
         }
       }
     ]

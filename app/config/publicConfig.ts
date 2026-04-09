@@ -1,8 +1,12 @@
 // Centralized public configuration for client-side usage
 // Reads NEXT_PUBLIC_* variables where possible, with sensible fallbacks
 
-const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://bluepandahosting.in";
 const appName = process.env.NEXT_PUBLIC_APP_NAME || "Q Panda";
+const legacyAppUrl = process.env.NEXT_PUBLIC_LEGACY_APP_URL || "https://qpanda.bluepanda.cloud";
+const bluePandaUrl = process.env.NEXT_PUBLIC_BLUEPANDA_URL || "https://www.bluepanda.in";
+const bluePandaConsultationUrl =
+  process.env.NEXT_PUBLIC_BLUEPANDA_CONSULTATION_URL || `${bluePandaUrl}/#contact`;
 
 // Prefer NEXT_PUBLIC_* so values are available client-side; fall back to server vars if present
 const whmcsSupportUrl =
@@ -26,7 +30,12 @@ try {
 export const PUBLIC_CONFIG = {
   app: {
     url: appUrl,
+    legacyUrl: legacyAppUrl,
     name: appName,
+  },
+  bluePanda: {
+    url: bluePandaUrl,
+    consultationUrl: bluePandaConsultationUrl,
   },
   whmcs: {
     supportUrl: whmcsSupportUrl,

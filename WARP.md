@@ -4,7 +4,7 @@ This file provides guidance to WARP (warp.dev) when working with code in this re
 
 ## Project Overview
 
-**Q Panda** is a Next.js demo showcasing a "quantum-native AI hosting" platform. It's a static site generator (SSG) built with Next.js 14, featuring an interactive one-pager with advanced animations and visual effects using Framer Motion.
+**Q Panda** is a Next.js 14 hosting application with a marketing surface and a WHMCS-backed client area. Server runtime support is the deployment path; static export is retired in this repo.
 
 ## Core Commands
 
@@ -19,7 +19,7 @@ Never run `npm run dev` directly in the main terminal - it takes over the termin
 Start-Process pwsh -ArgumentList '-NoExit','-Command','npm run dev'
 ```
 
-**Build for production:**
+**Build for production (server runtime):**
 Run build in a separate PowerShell process to avoid blocking the terminal:
 ```powershell
 Start-Process pwsh -ArgumentList '-NoExit','-Command','npm run build'
@@ -37,16 +37,6 @@ Run linting in a separate PowerShell process:
 Start-Process pwsh -ArgumentList '-NoExit','-Command','npm run lint'
 ```
 
-**Serve built files (for testing):**
-To test the production build locally:
-```powershell
-Start-Process pwsh -ArgumentList '-NoExit','-Command','npm run serve'
-```
-Or using npx directly:
-```powershell
-Start-Process pwsh -ArgumentList '-NoExit','-Command','npx serve out'
-```
-
 ## Architecture & Structure
 
 ### Tech Stack
@@ -54,7 +44,7 @@ Start-Process pwsh -ArgumentList '-NoExit','-Command','npx serve out'
 - **React**: 18.2.0 with client-side components
 - **Styling**: Tailwind CSS with custom configuration
 - **Animations**: Framer Motion 11.2.6 for complex animations and effects
-- **Build**: Static Site Generation (SSG) with `output: 'export'`
+- **Build**: Server-capable Next.js 14 runtime
 
 ### Key Components Architecture
 
@@ -68,7 +58,7 @@ Start-Process pwsh -ArgumentList '-NoExit','-Command','npx serve out'
 2. **Animated Panda Mascot** - Floating panda that teleports around the screen with particle effects
 3. **Plan Selection System** - Interactive orbs positioned on the hero canvas that trigger modal dialogs
 4. **Parallax Effects** - Mouse-controlled parallax layers and scroll-based parallax
-5. **Hash-based Routing** - Client-side routing for blog, contact, and status pages
+5. **Route Mix** - Static marketing pages plus authenticated server handlers for WHMCS-backed client-area flows
 6. **Modal System** - Custom dialog implementation with backdrop blur and animations
 
 ### Animation Patterns
@@ -137,21 +127,20 @@ The repository includes comprehensive Copilot instructions (`.github/copilot-ins
 
 ## Build Process & Troubleshooting
 
-### Static Site Generation
-- The app builds to an `out/` directory with static HTML, CSS, and JS files
-- Uses `output: 'export'` in `next.config.mjs` for static export
-- JavaScript animations and interactivity require client-side hydration
+### Build Modes
+- Deploy path uses a server-capable Next.js build and publishes `.next`
+- Static export is retired because authenticated client-area routes and detail pages are now restored
+- `ENABLE_WHMCS_INTEGRATION=true` is part of the deployment contract
 
 ### Known Build Issues
 - **React Hook Warning**: The build may show a warning about missing dependency `length` in the useEffect hook for the PandaTrail component
 - **Hydration**: Interactive features (canvas animations, panda movement, modal dialogs) won't work until JavaScript loads and hydrates
-- **Static Serving**: The built files in `out/` need to be served from a web server to work properly (not opened directly in browser)
+- **Static Serving**: Retired in this repo; use `npm run start` for local runtime verification
 - **npm ci Lockfile Sync**: If you add new dependencies, always run `npm install` locally and commit the updated `package-lock.json`
 
 ### Testing the Build
-1. Build the project: `Start-Process pwsh -ArgumentList '-NoExit','-Command','npm run build'`
-2. Serve the built files: `Start-Process pwsh -ArgumentList '-NoExit','-Command','npx serve out'`
-3. Open the served URL in a browser to test full functionality
+1. Build the server runtime: `Start-Process pwsh -ArgumentList '-NoExit','-Command','npm run build'`
+2. Start the app: `Start-Process pwsh -ArgumentList '-NoExit','-Command','npm run start'`
 
 ## Deployment
 
@@ -159,17 +148,13 @@ The repository includes comprehensive Copilot instructions (`.github/copilot-ins
 
 Two deployment options are configured:
 
-**Option 1: Static Site (Recommended)**
-- Uses `.do/app.yaml` configuration
-- DigitalOcean serves static files directly
-- Most cost-effective for this use case
-- Automatic HTTPS and CDN
+**Option 1: Server Runtime (Primary)**
+- Use a platform that supports Next.js server execution for WHMCS-backed routes
+- Required for authenticated client-area flows
 
-**Option 2: Node.js Service**
-- Uses `.do/app-nodejs.yaml` configuration
-- Runs `npx serve out -s -l 8080` on a Node.js container
-- Use if you need server-side functionality later
-- Higher cost but more flexible
+**Option 2: Static Export**
+- Retired in this repo
+- Not suitable for authenticated client-area features
 
 ### Deployment Steps
 1. Push code to GitHub repository
@@ -179,12 +164,12 @@ Two deployment options are configured:
 
 ### Build Configuration
 - **Build Command**: `npm ci && npm run build`
-- **Output Directory**: `/out`
-- **Serve Command**: `npx serve out -s -l 8080` (for Node.js option)
+- **Primary Output Directory**: `/.next`
+- **Serve Command**: `npm run start`
 
 ## Performance Considerations
 
-- **Static generation**: Uses `output: 'export'` for optimal loading
+- **Runtime contract**: server-capable build for authenticated flows
 - **Animation optimization**: Proper use of CSS transforms and Framer Motion
 - **Event listener cleanup**: Comprehensive cleanup in useEffect hooks
 - **Canvas optimization**: RequestAnimationFrame and visibility API integration

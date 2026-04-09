@@ -1,3 +1,5 @@
-"use client";
-import QPandaOnePager from "./components/QPandaOnePager";
-export default function Page(){ return <QPandaOnePager />; }
+import QPandaHomepage from "./components/QPandaHomepage";
+
+export default function Page() {
+  return <QPandaHomepage />;
+}

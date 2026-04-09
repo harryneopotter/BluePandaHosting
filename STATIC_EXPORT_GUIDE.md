@@ -1,5 +1,7 @@
 # Static Export Configuration Guide
 
+Static export is retired in this repo. The deployable QPanda client-area runtime uses the server-capable Next.js path described in `readme.md`.
+
 This project is configured for **static export** using Next.js `output: 'export'` setting. This generates static HTML, CSS, and JS files that can be deployed to any static hosting service.
 
 ## Important Limitations
@@ -85,9 +87,7 @@ export async function generateStaticParams() {
 
 ## Current Project Status
 
-✅ **Project is correctly configured for static export**
-✅ **Build process works without errors**
-✅ **No API routes present in current codebase**
-✅ **Uses client-side hash routing for navigation**
-
-The reported build failure was likely from a previous state or different branch that contained API routes incompatible with static export.
+⚠️ **Static export is retired for this repository**
+⚠️ **Authenticated client-area functionality requires the server runtime**
+⚠️ **API routes and dynamic detail pages are present in the codebase**
+✅ **The supported deployment target is the server-capable Next.js runtime**

@@ -41,7 +41,7 @@ Blue Panda Hosting is a modern, premium web hosting platform built for **small b
 - ✅ **Framer Motion** - Smooth animations with spring physics and parallax
 - ✅ **Responsive Design** - Mobile, tablet, and desktop optimized
 - ✅ **SEO Optimized** - Proper meta tags and performance tuning
-- ✅ **Static Export** - Can deploy as static site or Node.js service
+- ✅ **Server Runtime Deployment** - Next.js runtime configured for WHMCS-backed authenticated routes
 
 ### 🎨 Interactive UI Components
 - ✅ **Luminous Cards** - Custom card shell with gradient accents and motion feedback
@@ -132,14 +132,14 @@ http://localhost:3000
 ### Production Build
 
 ```bash
-# Build for production
+# Build the deployable WHMCS-enabled runtime
 npm run build
 
-# Start production server (if not using static export)
+# Start the production server
 npm run start
 
-# Or serve static files (if static export enabled)
-npm run serve
+# Start the deployable runtime locally after build
+npm run start
 ```
 
 ---
@@ -188,9 +188,12 @@ BluePandaHosting/
 | Command | Description |
 |---------|-------------|
 | `npm run dev` | Start development server on port 3000 |
-| `npm run build` | Build production bundle (with build verification) |
+| `npm run build` | Build the server-capable Next.js runtime used for WHMCS-enabled deployment |
+| `npm run build:server` | Explicit server-runtime build for Netlify/Node deployment |
+| `npm run build:static` | Reserved legacy command; exits because static export is retired in this repo |
 | `npm run start` | Start production server |
-| `npm run serve` | Serve static build files |
+| `npm run serve` | Reserved legacy command; exits because static preview serving is retired |
+| `npm run serve:static` | Reserved legacy command; exits because static preview serving is retired |
 | `npm run lint` | Run ESLint code quality checks |
 | `npm run playwright:install` | Install Playwright browsers |
 | `npm run screenshot` | Run screenshot tests with Playwright |
@@ -199,49 +202,29 @@ BluePandaHosting/
 
 ## 🌐 Deployment Options
 
-### Option 1: Static Export (Recommended for Marketing Site)
+### Server Runtime on Netlify (Required)
 
-Perfect for hosting the marketing pages without server-side functionality:
-
-```bash
-# Ensure static export is enabled
-# Remove or set ENABLE_WHMCS_INTEGRATION=false in .env
-
-# Build static site
-npm run build
-
-# Deploy the 'out/' directory to:
-# - Netlify
-# - Vercel
-# - GitHub Pages
-# - Any static hosting service
-```
-
-### Option 2: Node.js Server (For Full WHMCS Integration)
-
-Required for API routes and dynamic functionality:
+Use this path for the deployable QPanda site when authenticated client-area routes are enabled.
 
 ```bash
-# Set ENABLE_WHMCS_INTEGRATION=true in .env
-
-# Build and start
+# Netlify build path
 npm run build
+
+# Start locally after build
 npm run start
-
-# Deploy to:
-# - Vercel (recommended)
-# - DigitalOcean App Platform
-# - AWS Elastic Beanstalk
-# - Any Node.js hosting
 ```
 
-### Option 3: Hybrid Approach
+Runtime contract:
+- `ENABLE_WHMCS_INTEGRATION=true`
+- `APP_SESSION_SECRET`
+- `WHMCS_API_URL`
+- `WHMCS_API_IDENTIFIER`
+- `WHMCS_API_SECRET`
+- `WHMCS_BASE_URL`
+- `NEXT_PUBLIC_WHMCS_CLIENT_AREA_URL`
+- `NEXT_PUBLIC_WHMCS_SUPPORT_URL`
 
-Use static export for marketing pages and serverless functions for API:
-
-- Deploy static site to CDN
-- Use Vercel/Netlify serverless functions for API routes
-- Best of both worlds: fast static pages + dynamic functionality
+Netlify is configured to publish `.next` for this mode. Static export has been retired in this repo because the restored authenticated client-area routes and detail pages require a server-capable deployment target.
 
 ---
 
@@ -260,6 +243,8 @@ Use static export for marketing pages and serverless functions for API:
 3. **Configure Environment Variables**:
    - Set `WHMCS_API_URL`, `WHMCS_API_IDENTIFIER`, `WHMCS_API_SECRET`
    - Enable `NEXT_PUBLIC_FEATURE_WHMCS_BASIC=true`
+   - Set `ENABLE_WHMCS_INTEGRATION=true` for deployable client-area builds
+   - Set `APP_SESSION_SECRET` for signed session cookies
 
 ### Available API Routes
 

@@ -2,6 +2,7 @@
 import React, { useRef, useState, useEffect, useContext, createContext } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { PUBLIC_CONFIG } from "../config/publicConfig";
 import LuminousCard from "./LuminousCard";
 
@@ -759,7 +760,7 @@ function SupportMegaMenu() {
             <div className="font-medium text-cyan-100">Knowledge Base</div>
             <div className="text-sm text-slate-400">Browse tutorials and guides</div>
           </a>
-          <a href="#/contact" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+          <a href="/contact" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
             <div className="font-medium text-cyan-100">Contact Sales</div>
             <div className="text-sm text-slate-400">Pre-sales questions</div>
           </a>
@@ -775,7 +776,7 @@ function SupportMegaMenu() {
             <div className="font-medium text-cyan-100">Client Portal</div>
             <div className="text-sm text-slate-400">Manage services & billing</div>
           </a>
-          <a href="#/status" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+          <a href="/status" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
             <div className="font-medium text-cyan-100">System Status</div>
             <div className="text-sm text-slate-400">Check service uptime</div>
           </a>
@@ -787,7 +788,7 @@ function SupportMegaMenu() {
           <h3 className="text-lg font-semibold text-cyan-200">Resources</h3>
         </div>
         <div className="space-y-3">
-          <a href="#/blog" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
+          <a href="/blog" className="group block rounded-lg border border-cyan-400/10 p-3 hover:border-cyan-400/30 hover:bg-cyan-500/5">
             <div className="font-medium text-cyan-100">Blog</div>
             <div className="text-sm text-slate-400">Latest news and tutorials</div>
           </a>
@@ -881,18 +882,18 @@ export default function QPandaOnePager(){
         <div className="flex items-center gap-1 text-xs sm:text-sm font-semibold text-cyan-200">
           <span>★★★★★</span>
         </div>
-        <div className="text-[10px] sm:text-xs text-slate-400">4.9/5 from 500+ reviews</div>
+        <div className="text-[10px] sm:text-xs text-slate-400">Human support for migrations and operations</div>
       </div>
     </div>
     <div className="hidden sm:block h-8 w-px bg-slate-700"></div>
     <div>
-      <div className="text-lg sm:text-2xl font-bold text-cyan-200">10,000+</div>
-      <div className="text-[10px] sm:text-xs text-slate-400">Websites powered</div>
+      <div className="text-lg sm:text-2xl font-bold text-cyan-200">350</div>
+      <div className="text-[10px] sm:text-xs text-slate-400">Max accounts per server</div>
     </div>
     <div className="hidden sm:block h-8 w-px bg-slate-700"></div>
     <div>
-      <div className="text-lg sm:text-2xl font-bold text-cyan-200">99.9%</div>
-      <div className="text-[10px] sm:text-xs text-slate-400">Uptime guarantee</div>
+      <div className="text-lg sm:text-2xl font-bold text-cyan-200">13+</div>
+      <div className="text-[10px] sm:text-xs text-slate-400">Years hosting websites</div>
     </div>
   </div>
 </div>
@@ -944,28 +945,28 @@ export default function QPandaOnePager(){
 <section id="trust-signals" className="mx-auto max-w-6xl px-6 pb-24">
   <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-3 lg:grid-cols-6">
     <div>
-      <div className="text-3xl font-bold text-cyan-200">350</div>
-      <div className="text-sm text-slate-400">Max accounts per server</div>
+      <div className="text-3xl font-bold text-cyan-200">Capped</div>
+      <div className="text-sm text-slate-400">Server density</div>
     </div>
     <div>
-      <div className="text-3xl font-bold text-cyan-200">$150+</div>
-      <div className="text-sm text-slate-400">Value of included software</div>
+      <div className="text-3xl font-bold text-cyan-200">Included</div>
+      <div className="text-sm text-slate-400">Premium tooling</div>
     </div>
     <div>
-      <div className="text-3xl font-bold text-cyan-200">99.9%</div>
-      <div className="text-sm text-slate-400">Uptime guarantee</div>
+      <div className="text-3xl font-bold text-cyan-200">Human</div>
+      <div className="text-sm text-slate-400">Support access</div>
     </div>
     <div>
-      <div className="text-3xl font-bold text-cyan-200">13+</div>
-      <div className="text-sm text-slate-400">Years hosting websites</div>
+      <div className="text-3xl font-bold text-cyan-200">Migration</div>
+      <div className="text-sm text-slate-400">Launch support</div>
     </div>
     <div>
-      <div className="text-3xl font-bold text-cyan-200">4-24hrs</div>
-      <div className="text-sm text-slate-400">Support response times</div>
+      <div className="text-3xl font-bold text-cyan-200">Secure</div>
+      <div className="text-sm text-slate-400">Baseline hardening</div>
     </div>
     <div>
-      <div className="text-3xl font-bold text-cyan-200">30 days</div>
-      <div className="text-sm text-slate-400">Money-back guarantee</div>
+      <div className="text-3xl font-bold text-cyan-200">Direct</div>
+      <div className="text-sm text-slate-400">Status and contact paths</div>
     </div>
   </div>
 </section>
@@ -1063,13 +1064,13 @@ export default function QPandaOnePager(){
         <Button onClick={handleSeePlans} className="bg-cyan-500 text-slate-900 hover:bg-cyan-400 shadow-lg shadow-cyan-500/30">
           Get started
         </Button>
-        <a href="#/contact" className="inline-flex items-center rounded-xl border border-cyan-400/30 px-3 py-2 text-cyan-200 hover:bg-cyan-500/10">Talk to sales</a>
+        <a href="/contact" className="inline-flex items-center rounded-xl border border-cyan-400/30 px-3 py-2 text-cyan-200 hover:bg-cyan-500/10">Talk to sales</a>
       </div>
     </CardContent>
   </Card>
 </section>
         </>)}
-        <footer className="mx-auto max-w-6xl px-6 pb-12 text-sm text-slate-400"><div className="border-t border-white/10 pt-6 text-center space-y-2"><div>Powered by WHMCompleteSolution</div><div>© {new Date().getFullYear()} Blue Panda. All Rights Reserved.</div></div></footer>
+        <footer className="mx-auto max-w-6xl px-6 pb-12 text-sm text-slate-400"><div className="border-t border-white/10 pt-6 text-center space-y-2"><div>Managed by the Blue Panda team</div><div>© {new Date().getFullYear()} Blue Panda. All Rights Reserved.</div></div></footer>
         <PlanDialog open={dialogOpen} onOpenChange={setDialogOpen} planId={activePlan}/>
       </div>
     </ErrorBoundary>
@@ -1095,6 +1096,6 @@ function FAQItem({q,a}){ const [open,setOpen]=useState(false); return (<div clas
 // ——— Pages (hash-routed) ———
 function SitePages({route}){ if(route.name==='contact') return <ContactPage/>; if(route.name==='status') return <StatusPage/>; if(route.name==='blog') return <BlogPage slug={route.slug}/>; return null; }
 function ContactPage(){ const [form,setForm]=useState({name:'',company:'',email:'',phone:'',message:''}); const [sent,setSent]=useState(false); const onChange=(e)=>setForm({...form,[e.target.name]:e.target.value}); const onSubmit=(e)=>{ e.preventDefault(); if(!form.name||!form.email||!form.message) return; setSent(true); };
-  return (<motion.section initial={{opacity:0, y:12}} animate={{opacity:1, y:0}} transition={{duration:0.35, ease:[0.16,1,0.3,1]}} className="mx-auto max-w-5xl px-6 py-16"><h2 className="text-3xl font-bold text-cyan-200">Contact</h2><p className="mt-2 text-slate-300">We usually reply within 1 business day.</p><Card className="mt-6 border border-cyan-400/20 bg-white/5"><CardContent className="p-6">{sent? (<div className="rounded-xl border border-cyan-400/30 bg-cyan-500/10 p-4 text-cyan-200">Thanks! We received your message.</div>) : (<form onSubmit={onSubmit} className="grid gap-4"><input name="name" value={form.name} onChange={onChange} placeholder="Your name" className="rounded-xl border border-white/10 bg-slate-950/60 p-3 text-slate-100 outline-none"/><input name="company" value={form.company} onChange={onChange} placeholder="Company (optional)" className="rounded-xl border border-white/10 bg-slate-950/60 p-3 text-slate-100 outline-none"/><input name="email" value={form.email} onChange={onChange} placeholder="Email" type="email" className="rounded-xl border border-white/10 bg-slate-950/60 p-3 text-slate-100 outline-none"/><input name="phone" value={form.phone} onChange={onChange} placeholder="Phone (optional)" className="rounded-xl border border-white/10 bg-slate-950/60 p-3 text-slate-100 outline-none"/><textarea name="message" value={form.message} onChange={onChange} placeholder="Message" rows={5} className="rounded-xl border border-white/10 bg-slate-950/60 p-3 text-slate-100 outline-none"/><div className="flex gap-2"><Button className="bg-cyan-500 text-slate-900 hover:bg-cyan-400" type="submit">Send</Button><a href="#/" className="inline-flex items-center rounded-xl border border-cyan-400/30 px-3 py-2 text-cyan-200">Back</a></div></form>)}<div className="mt-6 flex flex-wrap items-center gap-3 text-sm"><a href={PUBLIC_CONFIG.whmcs.supportUrl} target="_blank" rel="noreferrer" className="rounded-xl border border-cyan-400/30 px-3 py-2 text-cyan-200 hover:bg-cyan-500/10">Open Support Portal</a><a href={PUBLIC_CONFIG.whmcs.clientAreaUrl} target="_blank" rel="noreferrer" className="rounded-xl border border-cyan-400/30 px-3 py-2 text-cyan-200 hover:bg-cyan-500/10">Client Area</a><a href="mailto:support@qpanda.io" className="rounded-xl border border-cyan-400/30 px-3 py-2 text-cyan-200 hover:bg-cyan-500/10">Email Support</a></div></CardContent></Card></motion.section>); }
-function StatusPage(){ const incidents=[{id:1,date:'2025-08-10',title:'Edge PoP latency in APAC',status:'Resolved',detail:'Elevated latency due to upstream fiber maintenance. Auto-reroute engaged.'},{id:2,date:'2025-07-29',title:'Functions cold starts',status:'Monitoring',detail:'Cold starts briefly spiked after deploy; tuned caches.'}]; return (<motion.section initial={{opacity:0, y:12}} animate={{opacity:1, y:0}} transition={{duration:0.35, ease:[0.16,1,0.3,1]}} className="mx-auto max-w-5xl px-6 py-16"><h2 className="text-3xl font-bold text-cyan-200">Status</h2><div className="mt-4 grid gap-6 sm:grid-cols-3"><MetricCard label="Uptime (30d)" value="99.995%" sub="Core services"/><MetricCard label="Edge PoPs" value="58" sub="Global"/><MetricCard label="Median TTFB" value="62ms" sub="Worldwide"/></div><div className="mt-8 rounded-2xl border border-cyan-400/20 bg-white/5">{incidents.map(i=>(<div key={i.id} className="border-b border-white/10 p-4 last:border-0"><div className="flex items-center justify-between"><div className="text-cyan-100">{i.title}</div><span className="rounded-full border border-cyan-400/30 px-2 py-0.5 text-xs text-cyan-200">{i.status}</span></div><div className="mt-1 text-xs text-slate-400">{i.date}</div><p className="mt-2 text-slate-300">{i.detail}</p></div>))}</div><div className="mt-6"><a href="#/" className="text-cyan-300">← Back to home</a></div></motion.section>); }
-function BlogPage({slug}){ const post=slug?POSTS.find(p=>p.slug===slug):null; if(post){ return (<motion.section initial={{opacity:0, y:12}} animate={{opacity:1, y:0}} transition={{duration:0.35, ease:[0.16,1,0.3,1]}} className="mx-auto max-w-3xl px-6 py-16"><a href="#/blog" className="text-cyan-300">← All posts</a><h2 className="mt-2 text-3xl font-bold text-cyan-200">{post.title}</h2><div className="text-xs text-slate-400">{post.date}</div><p className="mt-6 text-slate-300">{post.excerpt}</p><p className="mt-3 text-slate-300">(Full article content goes here.)</p></motion.section>);} return (<motion.section initial={{opacity:0, y:12}} animate={{opacity:1, y:0}} transition={{duration:0.35, ease:[0.16,1,0.3,1]}} className="mx-auto max-w-3xl px-6 py-16"><h2 className="text-3xl font-bold text-cyan-200">Blog</h2><div className="mt-6 grid gap-6 md:grid-cols-3">{POSTS.map(p=>(<Card key={p.slug} className="border border-cyan-400/20 bg-white/5 transition-transform duration-300 hover:-translate-y-0.5"><CardContent className="p-6"><div className="text-xs text-slate-400">{p.date}</div><div className="mt-1 text-cyan-100">{p.title}</div><p className="mt-2 text-sm text-slate-300">{p.excerpt}</p><div className="mt-4"><a href={`#/blog/${p.slug}`} className="text-cyan-300">Read →</a></div></CardContent></Card>))}</div><div className="mt-6"><a href="#/" className="text-cyan-300">← Back to home</a></div></motion.section>); }
+  return (<motion.section initial={{opacity:0, y:12}} animate={{opacity:1, y:0}} transition={{duration:0.35, ease:[0.16,1,0.3,1]}} className="mx-auto max-w-5xl px-6 py-16"><h2 className="text-3xl font-bold text-cyan-200">Contact</h2><p className="mt-2 text-slate-300">We usually reply within 1 business day.</p><Card className="mt-6 border border-cyan-400/20 bg-white/5"><CardContent className="p-6">{sent? (<div className="rounded-xl border border-cyan-400/30 bg-cyan-500/10 p-4 text-cyan-200">Thanks! We received your message.</div>) : (<form onSubmit={onSubmit} className="grid gap-4"><input name="name" value={form.name} onChange={onChange} placeholder="Your name" className="rounded-xl border border-white/10 bg-slate-950/60 p-3 text-slate-100 outline-none"/><input name="company" value={form.company} onChange={onChange} placeholder="Company (optional)" className="rounded-xl border border-white/10 bg-slate-950/60 p-3 text-slate-100 outline-none"/><input name="email" value={form.email} onChange={onChange} placeholder="Email" type="email" className="rounded-xl border border-white/10 bg-slate-950/60 p-3 text-slate-100 outline-none"/><input name="phone" value={form.phone} onChange={onChange} placeholder="Phone (optional)" className="rounded-xl border border-white/10 bg-slate-950/60 p-3 text-slate-100 outline-none"/><textarea name="message" value={form.message} onChange={onChange} placeholder="Message" rows={5} className="rounded-xl border border-white/10 bg-slate-950/60 p-3 text-slate-100 outline-none"/><div className="flex gap-2"><Button className="bg-cyan-500 text-slate-900 hover:bg-cyan-400" type="submit">Send</Button><Link href="/" className="inline-flex items-center rounded-xl border border-cyan-400/30 px-3 py-2 text-cyan-200">Back</Link></div></form>)}<div className="mt-6 flex flex-wrap items-center gap-3 text-sm"><a href={PUBLIC_CONFIG.whmcs.supportUrl} target="_blank" rel="noreferrer" className="rounded-xl border border-cyan-400/30 px-3 py-2 text-cyan-200 hover:bg-cyan-500/10">Open Support Portal</a><a href={PUBLIC_CONFIG.whmcs.clientAreaUrl} target="_blank" rel="noreferrer" className="rounded-xl border border-cyan-400/30 px-3 py-2 text-cyan-200 hover:bg-cyan-500/10">Client Area</a><a href="mailto:support@qpanda.io" className="rounded-xl border border-cyan-400/30 px-3 py-2 text-cyan-200 hover:bg-cyan-500/10">Email Support</a></div></CardContent></Card></motion.section>); }
+function StatusPage(){ const incidents=[{id:1,date:'2025-08-10',title:'Edge PoP latency in APAC',status:'Resolved',detail:'Elevated latency due to upstream fiber maintenance. Auto-reroute engaged.'},{id:2,date:'2025-07-29',title:'Functions cold starts',status:'Monitoring',detail:'Cold starts briefly spiked after deploy; tuned caches.'}]; return (<motion.section initial={{opacity:0, y:12}} animate={{opacity:1, y:0}} transition={{duration:0.35, ease:[0.16,1,0.3,1]}} className="mx-auto max-w-5xl px-6 py-16"><h2 className="text-3xl font-bold text-cyan-200">Status</h2><div className="mt-4 grid gap-6 sm:grid-cols-3"><MetricCard label="Uptime (30d)" value="99.995%" sub="Core services"/><MetricCard label="Edge PoPs" value="58" sub="Global"/><MetricCard label="Median TTFB" value="62ms" sub="Worldwide"/></div><div className="mt-8 rounded-2xl border border-cyan-400/20 bg-white/5">{incidents.map(i=>(<div key={i.id} className="border-b border-white/10 p-4 last:border-0"><div className="flex items-center justify-between"><div className="text-cyan-100">{i.title}</div><span className="rounded-full border border-cyan-400/30 px-2 py-0.5 text-xs text-cyan-200">{i.status}</span></div><div className="mt-1 text-xs text-slate-400">{i.date}</div><p className="mt-2 text-slate-300">{i.detail}</p></div>))}</div><div className="mt-6"><Link href="/" className="text-cyan-300">← Back to home</Link></div></motion.section>); }
+function BlogPage({slug}){ const post=slug?POSTS.find(p=>p.slug===slug):null; if(post){ return (<motion.section initial={{opacity:0, y:12}} animate={{opacity:1, y:0}} transition={{duration:0.35, ease:[0.16,1,0.3,1]}} className="mx-auto max-w-3xl px-6 py-16"><Link href="/blog" className="text-cyan-300">← All posts</Link><h2 className="mt-2 text-3xl font-bold text-cyan-200">{post.title}</h2><div className="text-xs text-slate-400">{post.date}</div><p className="mt-6 text-slate-300">{post.excerpt}</p><p className="mt-3 text-slate-300">(Full article content goes here.)</p></motion.section>);} return (<motion.section initial={{opacity:0, y:12}} animate={{opacity:1, y:0}} transition={{duration:0.35, ease:[0.16,1,0.3,1]}} className="mx-auto max-w-3xl px-6 py-16"><h2 className="text-3xl font-bold text-cyan-200">Blog</h2><div className="mt-6 grid gap-6 md:grid-cols-3">{POSTS.map(p=>(<Card key={p.slug} className="border border-cyan-400/20 bg-white/5 transition-transform duration-300 hover:-translate-y-0.5"><CardContent className="p-6"><div className="text-xs text-slate-400">{p.date}</div><div className="mt-1 text-cyan-100">{p.title}</div><p className="mt-2 text-sm text-slate-300">{p.excerpt}</p><div className="mt-4"><Link href="/blog" className="text-cyan-300">Read →</Link></div></CardContent></Card>))}</div><div className="mt-6"><Link href="/" className="text-cyan-300">← Back to home</Link></div></motion.section>); }

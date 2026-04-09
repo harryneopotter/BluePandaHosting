@@ -24,15 +24,15 @@ export default function SupportMegaMenu() {
       description: "Get answers to common questions",
       items: [
         { name: "Popular Articles", tagline: "Start with top topics", href: "/support/tickets" },
-        { name: "Contact Support", tagline: "We are here 24/7", href: "#/contact" },
+        { name: "Contact Support", tagline: "We are here 24/7", href: "/contact" },
       ]
     },
     "live-chat": {
       title: "Live Chat",
       description: "Chat with our experts",
       items: [
-        { name: "Start Chat", tagline: "Instant assistance", href: "#" },
-        { name: "Pre-sales Chat", tagline: "Talk to sales", href: "#/contact" },
+        { name: "Start Chat", tagline: "Instant assistance", href: "/contact" },
+        { name: "Pre-sales Chat", tagline: "Talk to sales", href: "/contact" },
       ]
     },
     "ticket-system": {
@@ -48,7 +48,7 @@ export default function SupportMegaMenu() {
       description: "Self-help articles and guides",
       items: [
         { name: "Browse KB", tagline: "Troubleshooting & how-tos", href: "/support/tickets" },
-        { name: "API Docs", tagline: "Developer documentation", href: "#docs" },
+        { name: "API Docs", tagline: "Developer documentation", href: "/blog" },
       ]
     },
     "video-tutorials": {
@@ -64,7 +64,7 @@ export default function SupportMegaMenu() {
       description: "Ask questions and share knowledge",
       items: [
         { name: "Join Community", tagline: "Connect with others", href: "/support/tickets" },
-        { name: "Status", tagline: "Service uptime", href: "#/status" },
+        { name: "Status", tagline: "Service updates", href: "/status" },
       ]
     },
   };
