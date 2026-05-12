@@ -144,7 +144,7 @@ const CATEGORY_CONTENT = {
         name: 'Cloud Starter',
         tagline: 'Perfect for development and testing',
         price: '$19.99/mo',
-        features: ['1 vCPU', '2GB RAM', '25GB SSD', 'Auto-scaling', '99.9% SLA'],
+        features: ['1 vCPU', '2GB RAM', '25GB SSD', 'Auto-scaling', 'built for teams that care about reliability and responsive support'],
         badge: 'Popular'
       },
       {
@@ -871,31 +871,31 @@ export default function QPandaOnePager(){
   </div>
 
   {/* Social Proof Above The Fold */}
-  <div className="pt-6 sm:pt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-center">
-    <div className="flex items-center gap-2">
-      <div className="flex -space-x-2">
-        <div className="h-6 w-6 sm:h-8 sm:w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-cyan-400 to-blue-500"></div>
-        <div className="h-6 w-6 sm:h-8 sm:w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-purple-400 to-pink-500"></div>
-        <div className="h-6 w-6 sm:h-8 sm:w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-green-400 to-emerald-500"></div>
-      </div>
-      <div className="text-left">
-        <div className="flex items-center gap-1 text-xs sm:text-sm font-semibold text-cyan-200">
-          <span>★★★★★</span>
-        </div>
-        <div className="text-[10px] sm:text-xs text-slate-400">Human support for migrations and operations</div>
-      </div>
-    </div>
-    <div className="hidden sm:block h-8 w-px bg-slate-700"></div>
-    <div>
-      <div className="text-lg sm:text-2xl font-bold text-cyan-200">350</div>
-      <div className="text-[10px] sm:text-xs text-slate-400">Max accounts per server</div>
-    </div>
-    <div className="hidden sm:block h-8 w-px bg-slate-700"></div>
-    <div>
-      <div className="text-lg sm:text-2xl font-bold text-cyan-200">13+</div>
-      <div className="text-[10px] sm:text-xs text-slate-400">Years hosting websites</div>
-    </div>
-  </div>
+     <div className="pt-6 sm:pt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-center">
+     <div className="flex items-center gap-2">
+     <div className="flex -space-x-2">
+     <div className="h-6 w-6 sm:h-8 sm:w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-cyan-400 to-blue-500"></div>
+     <div className="h-6 w-6 sm:h-8 sm:w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-purple-400 to-pink-500"></div>
+     <div className="h-6 w-6 sm:h-8 sm:w-8 rounded-full border-2 border-slate-900 bg-gradient-to-br from-green-400 to-emerald-500"></div>
+     </div>
+     <div className="text-left">
+     <div className="flex items-center gap-1 text-xs sm:text-sm font-semibold text-cyan-200">
+     <span>★★★★★</span>
+     </div>
+     <div className="text-[10px] sm:text-xs text-slate-400">Human support for migrations and operations</div>
+     </div>
+     </div>
+     <div className="hidden sm:block h-8 w-px bg-slate-700"></div>
+     <div>
+     <div className="text-lg sm:text-2xl font-bold text-cyan-200">Lower-density</div>
+     <div className="text-[10px] sm:text-xs text-slate-400">designed to avoid overcrowded</div>
+     </div>
+     <div className="hidden sm:block h-8 w-px bg-slate-700"></div>
+     <div>
+     <div className="text-lg sm:text-2xl font-bold text-cyan-200">Years</div>
+     <div className="text-[10px] sm:text-xs text-slate-400">of reliable service</div>
+     </div>
+     </div>
 </div>
             <PandaTrail pos={pandaPos}/>
             <motion.div className="group fixed z-30" style={{left: pandaPos.x, top: pandaPos.y}} animate={{x:pandaPos.x,y:pandaPos.y}} transition={{type:'spring',stiffness:120,damping:16}}>
@@ -986,7 +986,7 @@ export default function QPandaOnePager(){
   <h2 className="mb-12 text-center text-3xl font-bold text-cyan-200">What Makes Us Different</h2>
   <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
     <FeatureCard icon={<IconRocket className="h-5 w-5" />} title="Premium Stack, Standard Price" desc="LiteSpeed + CloudLinux + Imunify360 + low density = fast sites, reliable performance." />
-    <FeatureCard icon={<IconServer className="h-5 w-5" />} title="Low-Density Infrastructure" desc="We limit servers to 300-350 accounts maximum. Each site has guaranteed resources." />
+    <FeatureCard icon={<IconServer className="h-5 w-5" />} title="Low-Density Infrastructure" desc="Our lower-density hosting design avoids overcrowded shared environments. Each site has guaranteed resources." />
     <FeatureCard icon={<IconSparkles className="h-5 w-5" />} title="Enterprise Software, Included" desc="Software we include that competitors charge $100-150+/month extra for." />
     <FeatureCard icon={<IconLifeBuoy className="h-5 w-5" />} title="Real Support From Real Humans" desc="No AI chatbots. No offshore support reading from scripts." />
   </div>

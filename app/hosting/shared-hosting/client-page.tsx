@@ -98,7 +98,7 @@ export default function SharedHostingClientPage() {
             <div className="grid gap-6 md:grid-cols-2">
                 <div>
                     <h3 className="text-xl font-bold text-cyan-100">Low-Density Hosting</h3>
-                    <p className="text-slate-300 mt-2">We limit each server to 300-350 accounts. This means 3x more available resources per site, faster page loads, and better uptime.</p>
+                    <p className="text-slate-300 mt-2">Our lower-density hosting design avoids overcrowded shared environments. This means more available resources per site, faster page loads, and better uptime.</p>
                 </div>
                 <div>
                     <h3 className="text-xl font-bold text-cyan-100">Enterprise-Grade Technology</h3>
