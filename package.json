@@ -8,13 +8,16 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && echo 'Build complete, contents:' && ls -la out/ && echo 'Index file:' && head -n 20 out/index.html",
+    "build": "npm run build:server",
+    "build:server": "rm -rf out && NODE_ENV=production ENABLE_WHMCS_INTEGRATION=true next build && echo 'Server build complete, Next runtime output:' && ls -la .next/",
+    "build:static": "echo 'Static export is retired in this repo now that authenticated WHMCS client-area routes are restored. Use npm run build for the deployable runtime.' && exit 1",
     "start": "next start",
     "lint": "next lint",
-    "serve": "serve out -s -l 3000",
+    "serve": "npm run serve:static",
+    "serve:static": "echo 'Static preview serving is retired in this repo. Start the server runtime with npm run start instead.' && exit 1",
     "playwright:install": "npx playwright install --with-deps",
     "screenshot": "npm run playwright:install && npx playwright test tests/screenshot.spec.ts --project=chromium --reporter=list",
-    "build:debug": "next build && echo 'Build completed' && ls -la out/"
+    "build:debug": "rm -rf out && NODE_ENV=production ENABLE_WHMCS_INTEGRATION=true next build && echo 'Server build completed' && ls -la .next/"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
