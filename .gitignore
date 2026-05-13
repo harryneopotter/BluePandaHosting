@@ -48,9 +48,7 @@ smriti_analyze.py
 smriticontext.kiro.yaml
 sqlite_mcp_server.db
 
-# API routes should not exist with static export
-# If you need API functionality, remove 'output: export' from next.config.mjs
-app/api/
+# Server runtime mode — API routes are tracked
 node_modules
 .next
 
