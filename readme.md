@@ -137,9 +137,6 @@ npm run build
 
 # Start the production server
 npm run start
-
-# Start the deployable runtime locally after build
-npm run start
 ```
 
 ---

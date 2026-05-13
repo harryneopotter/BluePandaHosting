@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import LuminousCard from "../../components/LuminousCard";
 
 export default function TicketsPage() {
@@ -30,7 +31,7 @@ export default function TicketsPage() {
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-cyan-200">Support Tickets</h1>
-          <a className="underline" href="/support/tickets/new">Open Ticket</a>
+          <Link className="underline" href="/support/tickets/new">Open Ticket</Link>
         </div>
         {loading && <p className="mt-4 text-slate-300">Loading…</p>}
         {error && <p className="mt-4 text-red-400">{error}</p>}

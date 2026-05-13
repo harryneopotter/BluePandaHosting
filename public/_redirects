@@ -5,17 +5,17 @@
 /why-qpanda /features 301
 /plans /hosting 301
 
-https://bluepandahosting.in/services/* https://www.bluepanda.in/#services 301!
-https://bluepandahosting.in/case-studies/* https://www.bluepanda.in/#case-studies 301!
-https://bluepandahosting.in/about* https://www.bluepanda.in/#about 301!
-https://bluepandahosting.in/consulting* https://www.bluepanda.in/#contact 301!
-https://bluepandahosting.in/ai-architect* https://www.bluepanda.in/#architect 301!
+https://bluepandahosting.in/services/* https://www.bluepanda.in/services 301!
+https://bluepandahosting.in/case-studies/* https://www.bluepanda.in/case-studies 301!
+https://bluepandahosting.in/about* https://www.bluepanda.in/about 301!
+https://bluepandahosting.in/consulting* https://www.bluepanda.in/contact 301!
+https://bluepandahosting.in/ai-architect* https://www.bluepanda.in/architect 301!
 
-https://www.bluepandahosting.in/services/* https://www.bluepanda.in/#services 301!
-https://www.bluepandahosting.in/case-studies/* https://www.bluepanda.in/#case-studies 301!
-https://www.bluepandahosting.in/about* https://www.bluepanda.in/#about 301!
-https://www.bluepandahosting.in/consulting* https://www.bluepanda.in/#contact 301!
-https://www.bluepandahosting.in/ai-architect* https://www.bluepanda.in/#architect 301!
+https://www.bluepandahosting.in/services/* https://www.bluepanda.in/services 301!
+https://www.bluepandahosting.in/case-studies/* https://www.bluepanda.in/case-studies 301!
+https://www.bluepandahosting.in/about* https://www.bluepanda.in/about 301!
+https://www.bluepandahosting.in/consulting* https://www.bluepanda.in/contact 301!
+https://www.bluepandahosting.in/ai-architect* https://www.bluepanda.in/architect 301!
 https://www.bluepandahosting.in/* https://bluepandahosting.in/:splat 301!
 
 https://qpanda.bluepanda.cloud/* https://bluepandahosting.in/:splat 301!
