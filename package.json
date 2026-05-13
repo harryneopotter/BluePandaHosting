@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run build:server",
-    "build:server": "next clean && NODE_ENV=production ENABLE_WHMCS_INTEGRATION=true next build && node -e \"console.log('Server build complete')\"",
+    "build:server": "NODE_ENV=production ENABLE_WHMCS_INTEGRATION=true next build && node -e \"console.log('Server build complete')\"",
     "build:static": "echo 'Static export is retired in this repo now that authenticated WHMCS client-area routes are restored. Use npm run build for the deployable runtime.' && exit 1",
     "start": "next start",
     "lint": "next lint",
@@ -17,7 +17,7 @@
     "serve:static": "echo 'Static preview serving is retired in this repo. Start the server runtime with npm run start instead.' && exit 1",
     "playwright:install": "npx playwright install --with-deps",
     "screenshot": "npm run playwright:install && npx playwright test tests/screenshot.spec.ts --project=chromium --reporter=list",
-    "build:debug": "next clean && NODE_ENV=production ENABLE_WHMCS_INTEGRATION=true next build && node -e \"console.log('Server build completed')\""
+    "build:debug": "NODE_ENV=production ENABLE_WHMCS_INTEGRATION=true next build && node -e \"console.log('Server build completed')\""
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

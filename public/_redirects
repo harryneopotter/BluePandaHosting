@@ -17,5 +17,6 @@ https://www.bluepandahosting.in/about* https://www.bluepanda.in/about 301!
 https://www.bluepandahosting.in/consulting* https://www.bluepanda.in/contact 301!
 https://www.bluepandahosting.in/ai-architect* https://www.bluepanda.in/architect 301!
 https://www.bluepandahosting.in/* https://bluepandahosting.in/:splat 301!
+https://bluepandahosting.in/* https://www.bluepanda.in/:splat 301!
 
 https://qpanda.bluepanda.cloud/* https://bluepandahosting.in/:splat 301!
