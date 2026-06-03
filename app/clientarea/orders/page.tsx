@@ -3,8 +3,16 @@
 import React, { useEffect, useState } from "react";
 import LuminousCard from "../../components/LuminousCard";
 
+interface Order {
+  id: string;
+  ordernum?: string;
+  status?: string;
+  amount?: string;
+  date?: string;
+}
+
 export default function OrdersPage() {
-  const [orders, setOrders] = useState<any[]>([]);
+  const [orders, setOrders] = useState<Order[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 

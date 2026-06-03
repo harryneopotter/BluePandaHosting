@@ -4,10 +4,28 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import LuminousCard from "../../../components/LuminousCard";
 
+interface TicketReply {
+  id?: string;
+  name?: string;
+  email?: string;
+  date?: string;
+  message?: string;
+}
+
+interface TicketDetail {
+  subject?: string;
+  status?: string;
+  priority?: string;
+  deptid?: string;
+  replies?: {
+    reply?: TicketReply[];
+  };
+}
+
 export default function TicketDetailPage() {
   const params = useParams<{ id: string }>();
   const id = params?.id as string;
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<TicketDetail | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");

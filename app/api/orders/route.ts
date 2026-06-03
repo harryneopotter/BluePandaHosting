@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
   if (!s) return jsonError("Not authenticated", 401);
 
   try {
-    const r = await whmcs<any>("GetOrders", { clientid: s.clientId, limitnum: 50 });
+    const r = await whmcs<any>("GetOrders", { userid: s.clientId, limitnum: 50 });
     const orders = r?.orders?.order ? (Array.isArray(r.orders.order) ? r.orders.order : [r.orders.order]) : [];
     return NextResponse.json({ orders });
   } catch (err: any) {

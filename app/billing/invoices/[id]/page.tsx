@@ -4,10 +4,29 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import LuminousCard from "../../../components/LuminousCard";
 
+interface InvoiceItem {
+  id?: string;
+  description?: string;
+  type?: string;
+  amount?: string;
+}
+
+interface InvoiceDetail {
+  status?: string;
+  invoicenum?: string;
+  date?: string;
+  duedate?: string;
+  total?: string;
+  amount?: string;
+  items?: {
+    item?: InvoiceItem[];
+  };
+}
+
 export default function InvoiceDetailPage() {
   const params = useParams<{ id: string }>();
   const id = params?.id as string;
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<InvoiceDetail | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 

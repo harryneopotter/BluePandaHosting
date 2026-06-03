@@ -4,8 +4,19 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import LuminousCard from "../../components/LuminousCard";
 
+interface Service {
+  id: string;
+  name?: string;
+  product_name?: string;
+  domain?: string;
+  status?: string;
+  billingcycle?: string;
+  nextduedate?: string;
+  amount?: string;
+}
+
 export default function ServicesPage() {
-  const [services, setServices] = useState<any[]>([]);
+  const [services, setServices] = useState<Service[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 

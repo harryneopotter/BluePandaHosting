@@ -4,11 +4,34 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import LuminousCard from "../components/LuminousCard";
 
+interface ClientProfile {
+  client?: {
+    firstname?: string;
+  };
+}
+
+interface Service {
+  id: string;
+  status?: string;
+}
+
+interface Invoice {
+  id: string;
+  status?: string;
+}
+
+interface Ticket {
+  id: string;
+  tid?: string;
+  subject?: string;
+  status?: string;
+}
+
 export default function ClientAreaHome() {
-  const [profile, setProfile] = useState<any>(null);
-  const [services, setServices] = useState<any[]>([]);
-  const [invoices, setInvoices] = useState<any[]>([]);
-  const [tickets, setTickets] = useState<any[]>([]);
+  const [profile, setProfile] = useState<ClientProfile | null>(null);
+  const [services, setServices] = useState<Service[]>([]);
+  const [invoices, setInvoices] = useState<Invoice[]>([]);
+  const [tickets, setTickets] = useState<Ticket[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 

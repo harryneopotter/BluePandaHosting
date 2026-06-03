@@ -15,8 +15,28 @@ export async function GET(_: NextRequest, { params }: { params: { id: string } }
     client_id: session.clientId,
     destination,
   });
-  const url = sso.redirect_url || sso.redirectUrl || sso.url;
-  if (!url) return jsonError("SSO failed", 500);
+  const urlString = sso.redirect_url || sso.redirectUrl || sso.url;
+  if (!urlString) return jsonError("SSO failed", 500);
 
-  return NextResponse.redirect(url, { status: 302 });
+  // Validate redirect URL against configured WHMCS base
+  const whmcsBaseUrl = process.env.WHMCS_BASE_URL;
+  if (!whmcsBaseUrl) return jsonError("WHMCS_BASE_URL not configured", 500);
+
+  let redirectUrl: URL;
+  try {
+    redirectUrl = new URL(urlString);
+  } catch {
+    return jsonError("Invalid SSO redirect", 400);
+  }
+
+  const baseUrl = new URL(whmcsBaseUrl);
+  if (redirectUrl.origin !== baseUrl.origin) {
+    return jsonError("Invalid SSO redirect", 400);
+  }
+
+  if (redirectUrl.protocol !== 'https:') {
+    return jsonError("Invalid SSO redirect", 400);
+  }
+
+  return NextResponse.redirect(urlString, { status: 302 });
 }

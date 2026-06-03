@@ -18,11 +18,13 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   if (getTicketOwnerId(ticket) !== session.clientId) return jsonError("Not found", 404);
 
   const { message } = await req.json();
-  if (!message) return jsonError("message is required", 400);
+  const trimmedMessage = message?.toString().trim();
+  if (!trimmedMessage) return jsonError("message is required", 400);
 
   const response = await whmcs<any>("AddTicketReply", {
     ticketid: params.id,
-    message,
+    message: trimmedMessage,
+    clientid: session.clientId,
   });
 
   return NextResponse.json({
