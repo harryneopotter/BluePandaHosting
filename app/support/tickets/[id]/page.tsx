@@ -70,7 +70,8 @@ export default function TicketDetailPage() {
     }
   }
 
-  const replies = data?.replies?.reply || [];
+  const rawReplies = data?.replies?.reply;
+  const replies = rawReplies ? (Array.isArray(rawReplies) ? rawReplies : [rawReplies]) : [];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
