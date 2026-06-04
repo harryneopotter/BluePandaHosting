@@ -23,6 +23,11 @@ interface InvoiceDetail {
   };
 }
 
+function normalizeInvoiceItems(items?: InvoiceItem | InvoiceItem[]): InvoiceItem[] {
+  if (!items) return [];
+  return Array.isArray(items) ? items : [items];
+}
+
 export default function InvoiceDetailPage() {
   const params = useParams<{ id: string }>();
   const id = params?.id as string;
@@ -47,11 +52,7 @@ export default function InvoiceDetailPage() {
     })();
   }, [id]);
 
-  const rawItems = data?.items?.item;
-  const items: InvoiceItem[] = (() => {
-    if (!rawItems) return [];
-    return Array.isArray(rawItems) ? rawItems : [rawItems];
-  })();
+  const items = normalizeInvoiceItems(data?.items?.item);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
