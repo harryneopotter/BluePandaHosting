@@ -19,7 +19,7 @@ interface InvoiceDetail {
   total?: string;
   amount?: string;
   items?: {
-    item?: InvoiceItem[];
+    item?: InvoiceItem | InvoiceItem[];
   };
 }
 
@@ -47,7 +47,8 @@ export default function InvoiceDetailPage() {
     })();
   }, [id]);
 
-  const items = data?.items?.item || [];
+  const rawItems = data?.items?.item;
+  const items = rawItems ? (Array.isArray(rawItems) ? rawItems : [rawItems]) : [];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
