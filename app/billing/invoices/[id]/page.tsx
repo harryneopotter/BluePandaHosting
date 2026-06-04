@@ -48,10 +48,10 @@ export default function InvoiceDetailPage() {
   }, [id]);
 
   const rawItems = data?.items?.item;
-  let items: InvoiceItem[] = [];
-  if (rawItems) {
-    items = Array.isArray(rawItems) ? rawItems : [rawItems];
-  }
+  const items: InvoiceItem[] = (() => {
+    if (!rawItems) return [];
+    return Array.isArray(rawItems) ? rawItems : [rawItems];
+  })();
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
