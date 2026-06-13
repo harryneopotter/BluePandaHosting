@@ -5,8 +5,12 @@ import Link from "next/link";
 import LuminousCard from "../components/LuminousCard";
 
 interface ClientProfile {
-  client?: {
-    firstname?: string;
+  clientId?: number;
+  email?: string;
+  details?: {
+    client?: {
+      firstname?: string;
+    };
   };
 }
 
@@ -99,8 +103,8 @@ export default function ClientAreaHome() {
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <h1 className="text-3xl font-extrabold text-cyan-200 sm:text-4xl">
-          {profile?.client?.firstname
-            ? `Welcome back, ${profile.client.firstname}`
+          {profile?.details?.client?.firstname
+            ? `Welcome back, ${profile.details.client.firstname}`
             : "Client Area"}
         </h1>
 

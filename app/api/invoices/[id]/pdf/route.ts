@@ -39,7 +39,7 @@ export async function GET(_: NextRequest, { params }: { params: { id: string } }
       return jsonError("Invalid SSO redirect", 400);
     }
 
-    return NextResponse.redirect(urlString, { status: 302 });
+    return NextResponse.redirect(redirectUrl.toString(), { status: 302 });
   } catch (err: any) {
     return jsonError("Failed to generate PDF link", 500);
   }

@@ -11,10 +11,12 @@ export async function GET(req: NextRequest) {
 
   const url = new URL(req.url);
   const status = url.searchParams.get("status") || undefined;
-  const parsedPage = Number(url.searchParams.get("page"));
-  const parsedPageSize = Number(url.searchParams.get("pageSize"));
-  const page = Math.max(1, parsedPage || 1);
-  const pageSize = Math.min(MAX_PAGE_SIZE, Math.max(1, parsedPageSize || DEFAULT_PAGE_SIZE));
+  const parsedPage = parseInt(url.searchParams.get("page") || "", 10);
+  const parsedPageSize = parseInt(url.searchParams.get("pageSize") || "", 10);
+  const page = Number.isFinite(parsedPage) && parsedPage > 0 ? parsedPage : 1;
+  const pageSize = Number.isFinite(parsedPageSize) && parsedPageSize > 0
+    ? Math.min(MAX_PAGE_SIZE, parsedPageSize)
+    : DEFAULT_PAGE_SIZE;
   const limitstart = (page - 1) * pageSize;
 
   try {
