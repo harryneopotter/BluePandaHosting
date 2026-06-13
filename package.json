@@ -13,7 +13,6 @@
     "build:static": "echo 'Static export is retired in this repo now that authenticated WHMCS client-area routes are restored. Use npm run build for the deployable runtime.' && exit 1",
     "start": "next start",
     "lint": "next lint",
-    "serve": "next start",
     "serve:static": "echo 'Static preview serving is retired in this repo. Start the server runtime with npm run start instead.' && exit 1",
     "playwright:install": "npx playwright install --with-deps",
     "screenshot": "npm run playwright:install && npx playwright test tests/screenshot.spec.ts --project=chromium --reporter=list",
@@ -37,7 +36,6 @@
     "eslint-config-next": "15.4.6",
     "postcss": "8.4.35",
     "rimraf": "^5.0.5",
-    "serve": "^14.2.1",
     "tailwindcss": "3.4.6",
     "typescript": "^5.5.4"
   }
