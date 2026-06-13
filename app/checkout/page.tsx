@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState, useEffect, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import LuminousCard from "../components/LuminousCard";
 
 const BILLING_CYCLES = [
@@ -12,14 +12,23 @@ const BILLING_CYCLES = [
   { value: "biennially", label: "Biennially" },
 ];
 
-export default function CheckoutPage() {
+function CheckoutForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [pid, setPid] = useState("");
   const [billingcycle, setBillingcycle] = useState("monthly");
   const [promocode, setPromocode] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  // Extract and preselect the product ID from URL query parameter
+  useEffect(() => {
+    const pidFromUrl = searchParams.get("pid");
+    if (pidFromUrl) {
+      setPid(pidFromUrl);
+    }
+  }, [searchParams]);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -127,5 +136,20 @@ export default function CheckoutPage() {
         </LuminousCard>
       </div>
     </div>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
+        <div className="mx-auto max-w-2xl px-6 py-16">
+          <h1 className="text-3xl font-extrabold text-cyan-200 sm:text-4xl">Checkout</h1>
+          <p className="mt-2 text-slate-400">Loading...</p>
+        </div>
+      </div>
+    }>
+      <CheckoutForm />
+    </Suspense>
   );
 }
