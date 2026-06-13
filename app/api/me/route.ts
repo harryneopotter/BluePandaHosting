@@ -6,14 +6,18 @@ export async function GET() {
   const session = getSessionFromRequest();
   if (!session) return jsonError("Not authenticated", 401);
 
-  const details = await whmcs<any>("GetClientsDetails", {
-    clientid: session.clientId,
-    stats: false,
-  });
+  try {
+    const details = await whmcs<any>("GetClientsDetails", {
+      clientid: session.clientId,
+      stats: false,
+    });
 
-  return NextResponse.json({
-    clientId: session.clientId,
-    email: session.email,
-    details,
-  });
+    return NextResponse.json({
+      clientId: session.clientId,
+      email: session.email,
+      details,
+    });
+  } catch (err: any) {
+    return jsonError("Failed to load profile", 500);
+  }
 }

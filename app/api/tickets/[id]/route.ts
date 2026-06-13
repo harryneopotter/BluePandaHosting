@@ -10,8 +10,12 @@ export async function GET(_: NextRequest, { params }: { params: { id: string } }
   const session = getSessionFromRequest();
   if (!session) return jsonError("Not authenticated", 401);
 
-  const ticket = await whmcs<any>("GetTicket", { ticketid: params.id });
-  if (getTicketOwnerId(ticket) !== session.clientId) return jsonError("Not found", 404);
+  try {
+    const ticket = await whmcs<any>("GetTicket", { ticketid: params.id });
+    if (getTicketOwnerId(ticket) !== session.clientId) return jsonError("Not found", 404);
 
-  return NextResponse.json(ticket);
+    return NextResponse.json(ticket);
+  } catch (err: any) {
+    return jsonError("Failed to load ticket", 500);
+  }
 }

@@ -14,21 +14,25 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   const rl = rateLimit(`ticket:reply:${session.clientId}`, 40, 60 * 60 * 1000);
   if (!rl.ok) return jsonError("Too many requests. Try again later.", 429);
 
-  const ticket = await whmcs<any>("GetTicket", { ticketid: params.id });
-  if (getTicketOwnerId(ticket) !== session.clientId) return jsonError("Not found", 404);
+  try {
+    const ticket = await whmcs<any>("GetTicket", { ticketid: params.id });
+    if (getTicketOwnerId(ticket) !== session.clientId) return jsonError("Not found", 404);
 
-  const { message } = await req.json();
-  const trimmedMessage = message?.toString().trim();
-  if (!trimmedMessage) return jsonError("message is required", 400);
+    const { message } = await req.json();
+    const trimmedMessage = message?.toString().trim();
+    if (!trimmedMessage) return jsonError("message is required", 400);
 
-  const response = await whmcs<any>("AddTicketReply", {
-    ticketid: params.id,
-    message: trimmedMessage,
-    clientid: session.clientId,
-  });
+    const response = await whmcs<any>("AddTicketReply", {
+      ticketid: params.id,
+      message: trimmedMessage,
+      clientid: session.clientId,
+    });
 
-  return NextResponse.json({
-    ok: true,
-    replyId: Number(response.replyid || 0),
-  });
+    return NextResponse.json({
+      ok: true,
+      replyId: Number(response.replyid || 0),
+    });
+  } catch (err: any) {
+    return jsonError("Failed to send reply", 500);
+  }
 }

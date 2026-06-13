@@ -6,6 +6,10 @@ export async function GET() {
   const session = getSessionFromRequest();
   if (!session) return jsonError("Not authenticated", 401);
 
-  const response = await whmcs<any>("GetSupportDepartments");
-  return NextResponse.json(response);
+  try {
+    const response = await whmcs<any>("GetSupportDepartments");
+    return NextResponse.json(response);
+  } catch (err: any) {
+    return jsonError("Failed to load departments", 500);
+  }
 }

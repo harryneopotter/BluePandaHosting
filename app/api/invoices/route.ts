@@ -17,12 +17,16 @@ export async function GET(req: NextRequest) {
   const pageSize = Math.min(MAX_PAGE_SIZE, Math.max(1, parsedPageSize || DEFAULT_PAGE_SIZE));
   const limitstart = (page - 1) * pageSize;
 
-  const response = await whmcs<any>("GetInvoices", {
-    userid: session.clientId,
-    status,
-    limitstart,
-    limitnum: pageSize,
-  });
+  try {
+    const response = await whmcs<any>("GetInvoices", {
+      userid: session.clientId,
+      status,
+      limitstart,
+      limitnum: pageSize,
+    });
 
-  return NextResponse.json(response);
+    return NextResponse.json(response);
+  } catch (err: any) {
+    return jsonError("Failed to load invoices", 500);
+  }
 }

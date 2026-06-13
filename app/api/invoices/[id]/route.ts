@@ -6,9 +6,13 @@ export async function GET(_: NextRequest, { params }: { params: { id: string } }
   const session = getSessionFromRequest();
   if (!session) return jsonError("Not authenticated", 401);
 
-  const invoice = await whmcs<any>("GetInvoice", { invoiceid: params.id });
-  const ownerId = Number(invoice.userid ?? invoice.clientid ?? invoice.user_id);
-  if (ownerId !== session.clientId) return jsonError("Not found", 404);
+  try {
+    const invoice = await whmcs<any>("GetInvoice", { invoiceid: params.id });
+    const ownerId = Number(invoice.userid ?? invoice.clientid ?? invoice.user_id);
+    if (ownerId !== session.clientId) return jsonError("Not found", 404);
 
-  return NextResponse.json(invoice);
+    return NextResponse.json(invoice);
+  } catch (err: any) {
+    return jsonError("Failed to load invoice", 500);
+  }
 }
