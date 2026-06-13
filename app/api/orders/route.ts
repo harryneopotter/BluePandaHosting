@@ -10,6 +10,19 @@ function getIp(req: NextRequest): string {
   return xr || "0.0.0.0";
 }
 
+export async function GET(req: NextRequest) {
+  const s = getSessionFromRequest();
+  if (!s) return jsonError("Not authenticated", 401);
+
+  try {
+    const r = await whmcs<any>("GetOrders", { userid: s.clientId, limitnum: 50 });
+    const orders = r?.orders?.order ? (Array.isArray(r.orders.order) ? r.orders.order : [r.orders.order]) : [];
+    return NextResponse.json({ orders });
+  } catch (err: any) {
+    return jsonError("Failed to load orders", 500);
+  }
+}
+
 export async function POST(req: NextRequest) {
   const s = getSessionFromRequest();
   if (!s) return jsonError("Not authenticated", 401);

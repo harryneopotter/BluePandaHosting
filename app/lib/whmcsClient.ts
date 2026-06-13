@@ -257,11 +257,17 @@ function getMockWhmcsResponse(action: string, params: WhmcsParams): any {
         replyid: Math.floor(Math.random() * 1000) + 4000
       };
 
-    case 'CreateSsoToken':
+    case 'CreateSsoToken': {
+      const baseUrl = process.env.WHMCS_BASE_URL || 'https://billing.example.com';
+      const destination = typeof params.destination === 'string' ? params.destination : 'clientarea.php?action=details';
+      const cleanDestination = destination.replace(/^clientarea:/, '').replace(/^\/+/, '');
+      const separator = cleanDestination.includes('?') ? '&' : '?';
       return {
         result: 'success',
-        access_token: 'mock-sso-token-' + Date.now()
+        access_token: 'mock-sso-token-' + Date.now(),
+        redirect_url: `${baseUrl}/${cleanDestination}${separator}mock_sso=true`
       };
+    }
 
     default:
       throw new Error(`Mock WHMCS action '${action}' not implemented`);

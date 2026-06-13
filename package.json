@@ -8,13 +8,15 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && echo 'Build complete, contents:' && ls -la out/ && echo 'Index file:' && head -n 20 out/index.html",
+    "build": "npm run build:server",
+    "build:server": "rimraf out && cross-env NODE_ENV=production ENABLE_WHMCS_INTEGRATION=true next build && echo 'Server build complete, Next runtime output:' && ls -la .next/",
+    "build:static": "echo 'Static export is retired in this repo now that authenticated WHMCS client-area routes are restored. Use npm run build for the deployable runtime.' && exit 1",
     "start": "next start",
     "lint": "next lint",
-    "serve": "serve out -s -l 3000",
+    "serve:static": "echo 'Static preview serving is retired in this repo. Start the server runtime with npm run start instead.' && exit 1",
     "playwright:install": "npx playwright install --with-deps",
     "screenshot": "npm run playwright:install && npx playwright test tests/screenshot.spec.ts --project=chromium --reporter=list",
-    "build:debug": "next build && echo 'Build completed' && ls -la out/"
+    "build:debug": "rimraf out && cross-env NODE_ENV=production ENABLE_WHMCS_INTEGRATION=true next build && echo 'Server build completed' && ls -la .next/"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -24,15 +26,17 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.10.0",
     "@playwright/test": "^1.56.1",
     "@types/node": "20.19.11",
     "@types/react": "18.3.24",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "10.4.17",
+    "cross-env": "^7.0.3",
     "eslint": "8.57.1",
     "eslint-config-next": "15.4.6",
     "postcss": "8.4.35",
-    "serve": "^14.2.1",
+    "rimraf": "^5.0.5",
     "tailwindcss": "3.4.6",
     "typescript": "^5.5.4"
   }

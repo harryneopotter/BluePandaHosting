@@ -1,10 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { PUBLIC_CONFIG } from "../../../config/publicConfig";
 
 
 // Sidebar-based Support mega menu matching Hosting pattern
+function SmartLink({ href, className, children }: { href: string; className: string; children: React.ReactNode }) {
+  if (href.startsWith("http") || href.startsWith("#")) {
+    return <a href={href} className={className}>{children}</a>;
+  }
+  return <Link href={href} className={className}>{children}</Link>;
+}
+
 export default function SupportMegaMenu() {
   type Cat = { id: string; title: string };
   const CATEGORIES: Cat[] = [
@@ -95,16 +103,16 @@ export default function SupportMegaMenu() {
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           {data?.items.slice(0, 2).map((it) => (
-            <a key={it.name} href={it.href} className="group block rounded-lg border border-cyan-400/10 p-4 hover:border-cyan-400/30 hover:bg-cyan-500/5 transition-all">
+            <SmartLink key={it.name} href={it.href} className="group block rounded-lg border border-cyan-400/10 p-4 hover:border-cyan-400/30 hover:bg-cyan-500/5 transition-all">
               <div className="font-medium text-cyan-100">{it.name}</div>
               <div className="text-sm text-slate-400">{it.tagline}</div>
-            </a>
+            </SmartLink>
           ))}
         </div>
         <div className="mt-6 text-center">
-          <a href="/support/tickets" className="inline-flex items-center rounded-lg border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50">
+          <Link href="/support/tickets" className="inline-flex items-center rounded-lg border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/50">
             Visit Support Center
-          </a>
+          </Link>
         </div>
       </div>
     </div>
