@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
 import { LuminousCard } from '../../components/LuminousCard';
@@ -27,6 +28,7 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 const CLOUD_PLANS = [
   {
     id: 'starter-cloud',
+    pid: 30,
     name: 'Starter Cloud',
     tagline: 'Auto-scaling, multi-zone redundancy',
     price: '$75/mo',
@@ -35,6 +37,7 @@ const CLOUD_PLANS = [
   },
   {
     id: 'professional-cloud',
+    pid: 31,
     name: 'Professional Cloud',
     tagline: 'Production-ready cloud infrastructure',
     price: '$175/mo',
@@ -43,6 +46,7 @@ const CLOUD_PLANS = [
   },
   {
     id: 'enterprise-cloud',
+    pid: 32,
     name: 'Enterprise Cloud',
     tagline: 'API-driven infrastructure',
     price: '$395/mo',
@@ -110,9 +114,12 @@ export default function CloudHostingClientPage() {
                                 ))}
                             </ul>
                             <div className="mt-6">
-                                <Button className="w-full bg-sky-500 text-slate-900 hover:bg-sky-400">
+                                <Link
+                                    href={`/checkout?pid=${p.pid}`}
+                                    className="flex w-full items-center justify-center rounded-xl bg-sky-500 px-3 py-2 text-sm font-medium text-slate-900 transition hover:bg-sky-400"
+                                >
                                     Deploy Now
-                                </Button>
+                                </Link>
                             </div>
                         </CardContent>
                     </Card>

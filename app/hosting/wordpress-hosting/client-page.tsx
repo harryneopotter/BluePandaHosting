@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
 import { LuminousCard } from '../../components/LuminousCard';
@@ -28,6 +29,7 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 const WP_PLANS = [
     {
         id: 'quantum-wp-solo',
+        pid: 40,
         name: 'Quantum WP Solo',
         tagline: 'Perfect for single high-performance WordPress sites',
         price: '$85/mo',
@@ -36,6 +38,7 @@ const WP_PLANS = [
     },
     {
         id: 'quantum-wp-professional',
+        pid: 41,
         name: 'Quantum WP Professional',
         tagline: 'For agencies and multiple WordPress sites',
         price: '$175/mo',
@@ -44,6 +47,7 @@ const WP_PLANS = [
     },
     {
         id: 'quantum-wp-enterprise',
+        pid: 42,
         name: 'Quantum WP Enterprise',
         tagline: 'Maximum performance for high-traffic WordPress',
         price: '$395/mo',
@@ -121,9 +125,12 @@ export default function WordPressHostingClientPage() {
                                 ))}
                             </ul>
                             <div className="mt-6">
-                                <Button className="w-full bg-blue-500 text-slate-900 hover:bg-blue-400">
+                                <Link
+                                    href={`/checkout?pid=${p.pid}`}
+                                    className="flex w-full items-center justify-center rounded-xl bg-blue-500 px-3 py-2 text-sm font-medium text-slate-900 transition hover:bg-blue-400"
+                                >
                                     Get Started
-                                </Button>
+                                </Link>
                             </div>
                         </CardContent>
                     </Card>

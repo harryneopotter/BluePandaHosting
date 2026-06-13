@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
 import TechnicalFeatures from '../../components/TechnicalFeatures';
@@ -30,6 +31,7 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 const PLANS = [
   {
     id: "quantum-entanglement",
+    pid: 1,
     name: "Quantum Entanglement",
     tagline: "Ideal for personal sites, blogs, and startups.",
     price: "$25",
@@ -46,6 +48,7 @@ const PLANS = [
   },
   {
     id: "superposition",
+    pid: 2,
     name: "Superposition",
     tagline: "Perfect for small businesses and growing sites.",
     price: "$65",
@@ -62,6 +65,7 @@ const PLANS = [
   },
   {
     id: "singularity",
+    pid: 3,
     name: "Singularity",
     tagline: "For e-commerce, agencies, and high-traffic sites.",
     price: "$135",
@@ -140,9 +144,12 @@ export default function SharedHostingClientPage() {
                                 ))}
                             </ul>
                             <div className="mt-6">
-                                <Button className="w-full bg-cyan-500 text-slate-900 hover:bg-cyan-400">
+                                <Link
+                                    href={`/checkout?pid=${p.pid}`}
+                                    className="flex w-full items-center justify-center rounded-xl bg-cyan-500 px-3 py-2 text-sm font-medium text-slate-900 transition hover:bg-cyan-400"
+                                >
                                     Choose {p.name}
-                                </Button>
+                                </Link>
                             </div>
                         </CardContent>
                     </Card>

@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
 import { scrollToSection } from '../../lib/scrollUtils';
@@ -28,6 +29,7 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 const VPS_PLANS = [
   {
     id: "quantum-flux",
+    pid: 10,
     name: "Quantum Flux",
     tagline: "Entry-level VPS for experienced users",
     price: "$45/mo",
@@ -37,6 +39,7 @@ const VPS_PLANS = [
   },
   {
     id: "quantum-warp",
+    pid: 11,
     name: "Quantum Warp",
     tagline: "Mid-tier VPS for growing applications",
     price: "$85/mo",
@@ -46,6 +49,7 @@ const VPS_PLANS = [
   },
   {
     id: "quantum-nexus",
+    pid: 12,
     name: "Quantum Nexus",
     tagline: "High-performance VPS for demanding applications",
     price: "$165/mo",
@@ -60,6 +64,7 @@ const VPS_PLANS = [
 const MANAGED_VPS_PLANS = [
   {
     id: "managed-quantum-flux",
+    pid: 13,
     name: "Managed Quantum Flux",
     tagline: "Full server management for entry-level VPS",
     price: "$95/mo",
@@ -69,6 +74,7 @@ const MANAGED_VPS_PLANS = [
   },
   {
     id: "managed-quantum-warp",
+    pid: 14,
     name: "Managed Quantum Warp",
     tagline: "Proactive management with faster support",
     price: "$145/mo",
@@ -78,6 +84,7 @@ const MANAGED_VPS_PLANS = [
   },
   {
     id: "managed-quantum-nexus",
+    pid: 15,
     name: "Managed Quantum Nexus",
     tagline: "White-glove management with priority support",
     price: "$265/mo",
@@ -167,9 +174,12 @@ export default function VpsHostingClientPage() {
                                 ))}
                             </ul>
                             <div className="mt-6">
-                                <Button className="w-full bg-fuchsia-500 text-slate-900 hover:bg-fuchsia-400">
+                                <Link
+                                    href={`/checkout?pid=${p.pid}`}
+                                    className="flex w-full items-center justify-center rounded-xl bg-fuchsia-500 px-3 py-2 text-sm font-medium text-slate-900 transition hover:bg-fuchsia-400"
+                                >
                                     Choose {p.name}
-                                </Button>
+                                </Link>
                             </div>
                         </CardContent>
                     </Card>
@@ -199,9 +209,12 @@ export default function VpsHostingClientPage() {
                                 ))}
                             </ul>
                             <div className="mt-6">
-                                <Button className="w-full bg-purple-500 text-slate-900 hover:bg-purple-400">
+                                <Link
+                                    href={`/checkout?pid=${p.pid}`}
+                                    className="flex w-full items-center justify-center rounded-xl bg-purple-500 px-3 py-2 text-sm font-medium text-slate-900 transition hover:bg-purple-400"
+                                >
                                     Choose {p.name}
-                                </Button>
+                                </Link>
                             </div>
                         </CardContent>
                     </Card>

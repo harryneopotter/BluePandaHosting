@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { SCROLL_MARGIN_CLASS } from '../../config/uiConstants';
 import { scrollToSection } from '../../lib/scrollUtils';
@@ -28,6 +29,7 @@ const FeatureCard = ({icon, title, desc}: {icon: React.ReactNode, title: string,
 const DEDICATED_PLANS = [
   {
     id: "quantum-steel",
+    pid: 20,
     name: "Quantum Steel",
     tagline: "Entry-level bare-metal server",
     price: "$195/mo",
@@ -37,6 +39,7 @@ const DEDICATED_PLANS = [
   },
   {
     id: "quantum-titanium",
+    pid: 21,
     name: "Quantum Titanium",
     tagline: "Powerful dedicated server for production workloads",
     price: "$395/mo",
@@ -46,6 +49,7 @@ const DEDICATED_PLANS = [
   },
   {
     id: "quantum-platinum",
+    pid: 22,
     name: "Quantum Platinum",
     tagline: "Enterprise-grade dedicated server",
     price: "$795/mo",
@@ -60,6 +64,7 @@ const DEDICATED_PLANS = [
 const MANAGED_DEDICATED_PLANS = [
   {
     id: "managed-quantum-steel",
+    pid: 23,
     name: "Managed Quantum Steel",
     tagline: "Full server management for entry-level dedicated servers",
     price: "$345/mo",
@@ -69,6 +74,7 @@ const MANAGED_DEDICATED_PLANS = [
   },
   {
     id: "managed-quantum-titanium",
+    pid: 24,
     name: "Managed Quantum Titanium",
     tagline: "Proactive management with faster support",
     price: "$595/mo",
@@ -78,6 +84,7 @@ const MANAGED_DEDICATED_PLANS = [
   },
   {
     id: "managed-quantum-platinum",
+    pid: 25,
     name: "Managed Quantum Platinum",
     tagline: "White-glove management with priority support",
     price: "$1195/mo",
@@ -167,9 +174,12 @@ export default function DedicatedServersClientPage() {
                                 ))}
                             </ul>
                             <div className="mt-6">
-                                <Button className="w-full bg-emerald-500 text-slate-900 hover:bg-emerald-400">
+                                <Link
+                                    href={`/checkout?pid=${p.pid}`}
+                                    className="flex w-full items-center justify-center rounded-xl bg-emerald-500 px-3 py-2 text-sm font-medium text-slate-900 transition hover:bg-emerald-400"
+                                >
                                     Choose {p.name}
-                                </Button>
+                                </Link>
                             </div>
                         </CardContent>
                     </Card>
@@ -199,9 +209,12 @@ export default function DedicatedServersClientPage() {
                                 ))}
                             </ul>
                             <div className="mt-6">
-                                <Button className="w-full bg-green-500 text-slate-900 hover:bg-green-400">
+                                <Link
+                                    href={`/checkout?pid=${p.pid}`}
+                                    className="flex w-full items-center justify-center rounded-xl bg-green-500 px-3 py-2 text-sm font-medium text-slate-900 transition hover:bg-green-400"
+                                >
                                     Choose {p.name}
-                                </Button>
+                                </Link>
                             </div>
                         </CardContent>
                     </Card>
